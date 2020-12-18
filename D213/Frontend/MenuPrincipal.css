@@ -1,0 +1,204 @@
+.screen {
+  width:100%;
+  height:100%;
+  max-width: 414px;
+  max-height: 736px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  overflow: hidden;
+  z-index:-1;
+}
+.navbar{
+  width: 100%;
+  max-width:414px;
+  background-color: rgba(255,255,255,1);
+  z-index:3;
+  text-align:center;
+  overflow: hidden;
+}
+.title {
+  color: rgba(0,0,0,1);
+  width: 100%;
+  font-family: Roboto;
+  font-weight:Bolder;
+  font-size: 24px;
+  opacity: 1;
+  text-align: center;
+  z-index:1;
+  display:block;
+}
+.menubar i:hover {  /* para brincar um bocado */
+  color:red;
+}
+.title {
+  color: rgba(0,0,0,1);
+  width: 100%;
+  max-width:414px;/* Full width */
+  font-family: Roboto;
+  font-weight:Bolder;
+  font-size: 24px;
+  opacity: 1;
+  text-align: center;
+  z-index:1;
+  display:block;
+}
+#gifMenu {
+  width: 42px;
+  height: 42px;
+  background: url("../images/v390_505.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 70px;
+  left: 364px;
+  overflow: hidden;
+}
+#ocorrenciasButton {
+  max-width: 137px;
+  width:100%;
+  max-height: 137px;
+  height:100%;
+  background: rgba(171,4,4,1);
+  position: relative;
+  top: 20%;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  overflow: hidden;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#ocorrenciasButtonIcon {
+  max-width: 50px;
+  width:100%;
+  height: 100%;
+  max-height:50px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  bottom: 50%;
+  left: 30%;
+  position: absolute;
+  overflow: hidden;
+}
+#ocorrenciasButtonText {
+  width:100%;
+  max-width: 112px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  font-family: Inter;
+  font-weight: Bolder;
+  font-size: 19px;
+  opacity: 1;
+  right:9%;
+  text-align: center;
+}
+#ocorrenciasCurso {
+  max-width:300px;
+  width: 100%;
+  max-height: 44px;
+  height:100%;
+  background: rgba(255,255,255,1);
+  position: relative;
+  top: 50%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: hidden;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#ocorrenciasCursoIcon {
+  width:100%;
+  height:100%;
+  max-width: 35px;
+  max-height: 35px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  left: 9%;
+  bottom:8%;
+  overflow: hidden;
+}
+#ocorrenciasCursoText {
+  max-width: 205px;
+  width:100%;
+  color: rgba(0,0,0,1);
+  position: relative;
+  left:7%;
+  font-family: Inter;
+  font-weight: bolder;
+  font-size: 19px;
+  opacity: 1;
+  text-align: center;
+}
+/* Menu bar */
+.menubar {
+    width:100%;
+    height:100%;
+    max-height:67px;
+    max-width:414px;
+    background-color: rgba(255,255,255,1);
+    z-index:1;
+    float: center;
+    overflow: hidden;
+    display:block;
+}
+.menubar i:hover {
+    color:red;
+}
+.fa-home {
+    color: rgba(0,0,0,1);
+    opacity: 1;
+    position: relative;
+    top: 10%;
+    left:5%;
+    z-index:2;
+}
+.fa-medal {
+    color: #B6B6B6;
+    opacity: 1;
+    position: absolute;
+    bottom: 20%;
+    left: 30%;
+    z-index:2;
+}
+.fa-chart-line {
+    color: #B6B6B6;
+    opacity: 1;
+    position: absolute;
+    bottom: 20%;
+    left: 55%;
+    z-index:2;
+}
+.fa-user-circle {
+    color: #B6B6B6;
+    opacity: 1;
+    position: absolute;
+    top: 5%;
+    left: 80%;
+    z-index:2;
+    border: 4px solid rgba(89,11,11,0);
+}
+/*    Chart    */
+#chart_div{
+  width:80%;
+  height: 150px;
+  opacity: 1;
+  position: relative;
+  top: 20%;
+  overflow: hidden;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

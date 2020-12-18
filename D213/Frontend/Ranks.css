@@ -1,0 +1,240 @@
+
+.Ranking {
+  width: 414px;
+  height: 736px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.title {
+  color: rgba(0,0,0,1);
+  font-family: Roboto;
+  font-weight:Bolder;
+  font-size: 24px;
+  opacity: 1;
+  z-index:1;
+  position:relative;
+  margin-left:auto;
+  margin-right:auto;
+  right:4%;
+}
+.Titulo_pagina{
+   display: inline-block;
+   text-align:center;
+   font-size:20px;
+   font-family: 'Inter', sans-serif;
+   font-weight: bold;
+   top: 10%;
+   position:relative;
+  }
+  #nav_top_ranks {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    padding: 0;
+    list-style: none;
+    background-color: 0;
+    margin-left: 0px;
+    margin-top:10px;
+  }
+
+  /*quadrados dos ranks*/
+.Primeiro_lugar {
+  width: 110px;
+  height: 175px;
+  background: rgba(231,231,231,1);
+  opacity: 1;
+  position: absolute;
+  top: 119px;
+  left: 151px;
+  border: 1px solid rgba(0,0,0,1);
+  overflow: hidden;
+}
+.Segundo_lugar {
+  width: 110px;
+  height: 148px;
+  background: rgba(231,231,231,1);
+  opacity: 1;
+  position: absolute;
+  top: 146px;
+  left: 41px;
+  border: 1px solid rgba(0,0,0,1);
+  overflow: hidden;
+}
+.Terceiro_lugar {
+  width: 110px;
+  height: 123px;
+  background: rgba(231,231,231,1);
+  opacity: 1;
+  position: absolute;
+  top: 171px;
+  left: 261px;
+  border: 1px solid rgba(0,0,0,1);
+  overflow: hidden;
+}
+
+.Nome_2 {
+  width: fit-content;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 50%;                   
+  left: 40%;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  opacity: 1;
+  text-align: center;
+}
+.Nome_1 {
+  width: fit-content;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 45%;
+  left: 35%;
+  font-family: 'Inter', sans-serif;
+  font-weight: bolder;                        /* font-weight: normal,bold,bolder,lighter,100,200,300,400,500,600,700,800,900  */
+  font-size: 15px;
+  opacity: 1;
+  text-align: center;
+}
+.Nome_3 {
+  width: fit-content;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 52%;
+  left: 35%;
+  font-family: 'Inter', sans-serif;
+  font-weight: bolder;
+  font-size: 15px;
+  opacity: 1;
+  text-align: center;
+}
+.Imagem_2 {
+  width: 50px;
+  height: 50px;
+  background: rgba(196,196,196,1);
+  opacity: 1;
+  position: absolute;
+  top: 10%;
+  left: 25%;
+  border-radius: 50%;
+}
+.Imagem_3 {
+  width: 50px;
+  height: 50px;
+  background: rgba(196,196,196,1);
+  opacity: 1;
+  position: absolute;
+  top: 10%;
+  left: 25%;
+  border-radius: 50%;
+}
+.Imagem_1 {
+  width: 50px;
+  height: 50px;
+  background: rgba(196,196,196,1);
+  opacity: 1;
+  position: absolute;
+  top: 10%;
+  left: 25%;
+  border-radius: 50%;
+}
+.Pontos_2 {
+  width: 43px;
+  color: rgba(171,4,4,1);
+  position: absolute;
+  top: 70%;
+  left: 30%;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  opacity: 1;
+  text-align: center;
+}
+.Pontos_3 {
+  width: 45px;
+  color: rgba(171,4,4,1);
+  position: absolute;
+  top: 70%;
+  left: 30%;
+  font-family: 'Inter', sans-serif;
+  font-weight: Semi Bold;
+  font-size: 14px;
+  opacity: 1;
+  text-align: center;
+}
+.Pontos_1 {
+  width: 45px;
+  color: rgba(171,4,4,1);
+  position: absolute;
+  top: 70%;
+  left: 30%;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  opacity: 1;
+  text-align: center;
+}
+
+/*fim do quadro de rank*/
+.tabela_ranks {
+  width: 332px;
+  height: 323px;
+  background: rgba(255,255,255,0);
+  opacity: 1;
+  position: absolute;
+  top: 320px;
+  left: 41px;
+  overflow: hidden;
+}
+/* Bottom Bar */
+.menubar {
+    width:100%;
+    height:100%;
+    max-height:67px;
+    max-width:414px;
+    background-color: rgba(226,225,225,1);
+    z-index:1;
+    float: center;
+    overflow: hidden;
+    display:block;
+}
+.menubar i:hover {
+    color:red;
+}
+.fa-home {
+    color: rgba(0,0,0,1);
+    opacity: 1;
+    position: relative;
+    top: 10%;
+    left:5%;
+    z-index:2;
+}
+.fa-medal {
+    color: rgba(0,0,0,1);
+    opacity: 1;
+    position: absolute;
+    bottom: 20%;
+    left: 30%;
+    z-index:2;
+}
+.fa-chart-line {
+    color: rgba(0,0,0,1);
+    opacity: 1;
+    position: absolute;
+    bottom: 20%;
+    left: 55%;
+    z-index:2;
+}
+.fa-user-circle {
+    color: rgba(0,0,0,1);
+    opacity: 1;
+    position: absolute;
+    bottom: 15%;
+    left: 80%;
+    z-index:2;
+}
+/*Fim da bottom bar*/
+

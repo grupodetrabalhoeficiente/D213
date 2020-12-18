@@ -1,0 +1,362 @@
+.hidden{
+  display: none;
+}
+.text-center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position:relative;
+  text-align: center;
+}
+.frame {
+    max-width: 414px;
+    width:100%;
+    height: 1650px;
+    background: rgba(255,255,255,1);
+    opacity: 1;
+    position: absolute;
+    overflow: hidden;
+}
+.information{
+    position: absolute;
+    width: 340px;
+    height: 727px;
+    left: 36px;
+    top: 692px;
+}
+
+/* NavBar*/
+.navbar{
+    background-color: rgba(255,255,255,1);
+    z-index:3;
+    overflow: hidden;
+    width:100%;
+    max-width:414px;
+    text-align:center;
+}
+.title {
+    color: rgba(0,0,0,1);
+    width: 100%;
+    font-family: Roboto;
+    font-weight:Bolder;
+    font-size: 24px;
+    opacity: 1;
+    text-align: center;
+    display:block;
+}
+.fa-arrow-left {
+    opacity: 1;
+    z-index:1;
+    color:black;
+    position: absolute;
+    top:14px;
+}
+.fa-arrow-left:hover {
+  color: red;
+  text-decoration: none;
+}
+/*        */
+
+
+/* MenuBar */
+.menubar {
+    width:100%;
+    height:100%;
+    max-height:67px;
+    max-width:414px;
+    background-color: rgba(255,255,255,1);
+    z-index:1;
+    float: center;
+    overflow: hidden;
+    display:block;
+}
+.menubar i:hover {
+    color:red;
+}
+.fa-home {
+    color: rgba(0,0,0,1);
+    opacity: 1;
+    position: relative;
+    top: 10%;
+    left:5%;
+    z-index:2;
+}
+.fa-medal {
+    color: rgba(0,0,0,1);
+    opacity: 1;
+    position: absolute;
+    bottom: 20%;
+    left: 30%;
+    z-index:2;
+}
+.fa-chart-line {
+    color: rgba(0,0,0,1);
+    opacity: 1;
+    position: absolute;
+    bottom: 20%;
+    left: 55%;
+    z-index:2;
+}
+.fa-user-circle {
+    color: rgba(0,0,0,1);
+    opacity: 1;
+    position: absolute;
+    top: 5%;
+    left: 80%;
+    z-index:2;
+    border: 4px solid rgba(89,11,11,0);
+}
+/*          */
+
+/*     MidScreen     */
+#name{
+    position: absolute;
+    width: 414px;
+    height: 44px;
+    left: 0px;
+    top: 209px;
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 44px;
+    /* identical to box height */
+
+    text-align: center;
+}
+.ocurrenceButton{
+    position:absolute;
+    max-width:244px;
+    max-height:44px;
+    width:100%;
+    height:100%;
+    top:278px;
+    left:85px;
+    border: 2px solid #AB0404;
+    background: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+#occurrenceText{
+    position:absolute;
+    left:13px;
+    top:3px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+}
+.fa-clipboard-list{
+    position:absolute;
+    top:5px;
+    left:196px;
+}
+
+#rankText{
+    position: absolute;
+    width: 414px;
+    height: 36px;
+    left: 0px;
+    top: 346px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    color: #AB0404;
+}
+
+#watchMore{
+    position: absolute;
+    width: 108px;
+    height: 29px;
+    left: 153px;
+    top: 620px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #000000;
+    text-decoration:none;
+}
+#barra{
+    position: absolute;
+    width: 164px;
+    height: 4px;
+    left: 130px;
+    top: 1190px;
+    background: #C4C4C4;
+}
+#rankPosition{
+    position: absolute;
+    width: 202.66px;
+    height: 155px;
+    left: 106px;
+    top: 391px;
+}
+#rankPosition{
+    position: absolute;
+    width: 41px;
+    height: 45px;
+    left: 187px;
+    top: 434px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 44px;
+    text-align: center;
+    color: #D2A361;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.arrow{
+    transition:all 0.2s ease-in-out;
+}
+
+
+
+
+
+
+
+/* FORM */
+#labelContactsId{
+    width: 340px;
+    height: 35px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+    color: #B8B8B8;
+}
+#labelProfileEmail{
+    color: #AB0404;
+}
+#profileEmail{
+    background:#ffffff;
+    border-top:0px;
+    border-left:0px;
+    border-right:0px;
+}
+#labelProfilePhoneNumber{
+    color: #AB0404;
+}
+#profilePhoneNumber{
+    background:#ffffff;
+    border-top:0px;
+    border-left:0px;
+    border-right:0px;
+}
+#labelMoreInfoId{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 36px;
+    color: #B8B8B8;
+}
+#profileSpeciality{
+    background:#ffffff;
+    border-top:0px;
+    border-left:0px;
+    border-right:0px;
+}
+#labelProfileSpeciality{
+    color: #AB0404;
+}
+#profileTypeOfOperational{
+    background:#ffffff;
+    border-top:0px;
+    border-left:0px;
+    border-right:0px;
+}
+#labelProfileTypeOfOperational{
+    color: #AB0404;
+}
+#profileBirthDate{
+    background:#ffffff;
+    border-top:0px;
+    border-left:0px;
+    border-right:0px;
+}
+#labelProfileBirthDate{
+    color: #AB0404;
+}
+#profilePassword{
+    background:#ffffff;
+    border-top:0px;
+    border-left:0px;
+    border-right:0px;
+}
+#labelProfilePassword{
+    color: #AB0404;
+}
+#labelChangePassword{
+    color: #AB0404;
+}
+#labelProfileNewPassword {
+    color: #AB0404;
+    display: none;
+}
+#profileNewPassword{
+    display: none;
+    background:#ffffff;
+    border-top:0px;
+    border-left:0px;
+    border-right:0px;
+}
+#labelProfileConfirmPassword {
+    color: #AB0404;
+    display: none;
+}
+#profileConfirmPassword{
+    display: none;
+    background:#ffffff;
+    border-top:0px;
+    border-left:0px;
+    border-right:0px;
+}
+#viewTxt {
+    position:absolute;
+    max-width: 70px;
+    top: 707px;
+    left: 78%;
+    width: 100%;
+    display: none;
+}
+#confirmPassword {
+    position:absolute;
+    max-width: 90px;
+    top: 786px;
+    left:75%;
+    width:100%;
+    display: none;
+}
+
+
+
+/*          */
+.profileImageClass {
+  border-radius: 50%;
+  width: 35%;
+  height: 135px;
+  opacity: 1;
+  position: absolute;
+  top: 65px;
+  left: 139px;
+  border: 3px solid #AB0404;
+  box-shadow: 0px 4px 20px rgba(0.3958333432674408, 0.3958333432674408, 0.3958333432674408, 0.15000000596046448);
+}

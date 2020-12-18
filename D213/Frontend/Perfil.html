@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/e195162fd2.js" crossorigin="anonymous"></script>
+    <link href="./Perfil.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="frame container" id="frameId">
+        <nav class="navbar fixed-top">
+            <a><i id="goBack"class="fas fa-arrow-left fa-2x"></i></a>
+            <span class="title">SECURE4ALL</span>
+        </nav>
+         <div id="scoreDiv">
+            <span id="perfilRank" class="headingPerfil">Rank</span>
+            <span id="perfilClassificacao" class="headingPerfil">1º</span>
+            <span id="perfilPontosTxt" class="headingPerfil">Pontos</span>
+            <span id="perfilPontos" class="headingPerfil">4336</span>
+        </div>
+        <div id="perfilImage"></div>
+        <form action="/profile" method="post" enctype="multipart/form-data" class="uploadImage">
+              <input type="file" name="avatar"/>
+        </form>
+        <div id="ocorrenciasDiv">
+            <button id="ocorrenciasButton" class="buttonInput headingPerfil btn">Ocorrencias</button>
+        </div>
+        <form id="perfilForm" name="perfil-Form" action="https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operational/:operational_id" method="put">
+            <div class="form-group">
+                <label id="labelperfilNome" for="perfilNome" class="labelPerfil"> Nome</label>
+                <input id="perfilNome" class="inputPerfil form-control border-top-0 border-left-0 border-right-0" type="text" disabled value="exemplo"></input>
+            </div>
+            <div class="form-group">
+                <label id="labelperfilEspecialidade" for="perfilEspecialidade" class="labelPerfil">Especialidade</label>
+                <input id="perfilEspecialidade" class="inputPerfil form-control border-top-0 border-left-0 border-right-0" type="text" disabled value="exemplo"></span>
+            </div>
+            <div class="form-group">
+                <label id="labelperfilEmail" for="perfilEmail" class="labelPerfil"> E-mail</label>
+                <input id="perfilEmail" class="inputPerfil form-control border-top-0 border-left-0 border-right-0" type="email" disabled value="A696969@rger.com"></input>
+            </div>
+            <div class="form-group">
+                <label id="labelperfilNascimento" for="perfilNascimento" class="labelPerfil">Data de nascimento</label>
+                <input id="perfilNascimento" class="inputPerfil form-control border-top-0 border-left-0 border-right-0" type="datetime" disabled value="2002-12-31"></input>
+            </div>
+            <div class="form-group">
+                <label id="labelperfilPassword" for="perfilPassword" class="labelPerfil">Password</label>
+                <input id="perfilPassword" class="inputPerfil form-control border-top-0 border-left-0 border-right-0" type="password" disabled value="password"></input>
+            </div>
+            <div class="form-group">
+                <label id="labelChangePassword" for="perfilChangePassword" class="labelPerfil">Alterar password</label>
+            </div>
+            <div class="form-group">
+                <label id="labelperfilNewPassword" for="perfilNewPassword" class="labelPerfil">Nova password</label>
+                <input id="perfilNewPassword" name="newPassword" class="inputPerfil form-control border-top-0 border-left-0 border-right-0" type="password" Placeholder="Nova password">
+                <button id="viewTxt" class="btn buttonInput" type="button">Mostrar</button>
+                </input>
+            </div>
+            <div class="form-group">
+                <label id="labelperfilConfirmPassword" for="perfilNewPassword" class="labelPerfil">Confirmar password</label>
+                <input id="perfilConfirmPassword" name="confirmPassword"class="inputPerfil form-control border-top-0 border-left-0 border-right-0" type="password" Placeholder="Confirmar password"></input>
+                <input id="confirmPassword" class="btn buttonInput" type="submit" value="Confirmar"></input>
+            </div>
+        </form>
+        <nav class="menubar fixed-bottom">
+            <ul class="nav navbar-nav">
+                <li><a href="MenuPrincipal.html"><i class="fa fa-home fa-3x"></i></a></li>
+                <li><a href="Ranks.html"><i class="fa fa-medal fa-3x"></i></a></li>
+                <li><a href="HistoricoOcorrencias.html"><i class="fa fa-chart-line fa-3x"></i></a></li>
+                <li><a href="Perfil.html"><i class="fas fa-user-circle fa-3x"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <div id="errorFrame" class="hidden">
+        <div id="errorBoxClass" class="errorBoxClass">
+            <span id="errorTxtClass" class="errorTxtClass text-center">Erro!</span>
+            <span id="textTxt" class="hidden">Password diferente da confirmação</span>
+            <span id="textTxt1" class="hidden">Preencha ambos os campos</span>
+        </div>
+            <div id="confirmBoxId"class="confirmBoxClass">
+                <button id="confirmarTxtId" class="confirmarTxtClass text-center" type="button">Confirmar</button>
+            </div>
+    </div>
+    <script type="text/javascript" src="Perfil.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./fetch/operational.controller.js"></script>
+</body>
+
+</html>
