@@ -1,0 +1,56 @@
+.screen {
+  width:100%;
+  height:100%;
+  max-width: 414px;
+  max-height: 736px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  overflow: hidden;
+  z-index:-1;
+}
+.navbar{
+  width: 100%;
+  max-width:414px;
+  background-color: rgba(255,255,255,1);
+  z-index:3;
+  text-align:center;
+  overflow: hidden;
+}
+.everybodyRankClass{
+  position: absolute;
+  width: 414px;
+  height: 477px;
+  left: 0px;
+  top: 211px;
+  background: #FFFFFF;
+}
+#nameRank{
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+}
+#pointsRank{
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #000000;
+}
+.eachPersonRankBody{
+  background: #FFFFFF;
+  box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 10px 10px 0px;
+}
+
+
+
+
+.everybodyRankClass{
+    
+}

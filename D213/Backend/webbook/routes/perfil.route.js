@@ -1,9 +1,11 @@
 const app = require('../app.js');
 const controllerOperational = require('../controllers/operational.controller.js');
 const bodyParser = require('body-parser');
+const { check, validationResult } = require('express-validator');
 const express = require('express');
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
+const validator = require("./validator");
 
 
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
@@ -13,7 +15,7 @@ app.route('/operationals')
 
 app.route('/operationals/:id_operational')
   .get(controllerOperational.readIDOperational) //certo e fetch
-  .put(controllerOperational.updateOperational) // certo e fetch
+  .put(validator.updatePassword, controllerOperational.updateOperational) // certo e fetch
 
 app.route('/operationals/:id_operational/occurrences')
   .get(controllerOperational.readOccurrenceFromOperational) // certo e fetch

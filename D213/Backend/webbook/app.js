@@ -7,12 +7,16 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const expressSanitizer = require('express-sanitizer');
 const expressValidator = require('express-validator');
+//const { check, validationResult } = require('express-validator');
 //iniciar a aplicação
+
 var app = express();
 app.use(express.static("../../Frontend/"));
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
 app.use(expressSanitizer());
 app.use(expressValidator());
+//app.use(check);
+
 app.listen(port, function(err) {
     if (!err) {
         console.log('Your app is listening on ' + host + ' and port ' + port);
