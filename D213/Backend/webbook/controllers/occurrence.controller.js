@@ -1,4 +1,5 @@
 const connect = require('../config/connect');
+const { validationResult } = require('express-validator/check');
 
 //função de leitura que retorna o resultado no callback
 function readOccurrence(req, res) {
@@ -361,34 +362,38 @@ function readIDWitnessOccurrence(req, res) {
         });
 }
 
-//função de gravação que recebe os 5 parametros
 function saveWitnessOccurrence(req, res) {
-    //receber os dados do formuário que são enviados por post
-    const id_occurrence = req.sanitize('id_occurrence').escape();
-    const testimony = req.sanitize('testimony').escape();
-    const justification = req.sanitize('justification').escape();
-    const name = req.sanitize('name').escape();
-    const email = req.sanitize('email').escape();
-    const place = req.sanitize('place').escape();
-    const profession = req.sanitize('profession').escape();
-    const id_witness = /*req.sanitize('id_witness').escape();*/ "id6";
-    let query = "";
-    query = connect.con.query('INSERT INTO ?? VALUES (?,?,?,?,?,?,?,?)', ["witness_occurrence", id_occurrence, id_witness, testimony, justification, name, email, place, profession], function(err, rows, fields) {
-        console.log(query.sql);
-        if (!err) {
-            res.status(200).location(rows.insertId).send({
-                "msg": "inserted with success"
-            });
-            console.log("Number of records inserted: " + rows.affectedRows);
-        }
-        else {
-            if (err.code == "ER_DUP_ENTRY") {
-                res.status(409).send({ "msg": err.code });
-                console.log('Error while performing Query.', err);
+    const errors = validationResult(req);
+    if (errors.isEmpty()) {
+        const id_occurrence = req.sanitize('id_occurrence').escape();
+        const testimony = req.sanitize('testimony').escape();
+        const justification = req.sanitize('justification').escape();
+        const name = req.sanitize('name').escape();
+        const email = req.sanitize('email').escape();
+        const place = req.sanitize('place').escape();
+        const profession = req.sanitize('profession').escape();
+        const id_witness = /*req.sanitize('id_witness').escape();*/ "ze paulo";
+        let query = "";
+        query = connect.con.query('INSERT INTO ?? VALUES (?,?,?,?,?,?,?,?)', ["witness_occurrence", id_occurrence, id_witness, testimony, justification, name, email, place, profession], function(err, rows, fields) {
+            console.log(query.sql);
+            if (!err) {
+                res.status(200).location(rows.insertId).send({
+                    "msg": "inserted with success"
+                });
+                console.log("Number of records inserted: " + rows.affectedRows);
             }
-            else res.status(400).send({ "msg": err.code });
-        }
-    });
+            else {
+                if (err.code == "ER_DUP_ENTRY") {
+                    res.status(409).send({ "msg": err.code });
+                    console.log('Error while performing Query.', err);
+                }
+                else res.status(400).send({ "msg": err.code });
+            }
+        });
+    }
+    else {
+        return res.status(400).json({ errors: errors.array() });
+    }
 }
 
 function updateWitnessOccurrence(req, res) { // nao deve ser preciso

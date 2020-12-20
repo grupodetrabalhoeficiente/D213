@@ -2,6 +2,8 @@ const app = require('../app.js');
 const controllerOccurrence = require('../controllers/occurrence.controller');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
+const validator = require("../assets/Validations/validator");
+
 
 app.route('/occurrences')
     .get(controllerOccurrence.readOccurrence) // certo 
@@ -35,7 +37,7 @@ app.route('/occurrences/:id_occurrence/evaluations/:id_operational')
 // Witness Ocurrence
 app.route('/occurrences/:id_occurrence/witnesses')
     .get(controllerOccurrence.readWitnessFromOccurrence) // certo dados-1234
-    .post(controllerOccurrence.saveWitnessOccurrence) // certo e fetch
+    .post(validator.addWitness, controllerOccurrence.saveWitnessOccurrence) // certo e fetch
 
 app.route('/occurrences/:id_occurrence/witnesses/:id_witness')
     .get(controllerOccurrence.readIDWitnessOccurrence) //certo dados -1234- jorge
