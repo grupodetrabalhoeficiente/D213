@@ -8,8 +8,6 @@ app.route('/occurrences')
 
 app.route('/occurrences/:id_occurrence')
     .get(controllerOccurrence.readIDOccurrence) // certo dados - 1234
-    // .put(controllerOccurrence.updateOccurrence) // provavelmente fazer outros updates para o departure, arrival, e status
-    .delete(controllerOccurrence.deleteIDOccurrence) // a funcionar
 
 app.route('/departures/:id_occurrence') // perguntar duvida a professor
     .put(controllerOccurrence.updateOccurrenceDeparture) // ver isto ainda 
@@ -17,12 +15,10 @@ app.route('/departures/:id_occurrence') // perguntar duvida a professor
 // Operational Occurrence
 app.route('/occurrences/:id_occurrence/operationals')
     .get(controllerOccurrence.readOperationalFromOccurrence) // certo dados 1234 - fetch
-    .post(controllerOccurrence.saveOperationalOccurrence) // nao devemos usar
 
 app.route('/occurrences/:id_occurrence/operationals/:id_operational')
-    .get(controllerOccurrence.readIDOperationalOccurrence) //certo dados 1234 - 2222
-    .put(controllerOccurrence.updateOperationalOccurrence)
-    .delete(controllerOccurrence.deleteIDOperationalOccurrence) // nao devemos usar
+    .get(controllerOccurrence.readIDOperationalOccurrence) //certo dados 1234 - 2222            
+
 
 app.route('/occurrences/:id_occurrence/presences/:id_operational')
     .put(controllerOccurrence.updateOperationalOccurrencePresence) // certo
@@ -49,12 +45,10 @@ app.route('/occurrences/:id_occurrence/witnesses/:id_witness')
 // Vehicle material occurrence
 app.route('/occurrences/:id_occurrence/materials')
     .get(controllerOccurrence.readVehicleMaterialFromOccurrence) // certo dados- 1234
-    .post(controllerOccurrence.saveVehicleMaterialOccurrence) // nao devemos usar
 
 app.route('/occurrences/:id_occurrence/materials/:id_vei_mat')
     .get(controllerOccurrence.readIDVehicleMaterialOccurrence) // certo dados- 1234- V54321
     .put(controllerOccurrence.updateVehicleMaterialOccurrenceConfirmation)
-    .delete(controllerOccurrence.deleteIDVehicleMaterialOccurrence) // nao devemos usar
 
 app.route('/occurrences/:id_occurrence/materials_utilizations') // olhar para esta rota e decidir se é utilizations ou confirmations
     .get(controllerOccurrence.readConfirmedVehicleMaterialOccurrence) // parece certo
@@ -69,7 +63,6 @@ app.route('/occurrences/:id_occurrence/notes')
 
 app.route('/occurrences/:id_occurrence/notes/:id_note')
     .get(controllerOccurrence.readIDNote) //certo dados - 1234 - N123456
-    .put(controllerOccurrence.updateNote) // nao é preciso
     .delete(controllerOccurrence.deleteIDNote) // nao é preciso
 
 module.exports = app;
