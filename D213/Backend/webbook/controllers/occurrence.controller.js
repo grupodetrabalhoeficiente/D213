@@ -80,44 +80,6 @@ function readIDOccurrence(req, res) {
         });
 }
 
-function updateOccurrenceDeparture(req, res) {
-    //receber os dados do formuário que são enviados por post
-    const departure = req.sanitize('departure').escape();
-    const id_occurrence = req.sanitize('id_occurrence').escape();
-    let query = "";
-    query = connect.con.query('update ?? SET departure=? where id_occurrence=? and status=?', ['occurrence', departure, id_occurrence, "Em progresso"], function(err, rows,
-        fields) {
-        console.log(query.sql);
-        if (!err) {
-            console.log("Number of records updated: " + rows.affectedRows);
-            res.status(200).send({ "msg": "update with success" });
-        }
-        else {
-            res.status(400).send({ "msg": err.code });
-            console.log('Error while performing Query.', err);
-        }
-    });
-}
-
-function updateOccurrenceArrival(req, res) {
-    //receber os dados do formuário que são enviados por post
-    const arrival = req.sanitize('arrival').escape();
-    const id_occurrence = req.sanitize('id_occurrence').escape();
-    let query = "";
-    query = connect.con.query('update ?? SET arrival=? where id_occurrence=? and status=?', ['occurrence', arrival, id_occurrence, "Em progresso"], function(err, rows,
-        fields) {
-        console.log(query.sql);
-        if (!err) {
-            console.log("Number of records updated: " + rows.affectedRows);
-            res.status(200).send({ "msg": "update with success" });
-        }
-        else {
-            res.status(400).send({ "msg": err.code });
-            console.log('Error while performing Query.', err);
-        }
-    });
-}
-
 function updateOccurrenceStatus(req, res) {
     //receber os dados do formuário que são enviados por post
     const id_occurrence = req.sanitize('id_occurrence').escape();
@@ -372,7 +334,7 @@ function saveWitnessOccurrence(req, res) {
         const email = req.sanitize('email').escape();
         const place = req.sanitize('place').escape();
         const profession = req.sanitize('profession').escape();
-        const id_witness = /*req.sanitize('id_witness').escape();*/ "ze paulo";
+        const id_witness = /*req.sanitize('id_witness').escape();*/ "zeulo";
         let query = "";
         query = connect.con.query('INSERT INTO ?? VALUES (?,?,?,?,?,?,?,?)', ["witness_occurrence", id_occurrence, id_witness, testimony, justification, name, email, place, profession], function(err, rows, fields) {
             console.log(query.sql);
@@ -658,8 +620,6 @@ module.exports = {
     readOccurrenceMonths: readOccurrenceMonths,
     readOccurrenceUnfinished: readOccurrenceUnfinished,
     readIDOccurrence: readIDOccurrence,
-    updateOccurrenceDeparture: updateOccurrenceDeparture,
-    updateOccurrenceArrival: updateOccurrenceArrival,
     updateOccurrenceStatus: updateOccurrenceStatus,
 
     readOperationalOccurrence: readOperationalOccurrence,
@@ -678,13 +638,11 @@ module.exports = {
     updateWitnessOccurrence: updateWitnessOccurrence,
     deleteIDWitnessOccurrence: deleteIDWitnessOccurrence,
 
-
     readVehicleMaterialFromOccurrence: readVehicleMaterialFromOccurrence,
     readIDVehicleMaterialOccurrence: readIDVehicleMaterialOccurrence,
     readConfirmedVehicleMaterialOccurrence: readConfirmedVehicleMaterialOccurrence,
     updateVehicleMaterialOccurrenceConfirmation: updateVehicleMaterialOccurrenceConfirmation,
     updateVehicleMaterialOccurrenceUtilization: updateVehicleMaterialOccurrenceUtilization,
-
 
     readNoteFromOccurrence: readNoteFromOccurrence,
     readIDNote: readIDNote,

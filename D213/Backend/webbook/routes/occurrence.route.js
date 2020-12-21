@@ -11,8 +11,8 @@ app.route('/occurrences')
 app.route('/occurrences/:id_occurrence')
     .get(controllerOccurrence.readIDOccurrence) // certo dados - 1234
 
-app.route('/departures/:id_occurrence') // perguntar duvida a professor
-    .put(controllerOccurrence.updateOccurrenceDeparture) // ver isto ainda 
+app.route('/status/:id_occurrence') // perguntar duvida a professor
+    .put(controllerOccurrence.updateOccurrenceStatus) // ver isto ainda 
 
 // Operational Occurrence
 app.route('/occurrences/:id_occurrence/operationals')
@@ -31,6 +31,8 @@ app.route('/occurrences/:id_occurrence/arrivals/:id_operational')
 app.route('/occurrences/:id_occurrence/departures/:id_operational')
     .put(controllerOccurrence.updateOperationalOccurrenceDeparture) // ver melhor
 
+app.route('/occurrences/:id_occurrence/evaluations')
+    .get(controllerOccurrence.readPresentOperationalOccurrence)
 app.route('/occurrences/:id_occurrence/evaluations/:id_operational')
     .put(controllerOccurrence.updateOperationalOccurrencePoints) // ver melhor
 

@@ -5,7 +5,7 @@ document.getElementById("submit").onclick = function(e) {
 };
 
 function saveWitness() {
-    var data = {};
+    let data = {};
 
     data.name = document.getElementById("nome_testemunha").value;
     data.email = document.getElementById("contacto_testemunha").value;
