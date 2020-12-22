@@ -105,7 +105,9 @@
 }
 
 /* MenuBar */
-
+.menubar i:hover { 
+  color: #000000    /*rgba(171,4,4,1); */
+}
 .menubar {
     width: 100%;
     height: 100%;

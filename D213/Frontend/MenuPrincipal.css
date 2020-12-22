@@ -97,50 +97,11 @@
   right:9%;
   text-align: center;
 }
-#ocorrenciasCurso {
-  max-width:300px;
-  width: 100%;
-  max-height: 44px;
-  height:100%;
-  background: rgba(255,255,255,1);
-  position: relative;
-  top: 50%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  overflow: hidden;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-#ocorrenciasCursoIcon {
-  width:100%;
-  height:100%;
-  max-width: 35px;
-  max-height: 35px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  left: 9%;
-  bottom:8%;
-  overflow: hidden;
-}
-#ocorrenciasCursoText {
-  max-width: 205px;
-  width:100%;
-  color: rgba(0,0,0,1);
-  position: relative;
-  left:7%;
-  font-family: Inter;
-  font-weight: bolder;
-  font-size: 19px;
-  opacity: 1;
-  text-align: center;
-}
+
 /* Menu bar */
+.menubar i:hover {  
+  color: #000000;           /*rgba(171,4,4,1);*/
+}
 .menubar {
     width: 100%;
     height: 100%;
@@ -190,6 +151,14 @@
     color: #d2d2d2;
 }
 
+#goBack {
+     position: absolute;
+top: 35px;
+    left: 27px;
+    font-size: 24px;
+    color: lightgray;
+}
+
 .fixed-bottom {
     position: fixed;
     background-color: #ececec82;
@@ -204,13 +173,13 @@
 }
 /*    Chart    */
 #chart_div{
-  width:80%;
-  height: 150px;
-  opacity: 1;
-  position: relative;
-  top: 20%;
-  overflow: hidden;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  width: 80%;
+    height: 150px;
+    opacity: 1;
+    position: relative;
+    top: 30%;
+    overflow: hidden;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

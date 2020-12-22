@@ -8,8 +8,8 @@ function fillRank() {
             let txt = "";
             $.each(out, function(index, value) {
                 txt += "<div class='eachPersonRankBody'>";
-                txt += "<span id='nameRank'>" + value.id_operational + "</span>";
-                txt += "<span id='pointsRank'>" + value.id_operational + "</span>";
+                txt += "<span id='nameRank'>" + value.name + "</span>";
+                txt += "<span id='pointsRank'>" + value.name + "</span>";
                 txt += "</div>";
             });
             screen.innerHTML += txt;

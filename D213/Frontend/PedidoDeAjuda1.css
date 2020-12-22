@@ -57,51 +57,77 @@
     color:white;
 }
 /* MenuBar */
+.menubar i:hover {  
+  color: #000000;           /*rgba(171,4,4,1);*/
+}
 .menubar {
-    width:100%;
-    height:100%;
-    max-height:67px;
-    max-width:414px;
-    background-color: rgba(255,255,255,1);
-    z-index:1;
+    width: 100%;
+    height: 100%;
+    max-height: 67px;
+    max-width: 414px;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 1;
     float: center;
     overflow: hidden;
-    display:block;
+    display: block;
+    font-size: 12px;
 }
-.menubar i:hover {
-    color:red;
-}
+
 .fa-home {
-    color: rgba(0,0,0,1);
     opacity: 1;
-    position: relative;
-    top: 10%;
-    left:5%;
-    z-index:2;
+    position: absolute;
+    top: 16px!important;
+    left: 9%;
+    z-index: 2;
+    color: #d2d2d2;
 }
+
 .fa-medal {
-    color: rgba(0,0,0,1);
     opacity: 1;
     position: absolute;
-    bottom: 20%;
-    left: 30%;
-    z-index:2;
+    left: 33.5%;
+    z-index: 2;
+    top: 17px!important;
+    color: #d2d2d2;
 }
+
 .fa-chart-line {
-    color: rgba(0,0,0,1);
     opacity: 1;
     position: absolute;
-    bottom: 20%;
-    left: 55%;
-    z-index:2;
+    left: 59%;
+    z-index: 2;
+    top: 16px!important;
+    color: #d2d2d2;
 }
+
 .fa-user-circle {
-    color: rgba(0,0,0,1);
     opacity: 1;
     position: absolute;
-    bottom: 15%;
-    left: 80%;
-    z-index:2;
+    left: 82%;
+    z-index: 2;
+    top: 16px!important;
+    color: #d2d2d2;
+}
+
+#goBack {
+     position: absolute;
+top: 35px;
+    left: 27px;
+    font-size: 24px;
+    color: lightgray;
+}
+
+.fixed-bottom {
+    position: fixed;
+    background-color: #ececec82;
+    top: 670px;
+    left: 1px;
+    width: 461px;
+    box-shadow: 1px -5px 2px rgb(222 221 221 / 34%);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 /*          */
 

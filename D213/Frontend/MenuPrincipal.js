@@ -1,32 +1,6 @@
-let registoOcorrencia = document.getElementById("ocorrenciasButton");
-registoOcorrencia.onclick = openRegistoOcorrencia;
-
-let ocorrenciasCurso = document.getElementById("ocorrenciasCurso");
-ocorrenciasCurso.onclick = openOcorrenciasCurso;
-
-let rank = document.getElementById("rank");
-rank.onclick = openRank;
-
-let perfil = document.getElementById("perfil");
-perfil.onclick = openPerfil;
-
 function openRegistoOcorrencia() {
     window.location.href = "LoginOcorrencia.html"; // mudar isto quando tiver a pagina-- botao para abrir login da ocorrencia
 }
-
-function openOcorrenciasCurso() {
-    // window.location.href = "Login.html"; // mudar isto quando tiver a pagina -- botao para abrir ocorrencias em curso
-}
-
-function openRank() {
-    window.location.href = "Ranks.html";
-}
-
-function openPerfil() {
-    window.location.href = "Perfil.html";
-}
-
-
 
 /*  ChartDiv   */
 google.charts.load('current', { packages: ['corechart', 'bar'] });

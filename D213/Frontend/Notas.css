@@ -7,14 +7,13 @@
     overflow: hidden;
 }
 .title {
-    color: rgba(0,0,0,1);
+    position: absolute;
+    color: rgb(58 57 57);
     width: 100%;
-    font-family: Roboto;
-    font-weight:Bolder;
-    font-size: 24px;
-    opacity: 1;
-    text-align: center;
-    display:block;
+    top: 60px;
+    left: 74px;
+    font-size: 28px;
+    font-family: INHERIT;
 }
 .fa-arrow-left {
     opacity: 1;
@@ -30,75 +29,102 @@
 
 .Notas {
   width: 362px!important;
-  height: 471px!important;
+  height: 400px!important;
   background: rgba(246,246,246,1);
   opacity: 1;
   position: absolute;
-  top: 74px;
+  top: 110px;
   left: 25px;
   border: 1px solid rgba(122,122,122,1);
 }
 /* botao confirmar*/ 
-.ConfirmarClass{
-    height:100%;
-    width:100%;
-    max-width:288px;
-    max-height:64px;
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
-    border-bottom-left-radius: 100px;
-    border-bottom-right-radius: 100px;
-    position:absolute;
-    top:600px;
-    left:58px;
-    background-color:#AB0404;
-    color:white;
+.SubmeterClass{
+    height: 5%;
+    width: 60%;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    position: absolute;
+    background-color: #7d2d2d;
+    color: white;
+    font-size: 19px;
+    border: none;
+    top: 83%;
+    left: 20%;
+    box-shadow: -4px 4px 2px rgb(171 171 171 / 50%);
 }
 /* MenuBar */
+.menubar i:hover {  
+  color: #000000;           /*rgba(171,4,4,1);*/
+}
 .menubar {
-    width:100%;
-    height:100%;
-    max-height:67px;
-    max-width:414px;
-    background-color: rgba(255,255,255,1);
-    z-index:1;
+    width: 100%;
+    height: 100%;
+    max-height: 67px;
+    max-width: 414px;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 1;
     float: center;
     overflow: hidden;
-    display:block;
+    display: block;
+    font-size: 12px;
 }
-.menubar i:hover {
-    color:red;
-}
+
 .fa-home {
-    color: rgba(0,0,0,1);
     opacity: 1;
-    position: relative;
-    top: 10%;
-    left:5%;
-    z-index:2;
+    position: absolute;
+    top: 16px!important;
+    left: 9%;
+    z-index: 2;
+    color: #d2d2d2;
 }
+
 .fa-medal {
-    color: rgba(0,0,0,1);
     opacity: 1;
     position: absolute;
-    bottom: 20%;
-    left: 30%;
-    z-index:2;
+    left: 33.5%;
+    z-index: 2;
+    top: 17px!important;
+    color: #d2d2d2;
 }
+
 .fa-chart-line {
-    color: rgba(0,0,0,1);
     opacity: 1;
     position: absolute;
-    bottom: 20%;
-    left: 55%;
-    z-index:2;
+    left: 59%;
+    z-index: 2;
+    top: 16px!important;
+    color: #d2d2d2;
 }
+
 .fa-user-circle {
-    color: rgba(0,0,0,1);
     opacity: 1;
     position: absolute;
-    bottom: 15%;
-    left: 80%;
-    z-index:2;
+    left: 82%;
+    z-index: 2;
+    top: 16px!important;
+    color: #d2d2d2;
+}
+
+#goBack {
+     position: absolute;
+top: 35px;
+    left: 27px;
+    font-size: 24px;
+    color: lightgray;
+}
+
+.fixed-bottom {
+    position: fixed;
+    background-color: #ececec82;
+    top: 670px;
+    left: 1px;
+    width: 461px;
+    box-shadow: 1px -5px 2px rgb(222 221 221 / 34%);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 /*          */

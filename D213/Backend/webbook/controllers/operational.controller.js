@@ -40,7 +40,7 @@ function readOperationalPoints(req, res) {
 function readOccurrenceFromOperational(req, res) {
     //criar e executar a query de leitura na BD
     const id_operational = req.sanitize('id_operational').escape();
-    connect.con.query('SELECT occurrence.id_occurrence,occurrence.local,occurrence.distance,occurrence.occurrence_type,occurrence.status,occurrence.access_code,occurrence.arrival,occurrence.departure,occurrence.cost,occurrence.origin,occurrence.description,occurrence.id_entity,occurrence.id_request, points FROM occurrence,operational_occurrence where id_operational=? and occurrence.id_occurrence=operational_occurrence.id_occurrence', [id_operational], function(err,
+    connect.con.query('SELECT occurrence.id_occurrence,occurrence.local,occurrence.distance,occurrence.occurrence_type,occurrence.status,occurrence.arrival,occurrence.departure,occurrence.cost,occurrence.origin,occurrence.description,occurrence.id_entity,occurrence.id_request, points FROM occurrence,operational_occurrence where id_operational=? and occurrence.id_occurrence=operational_occurrence.id_occurrence', [id_operational], function(err,
         rows, fields) {
         if (!err) {
             //verifica os resultados se o número de linhas for 0 devolve dados não encontrados, caso contrário envia os resultados (rows).

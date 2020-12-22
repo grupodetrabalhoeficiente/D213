@@ -334,9 +334,8 @@ function saveWitnessOccurrence(req, res) {
         const email = req.sanitize('email').escape();
         const place = req.sanitize('place').escape();
         const profession = req.sanitize('profession').escape();
-        const id_witness = /*req.sanitize('id_witness').escape();*/ "zeulo";
         let query = "";
-        query = connect.con.query('INSERT INTO ?? VALUES (?,?,?,?,?,?,?,?)', ["witness_occurrence", id_occurrence, id_witness, testimony, justification, name, email, place, profession], function(err, rows, fields) {
+        query = connect.con.query('INSERT INTO ?? VALUES (?,?,?,?,?,?,?)', ["witness_occurrence", id_occurrence, testimony, justification, name, email, place, profession], function(err, rows, fields) {
             console.log(query.sql);
             if (!err) {
                 res.status(200).location(rows.insertId).send({
@@ -566,14 +565,12 @@ function readIDNote(req, res) {
         });
 }
 
-//função de gravação que recebe os 3 parâmetros
+
 function saveNote(req, res) {
-    //receber os dados do formuário que são enviados por post
-    const id_note = /*req.sanitize('id_note').escape();*/ "nota99";
     const description = req.sanitize('description').escape();
     const id_occurrence = req.sanitize('id_occurrence').escape();
     let query = "";
-    query = connect.con.query('INSERT INTO ?? VALUES (?,?,?)', ["note", id_note, description, id_occurrence], function(err, rows, fields) {
+    query = connect.con.query('INSERT INTO ?? VALUES (?,?,?)', ["note", id_occurrence, description], function(err, rows, fields) {
         console.log(query.sql);
         if (!err) {
             res.status(200).location(rows.insertId).send({
