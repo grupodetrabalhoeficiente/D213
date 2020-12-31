@@ -11,33 +11,30 @@
 
 
 /* NavBar*/
-.navbar{
-    width: 100%;
-    max-width:414px;/* Full width */
-    background-color: rgba(255,255,255,1);
-    text-align:center;
-    overflow: hidden;
-}
+
 .title {
-    color: rgba(0,0,0,1);
-    width: 100%;
+    position: absolute;
     font-family: Roboto;
-    font-weight:Bolder;
+    font-weight:lighter;
     font-size: 24px;
-    opacity: 1;
-    text-align: center;
-    display:block;
+    color: #3A3939;
+    width: 100%;
+    top: 25px;
+    left: 124px;
+    font-size: 28px;
+    font-family: INHERIT;
+
 }
 .fa-arrow-left {
-    opacity: 1;
-    z-index:1;
-    color:black;
-    position: absolute;
+    
+     position: absolute;
+top: 35px;
+    left: 27px;
+    font-size: 24px;
+    color: lightgray;
+z-index:1031;
 }
-.fa-arrow-left:hover {
-  color: red;
-  text-decoration: none;
-}
+
 /*        */
 
 
@@ -337,21 +334,20 @@ top: 35px;
 
 /* Out of form */
 .finalizarClass{
-    height:100%;
-    width:100%;
-    max-width:288px;
-    max-height:64px;
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
-    border-bottom-left-radius: 100px;
-    border-bottom-right-radius: 100px;
-    position:absolute;
-    top:522px;
-    left:63px;
-    background-color:#AB0404;
-    color:white;
-    display: block;
+    height: 6%;
+    width: 60%;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    position: absolute;
+    background-color: #7d2d2d;
+    color: white;
+    font-size: 19px;
     border: none;
+    top: 87%;
+    left: 20%;
+    box-shadow: -4px 4px 2px rgb(171 171 171 / 50%);
 }
 .logoClass{
     display: block;
@@ -359,9 +355,9 @@ top: 35px;
     margin-right: auto;
     height:100%;
     width:100%;
-    max-width: 100px;
-    max-height:100px;
-    top:6px;
+    max-width: 80px;
+    max-height: 80px;
+    top:10px;
     opacity: 1;
     overflow: hidden;
     background:center;

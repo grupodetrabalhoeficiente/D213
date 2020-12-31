@@ -15,13 +15,61 @@
 </head>
 
 <body>
-  <!--navbar-->
-   <nav class="navbar fixed-top">
-        <a href="MenuOcorrencia.html" class="fas fa-arrow-left fa-2x"></a>
-        <span class="title">Razão</span>
-    </nav>
-  <!--checklist-->
-  <div class="checklist">
+<!--navbar-->
+    <span class="title">Razão</span>
+    <a><i id="goBack"class="fas fa-arrow-left fa-2x"></i></a>
+<!--checklist-->
+<div class="checklist">
+    <div class="check-box-group">
+  <label class="custom-checkbox" tab-index="0" aria-label="Aumento da área do incêndio">
+    <input type="checkbox" checked>
+    <span class="checkmark"></span>
+    <span class="label">Aumento da área do incêndio</span>
+  </label>
+
+  <label class="custom-checkbox" tab-index="0" aria-label="Falta de água">
+    <input type="checkbox">
+    <span class="checkmark"></span>
+    <span class="label">Falta de água</span>
+  </label>
+  
+  <label class="custom-checkbox" tab-index="0" aria-label="Falta de material">
+    <input type="checkbox">
+    <span class="checkmark"></span>
+    <span class="label">Falta de material</span>
+  </label>
+  
+  <label class="custom-checkbox" tab-index="0" aria-label="Falta de operacionais">
+    <input type="checkbox">
+    <span class="checkmark"></span>
+    <span class="label">Falta de operacionais</span>
+  </label>
+  
+    <label class="custom-checkbox" tab-index="0" aria-label="Feridos Graves">
+    <input type="checkbox">
+    <span class="checkmark"></span>
+    <span class="label">Feridos Graves</span>
+  </label>
+  </div>
+</div>
+
+     <!--botao confirmar-->
+    <input id="submit" type ="button" class="AvancarClass" id="SubmeterId" value="Avançar"></input>
+    </form>
+ <!--menubar-->
+    <nav class="menubar fixed-bottom">
+    <ul class="nav navbar-nav">
+        <li><a href="MenuPrincipal.html"><i class="fa fa-home fa-3x" id:"home"></i></a></li>
+        <li><a href="Ranks.html"><i class="fas fa-medal fa-3x" id:"medal"></i></a></li>
+        <li><a href="HistoricoOcorrencias.html"><i class="fas fa-chart-line fa-3x" id:"chart"></i></a></li>
+        <li><a href="PerfilUpdate.html"><i class="fas fa-user-circle fa-3x" id:"profile"></i></a></li>
+    </ul>
+</nav>
+    <script type="text/javascript" src="PedidoDeAjuda1.js"></script>
+</body>
+
+</html>
+  <!--<div class="checklist">
         <input type="checkbox" id="Check1" class="Checkb1">
         <label for="Check1"> Aumento da área do incêndio</label><br><br>
         <input type="checkbox" id="Check2" class="Checkb2">
@@ -32,21 +80,4 @@
         <label for="Check4"> Falta de operacionais</label><br><br>
         <input type="checkbox" id="Check5" class="Checkb5">
         <label for="Check4"> Feridos Graves</label><br><br>
-    </div>  
-     <!--botao confirmar-->
-    <button class="ConfirmarClass" id="confirmarId">Avançar</button>
-    </form>
- <!--menubar-->
-    <nav class="menubar fixed-bottom">
-            <ul class="nav navbar-nav">
-                <li><a href="MenuPrincipal.html"><i class="fa fa-home fa-3x"></i></a></li>
-                <li><a href="Ranks.html"><i class="fa fa-medal fa-3x"></i></a></li>
-                <li><a href="HistoricoOcorrencias.html"><i class="fa fa-chart-line fa-3x"></i></a></li>
-                <li><a href="PerfilUpdate.html"><i class="fas fa-user-circle fa-3x"></i></a></li>
-            </ul>
-        </nav>
-
-    <script type="text/javascript" src="PedidoDeAjuda1.js"></script>
-</body>
-
-</html>
+    </div>  -->

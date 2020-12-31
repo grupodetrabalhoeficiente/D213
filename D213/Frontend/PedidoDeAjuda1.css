@@ -1,60 +1,92 @@
-@import "https://use.fontawesome.com/releases/v5.15.1/css/all.css";
+
+.checklist {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 * {
-  padding: 0px !important;
-  margin: 0px !important;
+  box-sizing: border-box;
 }
 
 /* NavBar*/
 
 .navbar{
-    width: 100%;
-    max-width:414px;/* Full width */
-    background-color: rgba(255,255,255,1);
-    text-align:center;
-    overflow: hidden;
+  width: 100%;
+  max-width:414px;
+  background-color: rgba(255,255,255,1);
+ z-index: 2!important;
+  text-align:center;
+  overflow: hidden;
+  height: 5%;
+  
 }
 .title {
-    color: rgba(0,0,0,1);
-    width: 100%;
-    font-family: Roboto;
-    font-weight:Bolder;
-    font-size: 40px;
-    opacity: 1;
-    text-align: center;
-    display:block;
-}
-.fa-arrow-left {
-    opacity: 1;
-    z-index:1;
-    color:black;
     position: absolute;
-}
-.fa-arrow-left:hover {
-  color: red;
-  text-decoration: none;
+    color: rgb(58 57 57);
+    width: 100%;
+    top: 25px;
+    left: 163px;
+    font-size: 28px;
+    font-family: INHERIT;
 }
 /* Form Checklist */
-.checklist{
+.check-box-group {
+  display: flex;
+  flex-direction: column;
   position:absolute;
-  top: 30%;
-  left:30%;
+  top: 25%;
+  
+}
+ 
+.custom-checkbox {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.custom-checkbox .label {
+  font-size: 1.2em;
+  margin: 0 10px;
+}
+
+.custom-checkbox .checkmark {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #222;
+  display: inline-block;
+  border-radius: 3px;
+  background: #222 url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/White_check.svg/1200px-White_check.svg.png) center/1250% no-repeat;
+  transition: background-size 0.2s ease;
+}
+
+.custom-checkbox input:checked + .checkmark {
+  background-size: 60%;
+  transition: background-size 0.25s cubic-bezier(0.7, 0, 0.18, 1.24);
+}
+
+.custom-checkbox input {
+  display: none;
 }
 /* botao confirmar*/ 
-.ConfirmarClass{
-    height:100%;
-    width:100%;
-    max-width:288px;
-    max-height:64px;
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
-    border-bottom-left-radius: 100px;
-    border-bottom-right-radius: 100px;
-    position:absolute;
-    top:600px;
-    left:58px;
-    background-color:#AB0404;
-    color:white;
+.AvancarClass{
+    height: 5%;
+    width: 60%;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    position: absolute;
+    background-color: #7d2d2d;
+    color: white;
+    font-size: 19px;
+    border: none;
+    top: 80%;
+    left: 20%;
+    box-shadow: -4px 4px 2px rgb(171 171 171 / 50%);
 }
 /* MenuBar */
 .menubar i:hover {  

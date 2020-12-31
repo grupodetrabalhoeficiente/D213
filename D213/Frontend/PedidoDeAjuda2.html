@@ -15,35 +15,50 @@
 <body>
     <div class="screen">
     <!--navbar-->
-    <nav class="navbar fixed-top">
-        <a href="MenuOcorrencia.html" class="fas fa-arrow-left fa-2x"></a>
-        <span class="title">Recursos Necessários</span>
-    </nav>
-
+    <span class="title">Recursos Necessárias</span>
+    <a><i id="goBack"class="fas fa-arrow-left fa-2x"></i></a>
     <!--checklist-->
-    <div class="checklist">
-        <input type="checkbox" id="Check1" class="Checkb1">
-        <label for="Check1"> Água</label><br><br>
-        <input type="checkbox" id="Check2" class="Checkb2">
-        <label for="Check2"> Operacionais</label><br><br>
-        <input type="checkbox" id="Check3" class="Checkb3">
-        <label for="Check3"> Ambulancias</label><br><br>
-        <input type="checkbox" id="Check4" class="Checkb4">
-        <label for="Check4"> Macas</label><br><br>
-    </div>  
+<div class="checklist">
+    <div class="check-box-group">
+  <label class="custom-checkbox" tab-index="0" aria-label="Água">
+    <input type="checkbox" checked>
+    <span class="checkmark"></span>
+    <span class="label">Água</span>
+  </label>
+
+  <label class="custom-checkbox" tab-index="0" aria-label="Operacionais">
+    <input type="checkbox">
+    <span class="checkmark"></span>
+    <span class="label">Operacionais</span>
+  </label>
+  
+  <label class="custom-checkbox" tab-index="0" aria-label="Ambulâncias">
+    <input type="checkbox">
+    <span class="checkmark"></span>
+    <span class="label">Ambulâncias</span>
+  </label>
+  
+  <label class="custom-checkbox" tab-index="0" aria-label="Macas">
+    <input type="checkbox">
+    <span class="checkmark"></span>
+    <span class="label">Macas</span>
+  </label>
+  </div>
+</div>
+  
     <!--botao confirmar-->
-    <button class="ConfirmarClass" id="confirmarId">Confirmar</button>
+<input id="submit" type ="button" class="ConfirmarClass" id="SubmeterId" value="Confirmar"></input>
     </form>
     <!--menubar-->
     <nav class="menubar fixed-bottom">
-        <ul class="nav navbar-nav">
-            <li><a href="MenuPrincipal.html"><i class="fa fa-home fa-3x"></i></a></li>
-            <li><a href="Ranks.html"><i class="fa fa-medal fa-3x"></i></a></li>
-            <li><a href="HistoricoOcorrencias.html"><i class="fa fa-chart-line fa-3x"></i></a></li>
-            <li><a href="PerfilUpdate.html"><i class="fas fa-user-circle fa-3x"></i></a></li>
-        </ul>
-    </nav>
-    </div>
+    <ul class="nav navbar-nav">
+        <li><a href="MenuPrincipal.html"><i class="fa fa-home fa-3x" id:"home"></i></a></li>
+        <li><a href="Ranks.html"><i class="fas fa-medal fa-3x" id:"medal"></i></a></li>
+        <li><a href="HistoricoOcorrencias.html"><i class="fas fa-chart-line fa-3x" id:"chart"></i></a></li>
+        <li><a href="PerfilUpdate.html"><i class="fas fa-user-circle fa-3x" id:"profile"></i></a></li>
+    </ul>
+</nav>
+</div>
 </body>
 
 </html>

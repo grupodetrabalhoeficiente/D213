@@ -1,4 +1,4 @@
-const id_occurrence = "7563";
+const id_occurrence = "1";
 document.getElementById("submit").onclick = function(e) {
     //validação do formulário ao submeter
     saveWitness();
@@ -6,7 +6,6 @@ document.getElementById("submit").onclick = function(e) {
 
 function saveWitness() {
     let data = {};
-
     data.name = document.getElementById("nome_testemunha").value;
     data.email = document.getElementById("contacto_testemunha").value;
     data.place = document.getElementById("localidade_testemunha").value;

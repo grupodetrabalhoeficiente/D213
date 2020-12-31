@@ -1,7 +1,3 @@
-* {
-  padding: 0px !important;
-  margin: 0px !important;
-}
 .screen {
   width:100%;
   height:100%;
@@ -19,56 +15,79 @@
   width: 100%;
   max-width:414px;
   background-color: rgba(255,255,255,1);
-  z-index:3;
+ z-index: 2!important;
   text-align:center;
   overflow: hidden;
+  height: 5%;
+  
 }
 .title {
-  color: rgba(0,0,0,1);
-  width: 100%;
-  right: 2%;
-  font-family: Roboto;
-  font-weight:Bolder;
-  font-size: 20px;
-  opacity: 1;
-  text-align: center;
-  z-index:1;
-  position:absolute;
-}
-.fa-arrow-left {
-    opacity: 1;
-    z-index:1;
-    color:black;
     position: absolute;
+    color: rgb(58 57 57);
+    width: 100%;
+    top: 25px;
+    left: 88px;
+    font-size: 28px;
+    font-family: INHERIT;
 }
-.fa-arrow-left:hover {
-  color: red;
-  text-decoration: none;
-}
+
 
 /* Form Checklist */
-.checklist{
+.check-box-group {
+  display: flex;
+  flex-direction: column;
   position:absolute;
-  top: 30%;
-  left:35%;
+  top: 25%;
+  left:55%;
+  
+}
+ 
+.custom-checkbox {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
 }
 
+.custom-checkbox .label {
+  font-size: 1.2em;
+  margin: 0 10px;
+}
 
+.custom-checkbox .checkmark {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #222;
+  display: inline-block;
+  border-radius: 3px;
+  background: #222 url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/White_check.svg/1200px-White_check.svg.png) center/1250% no-repeat;
+  transition: background-size 0.2s ease;
+}
+
+.custom-checkbox input:checked + .checkmark {
+  background-size: 60%;
+  transition: background-size 0.25s cubic-bezier(0.7, 0, 0.18, 1.24);
+}
+
+.custom-checkbox input {
+  display: none;
+}
 /* botao confirmar*/ 
 .ConfirmarClass{
-    height:100%;
-    width:100%;
-    max-width:288px;
-    max-height:64px;
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
-    border-bottom-left-radius: 100px;
-    border-bottom-right-radius: 100px;
-    position:absolute;
-    top:600px;
-    left:58px;
-    background-color:#AB0404;
-    color:white;
+    height: 5%;
+    width: 60%;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+    border-bottom-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    position: absolute;
+    background-color: #7d2d2d;
+    color: white;
+    font-size: 19px;
+    border: none;
+    top: 80%;
+    left: 20%;
+    box-shadow: -4px 4px 2px rgb(171 171 171 / 50%);
 }
 /* MenuBar */
 .menubar i:hover {  
@@ -144,5 +163,3 @@ top: 35px;
     border-bottom-right-radius: 5px;
 }
 /*          */
-
-

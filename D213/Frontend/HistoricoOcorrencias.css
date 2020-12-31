@@ -1,35 +1,55 @@
+.screen {
+  width:100%;
+  height:100%;
+  max-width: 414px;
+  max-height: 736px;
+  background:rgb(253 253 253);
+  opacity: 1;
+  position: absolute;
+  overflow: hidden;
+  z-index:-1;
+}
 /*navbar*/
 .navbar{
   width: 100%;
   max-width:414px;
   background-color: rgba(255,255,255,1);
-  z-index:3;
+  z-index: 2!important;
   text-align:center;
   overflow: hidden;
-  
+  height: 5%;
 }
 .title {
-  color: rgba(0,0,0,1);
-  width: 100%;
-  right: 2%;
-  font-family: Roboto;
-  font-weight:Bolder;
-  font-size: 20px;
-  opacity: 1;
-  text-align: center;
-  z-index:1;
-  position:absolute;
+    position: absolute;
+    color: #3A3939;
+    width: 100%;
+    top: 25px;
+    left: 89px;
+    font-size: 28px;
+    font-family: INHERIT;
+}
+.historicoOcorrenciasDiv{
+    position: absolute;
+    width: 90%;
+    height: 65%;
+    top: 16%;
+    left: 5.5%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    overflow: auto;
 }
 /*tabela*/
-.tabela {
-  width: 332px;
-  height: 323px;
-  background: rgba(255,255,255,0);
-  opacity: 1;
-  position: absolute;
-  top: 320px;
-  left: 41px;
-  overflow: hidden;
+.VerMais {
+  background-color: #7d2d2d;
+  width: 90px;
+  height: 40px;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+  color: white;
 }
 /*menubar*/
 .menubar i:hover {  

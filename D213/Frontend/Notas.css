@@ -1,3 +1,14 @@
+.screen {
+  width:100%;
+  height:100%;
+  max-width: 414px;
+  max-height: 736px;
+  background:rgb(253 253 253);
+  opacity: 1;
+  position: absolute;
+  overflow: hidden;
+  z-index:-1;
+}
 /* NavBar*/
 .navbar{
     width: 100%;
@@ -10,10 +21,10 @@
     position: absolute;
     color: rgb(58 57 57);
     width: 100%;
-    top: 60px;
-    left: 74px;
+    top: 25px;
     font-size: 28px;
     font-family: INHERIT;
+    text-align: center;
 }
 .fa-arrow-left {
     opacity: 1;
@@ -50,7 +61,7 @@
     color: white;
     font-size: 19px;
     border: none;
-    top: 83%;
+    top: 80%;
     left: 20%;
     box-shadow: -4px 4px 2px rgb(171 171 171 / 50%);
 }

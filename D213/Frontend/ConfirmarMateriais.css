@@ -20,18 +20,18 @@
   
 }
 .title {
-        position: absolute;
+    position: absolute;
     color: rgb(58 57 57);
     width: 100%;
-    top: 65px;
-    left: 83px;
+    top: 25px;
+    left: 89px;
     font-size: 28px;
     font-family: INHERIT;
 
 }
 /*TABELA*/
 .TabelaDiv{
-         position: relative;
+    position: relative;
     width: 90%;
     height: 55%;
     top: 18%;
@@ -41,8 +41,38 @@
     text-align: center;
     overflow: auto;
 }
-.MaterialCheck{
-    
+.check-box-group {
+  display: flex;
+  flex-direction: column;
+  
+}
+ 
+.custom-checkbox {
+  cursor: pointer;
+  display: flex;
+  align-items: baseline;
+  margin: 10px 0;
+}
+
+
+
+.custom-checkbox .checkmark {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #222;
+  display: inline-block;
+  border-radius: 3px;
+  background: #222 url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/White_check.svg/1200px-White_check.svg.png) center/1250% no-repeat;
+  transition: background-size 0.2s ease;
+}
+
+.custom-checkbox input:checked + .checkmark {
+  background-size: 60%;
+  transition: background-size 0.25s cubic-bezier(0.7, 0, 0.18, 1.24);
+}
+
+.custom-checkbox input {
+  display: none;
 }
 /* botao confirmar*/ 
 .SubmeterClass{

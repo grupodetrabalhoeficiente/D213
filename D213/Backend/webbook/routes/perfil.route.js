@@ -15,7 +15,7 @@ app.route('/operationals')
 
 app.route('/operationals/:id_operational')
   .get(controllerOperational.readIDOperational) //certo e fetch
-  .put(validator.updatePassword, controllerOperational.updateOperational) // certo e fetch
+  .put(validator.updatePassword, controllerOperational.updateOperational) // certo e fetch (ta feito o validator)
 
 app.route('/operationals/:id_operational/occurrences')
   .get(controllerOperational.readOccurrenceFromOperational) // certo e fetch

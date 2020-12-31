@@ -184,22 +184,28 @@ function readPresentOperationalOccurrence(req, res) {
 }
 
 function updateOperationalOccurrenceArrival(req, res) { // ver esta
-    const arrival = req.sanitize('arrival').escape();
-    const id_operational = req.sanitize('id_operational').escape();
-    const id_occurrence = req.sanitize('id_occurrence').escape();
-    let query = "";
-    query = connect.con.query('Update ?? SET arrival = ? where id_operational=? and id_occurrence=?', ["operational_occurrence", arrival, id_operational, id_occurrence], function(err, rows,
-        fields) {
-        console.log(query.sql);
-        if (!err) {
-            console.log("Number of records updated: " + rows.affectedRows);
-            res.status(200).send({ "msg": "update with success" });
-        }
-        else {
-            res.status(400).send({ "msg": err.code });
-            console.log('Error while performing Query.', err);
-        }
-    });
+    const errors = validationResult(req);
+    if (errors.isEmpty()) {
+        const arrival = req.sanitize('arrival').escape();
+        const id_operational = req.sanitize('id_operational').escape();
+        const id_occurrence = req.sanitize('id_occurrence').escape();
+        let query = "";
+        query = connect.con.query('Update ?? SET arrival = ? where id_operational=? and id_occurrence=?', ["operational_occurrence", arrival, id_operational, id_occurrence], function(err, rows,
+            fields) {
+            console.log(query.sql);
+            if (!err) {
+                console.log("Number of records updated: " + rows.affectedRows);
+                res.status(200).send({ "msg": "update with success" });
+            }
+            else {
+                res.status(400).send({ "msg": err.code });
+                console.log('Error while performing Query.', err);
+            }
+        });
+    }
+    else {
+        return res.status(400).json({ errors: errors.array() });
+    }
 }
 
 function updateOperationalOccurrenceDeparture(req, res) {
@@ -335,7 +341,7 @@ function saveWitnessOccurrence(req, res) {
         const place = req.sanitize('place').escape();
         const profession = req.sanitize('profession').escape();
         let query = "";
-        query = connect.con.query('INSERT INTO ?? VALUES (?,?,?,?,?,?,?)', ["witness_occurrence", id_occurrence, testimony, justification, name, email, place, profession], function(err, rows, fields) {
+        query = connect.con.query('INSERT INTO ?? (??,??,??,??,??,??,??) VALUES (?,?,?,?,?,?,?)', ["witness_occurrence", "id_occurrence", "testimony", "justification", "name", "email", "place", "profession", id_occurrence, testimony, justification, name, email, place, profession], function(err, rows, fields) {
             console.log(query.sql);
             if (!err) {
                 res.status(200).location(rows.insertId).send({
@@ -478,23 +484,29 @@ function readConfirmedVehicleMaterialOccurrence(req, res) {
 }
 
 function updateVehicleMaterialOccurrenceConfirmation(req, res) {
-    //receber os dados do formuário que são enviados por post
-    const id_occurrence = req.sanitize('id_occurrence').escape();
-    const id_vei_mat = req.sanitize('id_vei_mat').escape();
-    const confirmation = req.sanitize('confirmation').escape();
-    let query = "";
-    query = connect.con.query('Update ?? SET confirmation = ? where id_vei_mat=? and id_occurrence=?', ["occur_vehic_material", confirmation, id_vei_mat, id_occurrence], function(err, rows,
-        fields) {
-        console.log(query.sql);
-        if (!err) {
-            console.log("Number of records updated: " + rows.affectedRows);
-            res.status(200).send({ "msg": "update with success" });
-        }
-        else {
-            res.status(400).send({ "msg": err.code });
-            console.log('Error while performing Query.', err);
-        }
-    });
+    const errors = validationResult(req);
+    if (errors.isEmpty()) {
+
+        const id_occurrence = req.sanitize('id_occurrence').escape();
+        const id_vei_mat = req.sanitize('id_vei_mat').escape();
+        const confirmation = req.sanitize('confirmation').escape();
+        let query = "";
+        query = connect.con.query('Update ?? SET confirmation = ? where id_vei_mat=? and id_occurrence=?', ["occur_vehic_material", confirmation, id_vei_mat, id_occurrence], function(err, rows,
+            fields) {
+            console.log(query.sql);
+            if (!err) {
+                console.log("Number of records updated: " + rows.affectedRows);
+                res.status(200).send({ "msg": "update with success" });
+            }
+            else {
+                res.status(400).send({ "msg": err.code });
+                console.log('Error while performing Query.', err);
+            }
+        });
+    }
+    else {
+        return res.status(400).json({ errors: errors.array() });
+    }
 }
 
 function updateVehicleMaterialOccurrenceUtilization(req, res) {
@@ -567,25 +579,31 @@ function readIDNote(req, res) {
 
 
 function saveNote(req, res) {
-    const description = req.sanitize('description').escape();
-    const id_occurrence = req.sanitize('id_occurrence').escape();
-    let query = "";
-    query = connect.con.query('INSERT INTO ?? VALUES (?,?,?)', ["note", id_occurrence, description], function(err, rows, fields) {
-        console.log(query.sql);
-        if (!err) {
-            res.status(200).location(rows.insertId).send({
-                "msg": "inserted with success"
-            });
-            console.log("Number of records inserted: " + rows.affectedRows);
-        }
-        else {
-            if (err.code == "ER_DUP_ENTRY") {
-                res.status(409).send({ "msg": err.code });
-                console.log('Error while performing Query.', err);
+    const errors = validationResult(req);
+    if (errors.isEmpty()) {
+        const description = req.sanitize('description').escape();
+        const id_occurrence = req.sanitize('id_occurrence').escape();
+        let query = "";
+        query = connect.con.query('INSERT INTO ?? (??,??) VALUES (?,?);', ["note", "id_occurrence", "description", id_occurrence, description], function(err, rows, fields) {
+            console.log(query.sql);
+            if (!err) {
+                res.status(200).location(rows.insertId).send({
+                    "msg": "inserted with success"
+                });
+                console.log("Number of records inserted: " + rows.affectedRows);
             }
-            else res.status(400).send({ "msg": err.code });
-        }
-    });
+            else {
+                if (err.code == "ER_DUP_ENTRY") {
+                    res.status(409).send({ "msg": err.code });
+                    console.log('Error while performing Query.', err);
+                }
+                else res.status(400).send({ "msg": err.code });
+            }
+        });
+    }
+    else {
+        return res.status(400).json({ errors: errors.array() });
+    }
 }
 
 //função que apaga todos os dados de um iduser

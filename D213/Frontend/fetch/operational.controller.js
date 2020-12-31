@@ -1,5 +1,5 @@
 const urlParams = new URLSearchParams(window.location.search);
-const idUser = "2378"; //Temporario depois alterar pra LocalHost
+const idUser = "1"; //Temporario depois alterar pra LocalHost
 const confirm = document.getElementById("confirmPassword");
 confirm.onclick = savePassword;
 
@@ -26,8 +26,6 @@ function profileName() {
     fetchAsync().then(data => console.log("ok")).catch(reason => console.log(reason.message));
 }
 
-
-
 /*   Save new password   */
 function savePassword() {
     let data = {};
@@ -45,12 +43,6 @@ function savePassword() {
             console.log(response.statusText); //=> String
             console.log(response.headers); //=> Headers
             console.log(response.url); //=> String
-            /*if (response.status === 409) {
-                alert("Duplicated Email");
-            }
-            else {
-                throw Error(response.statusText);
-            }*/
         }
         else {
             document.getElementById("profileNewPassword").value = ""; //limpeza dos dados do form
@@ -66,8 +58,6 @@ function savePassword() {
     });
 }
 /*                  */
-
-
 
 $(document).ready(function() {
     profileName();

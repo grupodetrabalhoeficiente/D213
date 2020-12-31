@@ -1,4 +1,4 @@
-const idUser = "2378";
+const idUser = "1";
 
 function fillRank() {
     fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + idUser)
@@ -15,9 +15,6 @@ function fillRank() {
             screen.innerHTML += txt;
         }).catch(err => console.error(err));
 }
-$(document).ready(function() {
-    fillRank();
-})
 
 
 
@@ -42,3 +39,7 @@ function myRank() {
             screen.innerHTML += txt;
         }).catch(err => console.error(err));
 }
+
+$(document).ready(function() {
+    fillRank();
+})

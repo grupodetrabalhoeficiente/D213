@@ -9,29 +9,30 @@
   overflow: hidden;
   z-index:-1;
 }
+/*navbar*/
 .navbar{
   width: 100%;
   max-width:414px;
   background-color: rgba(255,255,255,1);
- z-index: 2!important;
+  z-index: 2!important;
   text-align:center;
   overflow: hidden;
   height: 5%;
   
 }
 .title {
-        position: absolute;
-    color: rgb(58 57 57);
+    position: absolute;
+    color: #3A3939;
     width: 100%;
-    top: 60px;
-    left: 74px;
+    top: 25px;
+    left: 81px;
     font-size: 28px;
     font-family: INHERIT;
 }
 #formAvaliar{
 }
 .AvaliarDiv{
-         position: relative;
+    position: relative;
     width: 90%;
     height: 65%;
     top: 16%;
@@ -58,6 +59,7 @@
     left: 20%;
     box-shadow: -4px 4px 2px rgb(171 171 171 / 50%);
 }
+/*menubar*/
 .menubar i:hover {  
   color: #000000;           /*rgba(171,4,4,1);*/
 }
