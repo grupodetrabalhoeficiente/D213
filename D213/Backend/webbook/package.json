@@ -19,7 +19,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "pw"
+    "pw",
+     "example",
+    "heroku"
   ],
   "author": "grupo213",
   "license": "ISC"
