@@ -18,7 +18,7 @@ exports.addNote = [check('description', "Descrição inválida.")
     .isLength({ min: 5, max: 1000 })
 ]
 
-// app.put '/occurrences/:id_occurrence/materials/:id_vei_mat'   ainda nao
+// app.put '/occurrences/:id_occurrence/materials/:id_vei_mat'   ainda nao testada
 exports.updateConfirmation = [check('confirmation')
     .custom((val, { req, loc, path }) => {
         if (val !== 0 || val !== 1) {
@@ -30,7 +30,7 @@ exports.updateConfirmation = [check('confirmation')
     })
 ]
 
-// app.put '/occurrences/:id_occurrence/materials_utilizations/:id_vei_mat'   ainda nao
+// app.put '/occurrences/:id_occurrence/materials_utilizations/:id_vei_mat'   ainda nao testada
 exports.updateUtilization = [check('utilization')
     .custom((val, { req, loc, path }) => {
         if (val !== 0 || val !== 1) {
@@ -70,7 +70,7 @@ exports.updateStatus = [check('status', "O estado da ocorrência é inválido.")
     })
 ]
 
-// app.put '/occurrences/:id_occurrence/presences/:id_operational'   ainda nao
+// app.put '/occurrences/:id_occurrence/presences/:id_operational'   ainda nao testada
 exports.updatePresence = [check('presence')
     .custom((val, { req, loc, path }) => {
         if (val !== 0 || val !== 1) {
@@ -82,12 +82,24 @@ exports.updatePresence = [check('presence')
     })
 ]
 
-// app.put '/occurrences/:id_occurrence/arrivals/:id_operational'  ainda nao
+// app.put '/occurrences/:id_occurrence/arrivals/:id_operational'  ainda nao testada
 exports.updateArrival = [check('arrival', "A hora de chegada à ocorrência é inválida.")
     .isLength(20)
 ]
 
-// app.put '/occurrences/:id_occurrence/departures/:id_operational'   ainda nao
+// app.put '/occurrences/:id_occurrence/departures/:id_operational'   ainda nao testada
 exports.updateDeparture = [check('departure', "A hora de partida da ocorrência é inválida.")
     .isLength(20)
+]
+
+// app.put /occurrences/:id_occurrence/evaluations/:id_operational  ainda nao testada
+exports.updatePoints = [check('points', "A avaliação é inválida")
+    .custom((val, { req, loc, path }) => {
+        if (val !== 1 || val !== 2 || val !== 3 || val !== 4 || val !== 5) {
+            throw new Error("Avaliação inválida.")
+        }
+        else {
+            return val;
+        }
+    })
 ]

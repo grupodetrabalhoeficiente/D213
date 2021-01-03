@@ -1,6 +1,6 @@
 const idUser = "1";
 
-function fillRank() {
+function ownRank() {
     fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + idUser)
         .then(res => res.json())
         .then((out) => {
@@ -16,30 +16,24 @@ function fillRank() {
         }).catch(err => console.error(err));
 }
 
-
-
-
-
-function myRank() {
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/')
+function fillRank() {
+    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/ranks')
         .then(res => res.json())
         .then((out) => {
-            let screen = document.getElementById("screen");
-            let count = 1;
+            let screen = document.getElementById("everybodyRank");
             let txt = "";
+            let countRank = 0;
             $.each(out, function(index, value) {
-                txt += "<div class='presenceDiv'>";
-                txt += "<form> ";
-                txt += "<span class='ptsClass'>" + "Operational " + value.id_operational + "</span>";
-                txt += '<input type="radio" class="yesClass" name="presence" id="checkyes2" value="1" checked> ';
-                txt += '<input type="radio" class="noClass" name="presence" id="checkno2" value="0">';
-                txt += "</form>"
-                txt += "</div";
+                txt += "<div class='eachPersonRankBody'>";
+                countRank += 1;
+                txt += "<span id='numberRank'>" + countRank + "º</span>";
+                txt += "<span id='nameRank'>" + value.name + "</span>";
+                txt += "<span id='pointsRank'>" + value.points + "</span>";
+                txt += "</div>";
             });
             screen.innerHTML += txt;
         }).catch(err => console.error(err));
 }
-
 $(document).ready(function() {
     fillRank();
 })

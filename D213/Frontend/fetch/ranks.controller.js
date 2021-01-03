@@ -6,7 +6,6 @@
              $('#table tbody').empty();
              $.each(out, function(index, value) {
                  if (value.points != undefined) {
-                     console.log(value.points);
                      if (count == 1) {
                          document.getElementById("Nome1").innerHTML = value.name;
                          document.getElementById("Pontos1").innerHTML = value.points; // mudar isto para a funçae certa

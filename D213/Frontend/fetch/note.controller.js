@@ -1,5 +1,5 @@
 const urlParams = new URLSearchParams(window.location.search);
-const id_occurrence = "7563";
+const id_occurrence = "1";
 document.getElementById("submit").onclick = function(e) {
     //validação do formulário ao submeter
     saveNotes();

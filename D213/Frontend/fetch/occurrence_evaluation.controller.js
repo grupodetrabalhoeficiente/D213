@@ -1,4 +1,4 @@
-const id_occurrence = "2222";
+const id_occurrence = "1";
 
 function fillTable() {
     fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/evaluations')
@@ -7,7 +7,7 @@ function fillTable() {
             let count = 1;
             $('#table tbody').empty();
             $.each(out, function(index, value) {
-                $('#table tbody').append('<tr><th scope="row">' + count + '</th><td>' + value.name + '<select class="custom-select" id="inputGroupSelect01"> <option selected>Avaliação</option>  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option>  <option value="5">5</option></select>')
+                $('#table tbody').append('<tr><th scope="row">' + value.id_operational + '</th><td>' + value.name + '<select class="custom-select" id="inputGroupSelect"' + count.toString() + '> <option selected>Avaliação</option>  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option>  <option value="5">5</option></select>')
                 count++;
             });
         }).catch(err => console.error(err));

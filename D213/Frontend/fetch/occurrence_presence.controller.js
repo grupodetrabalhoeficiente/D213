@@ -1,4 +1,4 @@
-const id_occurrence = "7563"
+const id_occurrence = "1"
 
 function fillTable() {
     fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/operationals')

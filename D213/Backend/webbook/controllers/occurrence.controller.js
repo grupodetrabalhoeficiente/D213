@@ -167,7 +167,7 @@ function readIDOperationalOccurrence(req, res) {
 function readPresentOperationalOccurrence(req, res) {
     const id_occurrence = req.sanitize('id_occurrence').escape();
     //criar e executar a query de leitura na BD
-    connect.con.query('SELECT * FROM operational_occurrence where id_occurrence=? and presence=?', [id_occurrence, 'true'], function(err,
+    connect.con.query('SELECT * FROM operational_occurrence where id_occurrence=? and presence=?', [id_occurrence, '1'], function(err,
         rows, fields) {
         if (!err) {
             //verifica os resultados se o número de linhas for 0 devolve dados não encontrados, caso contrário envia os resultados (rows).
@@ -209,22 +209,28 @@ function updateOperationalOccurrenceArrival(req, res) { // ver esta
 }
 
 function updateOperationalOccurrenceDeparture(req, res) {
-    const departure = req.sanitize('departure').escape();
-    const id_operational = req.sanitize('id_operational').escape();
-    const id_occurrence = req.sanitize('id_occurrence').escape();
-    let query = "";
-    query = connect.con.query('Update ?? SET departure = ? where id_operational=? and id_occurrence=?', ["operational_occurrence", departure, id_operational, id_occurrence], function(err, rows,
-        fields) {
-        console.log(query.sql);
-        if (!err) {
-            console.log("Number of records updated: " + rows.affectedRows);
-            res.status(200).send({ "msg": "update with success" });
-        }
-        else {
-            res.status(400).send({ "msg": err.code });
-            console.log('Error while performing Query.', err);
-        }
-    });
+    const errors = validationResult(req);
+    if (errors.isEmpty()) {
+        const departure = req.sanitize('departure').escape();
+        const id_operational = req.sanitize('id_operational').escape();
+        const id_occurrence = req.sanitize('id_occurrence').escape();
+        let query = "";
+        query = connect.con.query('Update ?? SET departure = ? where id_operational=? and id_occurrence=?', ["operational_occurrence", departure, id_operational, id_occurrence], function(err, rows,
+            fields) {
+            console.log(query.sql);
+            if (!err) {
+                console.log("Number of records updated: " + rows.affectedRows);
+                res.status(200).send({ "msg": "update with success" });
+            }
+            else {
+                res.status(400).send({ "msg": err.code });
+                console.log('Error while performing Query.', err);
+            }
+        });
+    }
+    else {
+        return res.status(400).json({ errors: errors.array() });
+    }
 }
 
 function updateOperationalOccurrencePoints(req, res) {
@@ -247,22 +253,28 @@ function updateOperationalOccurrencePoints(req, res) {
 }
 
 function updateOperationalOccurrencePresence(req, res) {
-    const presence = req.sanitize('presence').escape();
-    const id_operational = req.sanitize('id_operational').escape();
-    const id_occurrence = req.sanitize('id_occurrence').escape();
-    let query = "";
-    query = connect.con.query('Update ?? SET presence = ? where id_operational=? and id_occurrence=?', ["operational_occurrence", presence, id_operational, id_occurrence], function(err, rows,
-        fields) {
-        console.log(query.sql);
-        if (!err) {
-            console.log("Number of records updated: " + rows.affectedRows);
-            res.status(200).send({ "msg": "update with success" });
-        }
-        else {
-            res.status(400).send({ "msg": err.code });
-            console.log('Error while performing Query.', err);
-        }
-    });
+    const errors = validationResult(req);
+    if (errors.isEmpty()) {
+        const presence = req.sanitize('presence').escape();
+        const id_operational = req.sanitize('id_operational').escape();
+        const id_occurrence = req.sanitize('id_occurrence').escape();
+        let query = "";
+        query = connect.con.query('Update ?? SET presence = ? where id_operational=? and id_occurrence=?', ["operational_occurrence", presence, id_operational, id_occurrence], function(err, rows,
+            fields) {
+            console.log(query.sql);
+            if (!err) {
+                console.log("Number of records updated: " + rows.affectedRows);
+                res.status(200).send({ "msg": "update with success" });
+            }
+            else {
+                res.status(400).send({ "msg": err.code });
+                console.log('Error while performing Query.', err);
+            }
+        });
+    }
+    else {
+        return res.status(400).json({ errors: errors.array() });
+    }
 }
 
 //                     Witness- occurrence
@@ -486,7 +498,6 @@ function readConfirmedVehicleMaterialOccurrence(req, res) {
 function updateVehicleMaterialOccurrenceConfirmation(req, res) {
     const errors = validationResult(req);
     if (errors.isEmpty()) {
-
         const id_occurrence = req.sanitize('id_occurrence').escape();
         const id_vei_mat = req.sanitize('id_vei_mat').escape();
         const confirmation = req.sanitize('confirmation').escape();
@@ -511,22 +522,28 @@ function updateVehicleMaterialOccurrenceConfirmation(req, res) {
 
 function updateVehicleMaterialOccurrenceUtilization(req, res) {
     //receber os dados do formuário que são enviados por post
-    const id_occurrence = req.sanitize('id_occurrence').escape();
-    const id_vei_mat = req.sanitize('id_vei_mat').escape();
-    const utilization = req.sanitize('utilization').escape();
-    let query = "";
-    query = connect.con.query('Update ?? SET utilization = ? where id_vei_mat=? and id_occurrence=?', ["occur_vehic_material", utilization, id_vei_mat, id_occurrence], function(err, rows,
-        fields) {
-        console.log(query.sql);
-        if (!err) {
-            console.log("Number of records updated: " + rows.affectedRows);
-            res.status(200).send({ "msg": "update with success" });
-        }
-        else {
-            res.status(400).send({ "msg": err.code });
-            console.log('Error while performing Query.', err);
-        }
-    });
+    const errors = validationResult(req);
+    if (errors.isEmpty()) {
+        const id_occurrence = req.sanitize('id_occurrence').escape();
+        const id_vei_mat = req.sanitize('id_vei_mat').escape();
+        const utilization = req.sanitize('utilization').escape();
+        let query = "";
+        query = connect.con.query('Update ?? SET utilization = ? where id_vei_mat=? and id_occurrence=?', ["occur_vehic_material", utilization, id_vei_mat, id_occurrence], function(err, rows,
+            fields) {
+            console.log(query.sql);
+            if (!err) {
+                console.log("Number of records updated: " + rows.affectedRows);
+                res.status(200).send({ "msg": "update with success" });
+            }
+            else {
+                res.status(400).send({ "msg": err.code });
+                console.log('Error while performing Query.', err);
+            }
+        });
+    }
+    else {
+        return res.status(400).json({ errors: errors.array() });
+    }
 }
 
 // Note

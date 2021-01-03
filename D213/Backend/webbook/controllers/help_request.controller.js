@@ -68,15 +68,7 @@ function saveHelpRequest(req, res) {
     //receber os dados do formuário que são enviados por post
     const request_id = req.sanitize('request_id').escape();
     const reason = req.sanitize('reason').escape();
-    var query = "";
-    /*var post = {
-        witness_id: witness_id,
-        name: name,
-        email: email,
-        place: place,
-        profession: profession
-    };*/
-    //console.log("with hash:" + hash);
+    let query = "";
     query = connect.con.query('INSERT INTO ?? VALUES (?,?)', ["help_request", request_id, reason], function(err, rows, fields) {
         console.log(query.sql);
         if (!err) {

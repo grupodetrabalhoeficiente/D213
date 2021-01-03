@@ -21,6 +21,9 @@ app.listen(port, function(err) {
     }
     else { console.log(err); }
 });
+app.get('/', function(req, res) {
+    res.send("hello");
+})
 //forçar utilização das bibliotecas
 app.use(cors());
 app.use(cookieParser());
@@ -28,3 +31,4 @@ module.exports = app;
 require('./routes/occurrence.route.js');
 require('./routes/perfil.route.js');
 require('./routes/main.route.js');
+require('./routes/rank.route.js');
