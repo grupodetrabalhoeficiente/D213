@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const expressSanitizer = require('express-sanitizer');
 const expressValidator = require('express-validator');
 //iniciar a aplicação
-// eqgqaheaq
+// eqgqaheaqweg
 var app = express();
 app.use(express.static("../../Frontend/"));
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
