@@ -28,7 +28,10 @@ function fillRank() {
                 countRank += 1;
                 txt += "<span id='numberRank'>" + countRank + "º</span>";
                 txt += "<span id='nameRank'>" + value.name + "</span>";
-                txt += "<span id='pointsRank'>" + value.points + "</span>";
+                if (value.points == null)
+                    txt += "<span id='pointsRank'>0</span>";
+                else
+                    txt += "<span id='pointsRank'>" + value.points + "</span>";
                 txt += "</div>";
             });
             screen.innerHTML += txt;

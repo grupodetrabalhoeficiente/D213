@@ -106,13 +106,63 @@ function updateOperational(req, res) {
         return res.status(400).json({ errors: errors.array() });
     }
 }
+/*
+function saveAvatar(req, res) {
+    const errors = validationResult(req);
+    if (errors.isEmpty()) {
+        const avatar = req.sanitize('avatar').escape();
+        let query = "";
+        query = connect.con.query('INSERT INTO ?? VALUES ?;', ["avatar", avatar], function(err, rows, fields) {
+            console.log(query.sql);
+            if (!err) {
+                res.status(200).location(rows.insertId).send({
+                    "msg": "inserted with success"
+                });
+                console.log("Number of records inserted: " + rows.affectedRows);
+            }
+            else {
+                if (err.code == "ER_DUP_ENTRY") {
+                    res.status(409).send({ "msg": err.code });
+                    console.log('Error while performing Query.', err);
+                }
+                else res.status(400).send({ "msg": err.code });
+            }
+        });
+    }
+    else {
+        return res.status(400).json({ errors: errors.array() });
+    }
+}
+*/
+function updateAvatar(req, res) {
 
-
+    const errors = validationResult(req);
+    if (errors.isEmpty()) {
+        const avatar = req.sanitize('avatar').unescape();
+        const id_operational = req.sanitize('id_operational').escape();
+        let query = "";
+        query = connect.con.query('UPDATE login INNER JOIN operational ON login.id_login=operational.id_login and id_operational=?  SET avatar=?  ', [id_operational, avatar], function(err, rows, fields) {
+            console.log(query.sql);
+            if (!err) {
+                console.log("Number of records updateAvatar: " + rows.affectedRows);
+                res.status(200).send({ "msg": "updateAvatar with success" });
+            }
+            else {
+                res.status(400).send({ "msg": err.code });
+                console.log('Error while performing Query.', err);
+            }
+        });
+    }
+    else {
+        return res.status(400).json({ errors: errors.array() });
+    }
+}
 
 module.exports = {
     readOperational: readOperational,
     readOperationalPoints: readOperationalPoints,
     readOccurrenceFromOperational: readOccurrenceFromOperational,
     readIDOperational: readIDOperational,
-    updateOperational: updateOperational
+    updateOperational: updateOperational,
+    updateAvatar: updateAvatar
 };

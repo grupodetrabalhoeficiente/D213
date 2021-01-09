@@ -11,6 +11,23 @@ let pcPassword = document.getElementById("profileConfirmPassword");
 let pnPassword = document.getElementById("profileNewPassword");
 let frame = document.getElementById("frameId");
 let viewPassword = document.getElementById("viewTxt");
+//Upload screen
+let profileImg = document.getElementById("profileImage");
+profileImg.onclick = openUploadScreenOpen;
+let uploadAvatar = document.getElementById("uploadAvatarDiv");
+let clickOut = document.getElementById("clickOutside");
+clickOut.onclick = openUploadScreenClose;
+
+function openUploadScreenOpen() {
+    uploadAvatar.style.display = "block";
+    frame.style.height = "736px";
+}
+
+function openUploadScreenClose() {
+    uploadAvatar.style.display = "none";
+    frame.style.height = "1650px";
+}
+
 
 function showNewPassword() {
     profileNewPassword.style.display = "inline";
@@ -45,3 +62,24 @@ function rotate() {
         watchMore.href = "#profileImageDiv";
     }
 }
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            $('#avatarPrev').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]); // convert to base64 string
+    }
+}
+
+$("#avatarPreview").change(function() {
+    readURL(this);
+});
+
+$(document).ready(function() {
+    $('.imagen[src=""]').hide();
+    $('.imagen:not([src=""])').show();
+});

@@ -7,12 +7,19 @@
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/e195162fd2.js" crossorigin="anonymous"></script>
     <link href="./PerfilUpdate.css" rel="stylesheet" />
     <title>Document</title>
 </head>
 
 <body>
+    <div id="uploadAvatarDiv">
+        <div id="clickOutside"></div>
+        <label class="avatarLabel" for="avatarPreview"><i class="fas fa-images fa-3x"></i></label>
+        <input id="avatarPreview" type="file" name="image"><img id="avatarPrev" src="#" alt="Avatar"></img></input>
+        <input type="submit" id="uploadButton"name="btn_upload_profile_pic" value="Upload"/>
+    </div>
     <div class="frame container" id="frameId">
         <nav class="navbar fixed-top">
             <a><i id="goBack"class="fas fa-arrow-left fa-2x"></i></a>
@@ -20,10 +27,20 @@
         </nav>
         
         
+        <div class="avatar">
+        <form action="/upload" enctype="multipart/form-data" method="POST"> 
+            <input type="file" name="image">
+            <input type="submit" id="submitAvatar"name="btn_upload_profile_pic" value="Upload a file"/>
+        </form>
+        </div>
+        
+        
+        
+        
         
         
         <div id="profileImageDiv">
-            <img id="profileImage" class="profileImageClass"></img>
+            <img id="profileImage" src="" class="profileImageClass"></img>
         </div>
         <span id="name" class="nameProfile">PlaceHolder</span>
         <button class="ocurrenceButton" id="ocurrenceBut">
@@ -113,6 +130,11 @@
         </nav>
     </div>
     
+    
+    
+    
+    
+    
     <div id="errorFrame" class="hidden">
         <div id="errorBoxClass" class="errorBoxClass">
             <span id="errorTxtClass" class="errorTxtClass text-center">Erro!</span>
@@ -124,8 +146,8 @@
         </div>
     </div>
     <script type="text/javascript" src="PerfilUpdate.js"></script>
-     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./fetch/operational.controller.js"></script>
 </body>
 
