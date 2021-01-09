@@ -167,7 +167,7 @@ function readIDOperationalOccurrence(req, res) {
 function readPresentOperationalOccurrence(req, res) {
     const id_occurrence = req.sanitize('id_occurrence').escape();
     //criar e executar a query de leitura na BD
-    connect.con.query('SELECT * FROM operational_occurrence where id_occurrence=? and presence=?', [id_occurrence, '1'], function(err,
+    connect.con.query('SELECT operational_occurrence.*, operational.* FROM operational_occurrence, operational where id_occurrence=? and presence=? and operational_occurrence.id_operational=operational.id_operational', [id_occurrence, '1'], function(err,
         rows, fields) {
         if (!err) {
             //verifica os resultados se o número de linhas for 0 devolve dados não encontrados, caso contrário envia os resultados (rows).
@@ -234,6 +234,8 @@ function updateOperationalOccurrenceDeparture(req, res) {
 }
 
 function updateOperationalOccurrencePoints(req, res) {
+    /*const errors = validationResult(req);
+    if (errors.isEmpty()) {*/
     const points = req.sanitize('points').escape();
     const id_operational = req.sanitize('id_operational').escape();
     const id_occurrence = req.sanitize('id_occurrence').escape();
@@ -250,6 +252,10 @@ function updateOperationalOccurrencePoints(req, res) {
             console.log('Error while performing Query.', err);
         }
     });
+    // }
+    /*else {
+        return res.status(400).json({ errors: errors.array() });
+    }*/
 }
 
 function updateOperationalOccurrencePresence(req, res) {
