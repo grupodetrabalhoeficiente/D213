@@ -34,8 +34,14 @@ const storage = multer.diskStorage({
     },
     filename: (req, file, cb) => {
         console.log(file);
-        cb(null, Date.now() + path.extname(file.originalname));
+        let name = Date.now() + path.extname(file.originalname);
+        cb(null, name);
+        window.localStorage.setItem("localUploadedFileName", name)
     }
+    /*filename: (req, file, cb) => {
+        console.log(file);
+        cb(null, file.originalname);
+    }*/
 });
 const fileFilter = (req, file, cb) => {
     if (file.mimetype == 'image/jpeg' || file.mimetype == 'image/png') {
