@@ -15,14 +15,13 @@
 <body>
   <div class="screen">
     <!--navbar-->
-
     <a><i id="goBack" class="goBack fas fa-arrow-left fa-2x"></i></a>
     <span class="titleConfirmarMateriais">Confirmar Materiais</span>
     <!--tabela-->
     <div class="TabelaDiv">
       <form id="formConfirmação">
         <!--   Atenção ao form!!!!!   por no fetch inicio e fim            -->
-        <table class="table">
+        <table id="table" class="table">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -41,144 +40,26 @@
   </label>
               </td>
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Mangueira</td>
-              <td>
-                <div class="check-box-group">
-                  <label class="custom-checkbox" tab-index="0" aria-label="Checkbox Label">
-    <input type="checkbox" checked>
-    <span class="checkmark"></span>
-  </label>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Areia</td>
-              <td>
-                <label class="custom-checkbox" tab-index="0" aria-label="Checkbox Label">
-    <input type="checkbox" checked>
-    <span class="checkmark"></span>
-  </label>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Pá</td>
-              <td>
-                <label class="custom-checkbox" tab-index="0" aria-label="Checkbox Label">
-    <input type="checkbox" checked>
-    <span class="checkmark"></span>
-  </label>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Pá</td>
-              <td>
-                <label class="custom-checkbox" tab-index="0" aria-label="Checkbox Label">
-    <input type="checkbox" checked>
-    <span class="checkmark"></span>
-  </label>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Pá</td>
-              <td>
-                <label class="custom-checkbox" tab-index="0" aria-label="Checkbox Label">
-    <input type="checkbox" checked>
-    <span class="checkmark"></span>
-  </label>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Pá</td>
-              <td>
-                <label class="custom-checkbox" tab-index="0" aria-label="Checkbox Label">
-    <input type="checkbox" checked>
-    <span class="checkmark"></span>
-  </label>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Pá</td>
-              <td>
-                <label class="custom-checkbox" tab-index="0" aria-label="Checkbox Label">
-    <input type="checkbox" checked>
-    <span class="checkmark"></span>
-  </label>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Pá</td>
-              <td>
-                <label class="custom-checkbox" tab-index="0" aria-label="Checkbox Label">
-    <input type="checkbox" checked>
-    <span class="checkmark"></span>
-  </label>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Pá</td>
-              <td>
-                <label class="custom-checkbox" tab-index="0" aria-label="Checkbox Label">
-    <input type="checkbox" checked>
-    <span class="checkmark"></span>
-  </label>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Pá</td>
-              <td>
-                <label class="custom-checkbox" tab-index="0" aria-label="Checkbox Label">
-    <input type="checkbox" checked>
-    <span class="checkmark"></span>
-  </label>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Pá</td>
-              <td>
-                <label class="custom-checkbox" tab-index="0" aria-label="Checkbox Label">
-    <input type="checkbox" checked>
-    <span class="checkmark"></span>
-  </label>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>Pá</td>
-              <td>
-                <label class="custom-checkbox" tab-index="0" aria-label="Checkbox Label">
-    <input type="checkbox" checked>
-    <span class="checkmark"></span>
-  </label>
-              </td>
-            </tr>
           </tbody>
         </table>
       </form>
       <!--                        Atenção ao form!!!!!               -->
-      </div>
-      <!--botao confirmar-->
-      <input id="submit" type="button" class="SubmeterClass" id="SubmeterId" value="SUBMETER"></input>
-      <!--MENUBAR-->
-      <nav class="menubar fixed-bottom">
-        <ul class="nav navbar-nav">
-          <li><a href="MenuPrincipal.html"><i class="fa fa-home fa-3x"></i></a></li>
-          <li><a href="Ranks.html"><i class="fa fa-medal fa-3x"></i></a></li>
-          <li><a href="HistoricoOcorrencias.html"><i class="fa fa-chart-line fa-3x"></i></a></li>
-          <li><a href="PerfilUpdate.html"><i class="fas fa-user-circle fa-3x"></i></a></li>
-        </ul>
-      </nav>
     </div>
+    <!--botao confirmar-->
+    <input id="submit" type="button" class="SubmeterClass" id="SubmeterId" value="SUBMETER"></input>
+    <!--MENUBAR-->
+    <nav class="menubar fixed-bottom">
+      <ul class="nav navbar-nav">
+        <li><a href="MenuPrincipal.html"><i class="fa fa-home fa-3x"></i></a></li>
+        <li><a href="Ranks.html"><i class="fa fa-medal fa-3x"></i></a></li>
+        <li><a href="HistoricoOcorrencias.html"><i class="fa fa-chart-line fa-3x"></i></a></li>
+        <li><a href="PerfilUpdate.html"><i class="fas fa-user-circle fa-3x"></i></a></li>
+      </ul>
+    </nav>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./fetch/materialsConfirm.controller.js"></script>
 </body>
 
 </html>

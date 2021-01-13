@@ -16,9 +16,11 @@
 <body>
     <div id="uploadAvatarDiv">
         <div id="clickOutside"></div>
-        <label class="avatarLabel" for="avatarPreview"><i class="fas fa-images fa-3x"></i></label>
-        <input id="avatarPreview" type="file" name="image"><img id="avatarPrev" src="#" alt="Avatar"></img></input>
-        <input type="submit" id="uploadButton"name="btn_upload_profile_pic" value="Upload"/>
+        <form action="/upload" enctype="multipart/form-data" method="POST"> 
+            <label class="avatarLabel" for="avatarPreview"><i class="fas fa-images fa-3x"></i></label>
+            <input id="avatarPreview" type="file" name="image"><img id="avatarPrev" src="#" alt="Avatar"></img></input>
+            <input type="submit" id="uploadButton" name="btn_upload_profile_pic" value="Upload a file"/>
+        </form>
     </div>
     <div class="frame container" id="frameId">
         <nav class="navbar fixed-top">
@@ -26,14 +28,15 @@
             <span class="title">SECURE4ALL</span>
         </nav>
         
-        
+        <!--
         <div class="avatar">
         <form action="/upload" enctype="multipart/form-data" method="POST"> 
             <input type="file" name="image">
             <input type="submit" id="submitAvatar"name="btn_upload_profile_pic" value="Upload a file"/>
         </form>
         </div>
-        
+        -->
+        <input type="submit" id="submitAvatar"name="btn_upload_profile_pic" value="Upload a file"/>
         
         
         

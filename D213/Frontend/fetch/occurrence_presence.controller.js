@@ -1,22 +1,20 @@
 const id_occurrence = "2"
+let rows = {};
+let obj = [];
 
 function fillTable() {
     fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/operationals')
         .then(res => res.json())
         .then((out) => {
-            let screen = document.getElementById("screen");
-            let count = 1;
-            let txt = "";
             $.each(out, function(index, value) {
-                txt += "<div class='presenceDiv'>";
-                txt += "<form> ";
-                txt += "<span class='ptsClass'>" + "Operational " + value.id_operational + "</span>";
-                txt += '<input type="radio" class="yesClass" name="presence" id="checkyes2" value="1" checked> ';
-                txt += '<input type="radio" class="noClass" name="presence" id="checkno2" value="0">';
-                txt += "</form>"
-                txt += "</div";
+                $('#table tbody').empty();
+                $.each(out, function(index, value) {
+                    obj.push({ "id_material": value.id_material });
+                    $('#table tbody').append('<tr class="fullRow"><th class ="id_material"scope="row">' + value.id_material + '</th><td>' + value.material_type + '</td> <td>  <label class="custom-checkbox" tab-index="0" aria-label="Checkbox Label"> <input class="confirmation"type="checkbox" checked> <span class="checkmark"></span> </label> </td> </tr>')
+                });
+                console.log(obj);
+                rows = JSON.stringify(obj);
             });
-            screen.innerHTML += txt;
         }).catch(err => console.error(err));
 }
 

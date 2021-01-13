@@ -2,7 +2,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const idUser = "1"; //Temporario depois alterar pra LocalHost
 const confirm = document.getElementById("confirmPassword");
 confirm.onclick = savePassword;
-const submit = document.getElementById("submitAvatar");
+const submit = document.getElementById("uploadButton");
 submit.onclick = saveAvatar;
 
 function profileName() {
@@ -100,8 +100,8 @@ function saveNotes() {
 
 function saveAvatar() {
     let data = {};
-    data.newPassword = document.getElementById("submitAvatar").value;
-    console.log(document.getElementById("submitAvatar").value);
+    data.localUploaded = window.localStorage.localUploadedFileName;
+    console.log(window.localStorage.localUploadedFileName);
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
     fetch("https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/" + idUser + "/upload", {

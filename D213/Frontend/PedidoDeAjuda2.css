@@ -162,4 +162,22 @@ top: 35px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+#materiais{
+  position: relative;
+    width: 90%;
+    height: 49%;
+    top: 24%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    overflow: auto;
+}
+.operationalSelectdiv{
+    top: 15%;
+    position: absolute;
+    left: 31%;
+}
+.d-inline{
+  width: auto!important;
+}
 /*          */

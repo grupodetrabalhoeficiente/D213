@@ -13,9 +13,8 @@
     <body>
   <div class="screen">
         <!--navbar-->
-
-        <a><i id="goBack"class="fas fa-arrow-left fa-2x"></i></a>
-        <span class="title">Materiais Utilizados</span>
+        <a><i  id="goBack" class="goBack fas fa-arrow-left fa-2x"></i></a>
+        <span class="titleMateriaisUtilizados">Materiais Utilizados</span>
     <!--tabela-->
     <div class="TabelaDiv">
       <form id="formConfirmação">   <!--                        Atenção ao form!!!!!   por no fetch inicio e fim            -->
@@ -31,8 +30,10 @@
     <tr>
       <th scope="row">1</th>
       <td>Pá</td>
-      <td>
-          <input type="checkbox" class="MaterialCheck form-check-input"/>
+      <td><label class="custom-checkbox" tab-index="0" aria-label="Checkbox Label">
+          <input type="checkbox" class="MaterialCheck form-check-input" checked/>
+          <span class="checkmark"></span>
+  </label>
       </td>
     </tr>
     <tr>

@@ -96,11 +96,12 @@
 }
 
 .goBack {
-     position: absolute;
+    position: absolute;
     top: 35px;
     left: 27px;
     font-size: 24px;
     color: lightgray;
+    z-index:3;
 }
 
 .fixed-bottom {
@@ -558,4 +559,14 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+/*                                                UtilizacaoMateriais                         */
+.titleMateriaisUtilizados{
+  position: absolute;
+    color: #3A3939;
+    width: 100%;
+    top: 30px;
+    left: 81px;
+    font-size: 28px;
+    font-family: INHERIT;
 }

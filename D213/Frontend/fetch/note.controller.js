@@ -6,7 +6,7 @@ document.getElementById("submit").onclick = function(e) {
 };
 
 function saveNotes() {
-    var data = {};
+    let data = {};
     data.description = document.getElementById("NotaTexto").value;
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
