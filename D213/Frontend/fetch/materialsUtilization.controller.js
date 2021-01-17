@@ -5,13 +5,13 @@ let rows = {};
 let obj = [];
 
 function fillTable() {
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/materials')
+    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/materials_utilizations')
         .then(res => res.json())
         .then((out) => {
             $('#table tbody').empty();
             $.each(out, function(index, value) {
                 obj.push({ "id_vei_mat": value.id_vei_mat });
-                $('#table tbody').append('<tr class="fullRow"><th class ="id_material"scope="row">' + value.id_vei_mat + '</th><td>' + value.material_type + '</td> <td>  <label class="custom-checkbox" tab-index="0" aria-label="Checkbox Label"> <input class="confirmation"type="checkbox" checked> <span class="checkmark"></span> </label> </td> </tr>')
+                $('#table tbody').append('<tr class="fullRow"><th class ="id_material"scope="row">' + value.id_vei_mat + '</th><td>' + value.material_type + '</td> <td>  <label class="custom-checkbox" tab-index="0" aria-label="Checkbox Label"> <input class="utilization"type="checkbox" checked> <span class="checkmark"></span> </label> </td> </tr>')
             });
             console.log(obj);
             rows = JSON.stringify(obj);

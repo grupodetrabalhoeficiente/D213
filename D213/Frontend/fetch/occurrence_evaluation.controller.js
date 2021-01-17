@@ -26,28 +26,31 @@ function updatePoints() {
     for (let c = 0; c < data.length; c++) {
         for (let id_operational in obj) {
             if (obj[id_operational].id_operational == data[c].getElementsByClassName("id_operational").item(0).innerHTML) {
-                points.points = data[c].getElementsByClassName("custom-select").item(0).value;
-                fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/evaluations/' + obj[id_operational].id_operational.toString(), {
-                    headers: { 'Content-Type': 'application/json' },
-                    method: 'PUT',
-                    body: JSON.stringify(points)
-                }).then(function(response) {
-                    if (!response.ok) {
-                        console.log(response.status); //=> number 100–599
-                        console.log(response.statusText); //=> String
-                        console.log(response.headers); //=> Headers
-                        console.log(response.url); //=> String
-                        console.log(points)
-                    }
-                    else {
-                        alert("submitted with success");
-                    }
-                }).then(function(result) {
-                    console.log(result);
-                }).catch(function(err) {
-                    alert("Submission error");
-                    console.error(err);
-                });
+                if (data[c].getElementsByClassName("custom-select").item(0).disabled === false) {
+                    points.points = data[c].getElementsByClassName("custom-select").item(0).value;
+                    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/evaluations/' + obj[id_operational].id_operational.toString(), {
+                        headers: { 'Content-Type': 'application/json' },
+                        method: 'PUT',
+                        body: JSON.stringify(points)
+                    }).then(function(response) {
+                        if (!response.ok) {
+                            console.log(response.status); //=> number 100–599
+                            console.log(response.statusText); //=> String
+                            console.log(response.headers); //=> Headers
+                            console.log(response.url); //=> String
+                            console.log(points)
+                        }
+                        else {
+                            data[c].getElementsByClassName("custom-select").item(0).disabled = true;
+                            alert("submitted with success");
+                        }
+                    }).then(function(result) {
+                        console.log(result);
+                    }).catch(function(err) {
+                        alert("Submission error");
+                        console.error(err);
+                    });
+                }
             }
         }
     }

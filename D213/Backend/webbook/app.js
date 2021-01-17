@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const expressSanitizer = require('express-sanitizer');
 const expressValidator = require('express-validator');
 const multer = require('multer');
+const localStorage = require('localStorage');
 //iniciar a aplicação
 // hello massa
 var app = express();
@@ -36,7 +37,8 @@ const storage = multer.diskStorage({
         console.log(file);
         let name = Date.now() + path.extname(file.originalname);
         cb(null, name);
-        window.localStorage.setItem("localUploadedFileName", name)
+        let nameUpload = "../Backend/webbook/uploads/" + name;
+        localStorage.setItem("localUploadedFileName", nameUpload);
     }
     /*filename: (req, file, cb) => {
         console.log(file);

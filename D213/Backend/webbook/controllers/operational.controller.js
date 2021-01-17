@@ -1,5 +1,6 @@
 const connect = require('../config/connect');
 const { validationResult } = require('express-validator/check');
+const localStorage = require('localStorage');
 
 
 //função de leitura que retorna o resultado no callback
@@ -135,10 +136,10 @@ function saveAvatar(req, res) {
 }
 */
 function updateAvatar(req, res) {
-
     const errors = validationResult(req);
     if (errors.isEmpty()) {
-        const avatar = req.sanitize('avatar').unescape();
+        const avatar = localStorage.getItem("localUploadedFileName");
+        console.log(avatar);
         const id_operational = req.sanitize('id_operational').escape();
         let query = "";
         query = connect.con.query('UPDATE login INNER JOIN operational ON login.id_login=operational.id_login and id_operational=?  SET avatar=?  ', [id_operational, avatar], function(err, rows, fields) {

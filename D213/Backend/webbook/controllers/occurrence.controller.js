@@ -438,7 +438,7 @@ function deleteIDWitnessOccurrence(req, res) { // nao deve ser preciso
 function readVehicleMaterialFromOccurrence(req, res) {
     //criar e executar a query de leitura na BD
     const id_occurrence = req.sanitize('id_occurrence').escape();
-    connect.con.query('SELECT occur_vehic_material.*, material.* FROM occur_vehic_material, vehicle_material,material where id_occurrence=? and occur_vehic_material.regist=vehicle_material.regist and vehicle_material.id_material=material.id_material order by id_material', [id_occurrence], function(err,
+    connect.con.query('SELECT occur_vehic_material.*, material.* FROM occur_vehic_material, vehicle_material,material where id_occurrence=? and occur_vehic_material.id_vei_mat=vehicle_material.id_vei_mat and vehicle_material.id_material=material.id_material order by id_material', [id_occurrence], function(err,
         rows, fields) {
         if (!err) {
             //verifica os resultados se o número de linhas for 0 devolve dados não encontrados, caso contrário envia os resultados (rows).
