@@ -199,11 +199,7 @@ top: 35px;
 
 .fixed-bottom {
     position: fixed;
-    background-color: #ececec82;
-    top: 670px;
-    left: 1px;
-    width: 461px;
-    box-shadow: 1px -5px 2px rgb(222 221 221 / 34%);
+    background-color: #ececec;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -460,6 +456,5 @@ html {
   position: absolute;
   top: 65px;
   left: 139px;
-  border: 3px solid #AB0404;
-  box-shadow: 0px 4px 20px rgba(0.3958333432674408, 0.3958333432674408, 0.3958333432674408, 0.15000000596046448);
+  border: 4px solid #AB0404;
 }

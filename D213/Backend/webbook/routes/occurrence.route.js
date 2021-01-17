@@ -11,8 +11,17 @@ app.route('/occurrences')
 app.route('/occurrences/:id_occurrence')
     .get(controllerOccurrence.readIDOccurrence)
 
+app.route('/unfinished_occurrences')
+    .get(controllerOccurrence.readOccurrenceUnfinished)
+
 app.route('/status/:id_occurrence')
     .put(validator.updateStatus, controllerOccurrence.updateOccurrenceStatus) // ver isto ainda (validator feito)
+
+app.route('/arrivals/:id_occurrence')
+    .put(controllerOccurrence.updateOccurrenceArrival) //                     Fazer validator
+
+app.route('/departures/:id_occurrence')
+    .put(controllerOccurrence.updateOccurrenceDeparture) //                   Fazer validator
 
 // Operational Occurrence
 app.route('/occurrences/:id_occurrence/operationals')

@@ -13,7 +13,12 @@ function profileName() {
             .then((out) => {
                 $('#rankPosition div').empty();
                 $.each(out, function(index, value) {
-                    document.getElementById('profileImage').src = value.avatar;
+                    if (value.avatar == null) {
+                        document.getElementById('profileImage').src = "Images/default-profile.png";
+                    }
+                    else {
+                        document.getElementById('profileImage').src = value.avatar;
+                    }
                     document.getElementById('name').innerHTML = value.name;
                     document.getElementById('profileSpeciality').value = value.speciality;
                     document.getElementById('profileTypeOfOperational').value = value.operational_type;
@@ -79,9 +84,6 @@ function saveAvatar() {
             console.log(response.headers); //=> Headers
             console.log(response.url); //=> String
         }
-        else {
-            alert("submitted with success");
-        }
     }).then(function(result) {
         console.log(result);
     }).catch(function(err) {
@@ -95,13 +97,8 @@ function saveAvatar() {
 
 $(document).ready(function() {
     profileName();
+    /*saveAvatar();*/
 })
-
-
-
-
-
-
 
 
 

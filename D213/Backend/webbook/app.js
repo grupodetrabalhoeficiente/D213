@@ -55,14 +55,15 @@ const fileFilter = (req, file, cb) => {
 }
 const upload = multer({ storage: storage, fileFilter: fileFilter });
 app.post('/upload', upload.single('image'), (req, res, next) => {
-    try {
+    res.sendFile('Upload.html', { root: '../../Frontend' });
+    /*try {
         return res.status(201).json({
             message: 'File uploded successfully'
         });
     }
     catch (error) {
         console.error(error);
-    }
+    }*/
 });
 
 //forçar utilização das bibliotecas

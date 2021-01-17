@@ -27,6 +27,7 @@ function fillRank() {
                 txt += "<div class='eachPersonRankBody'>";
                 countRank += 1;
                 txt += "<span id='numberRank'>" + countRank + "º</span>";
+                txt += "<img id='avatarRank' src='" + value.avatar + "'></img>";
                 txt += "<span id='nameRank'>" + value.name + "</span>";
                 if (value.points == null)
                     txt += "<span id='pointsRank'>0</span>";

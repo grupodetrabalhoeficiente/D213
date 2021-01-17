@@ -11,7 +11,7 @@ function fillTable() {
             $('#table tbody').empty();
             $.each(out, function(index, value) {
                 obj.push({ "id_vei_mat": value.id_vei_mat });
-                $('#table tbody').append('<tr class="fullRow"><th class ="id_material"scope="row">' + value.id_vei_mat + '</th><td>' + value.material_type + '</td> <td>  <label class="custom-checkbox" tab-index="0" aria-label="Checkbox Label"> <input class="confirmation"type="checkbox" checked> <span class="checkmark"></span> </label> </td> </tr>')
+                $('#table tbody').append('<tr class="fullRow"><th class ="id_vei_mat"scope="row">' + value.id_vei_mat + '</th><td>' + value.material_type + '</td> <td>  <label class="custom-checkbox" tab-index="0" aria-label="Checkbox Label"> <input class="confirmation"type="checkbox" checked> <span class="checkmark"></span> </label> </td> </tr>')
             });
             console.log(obj);
             rows = JSON.stringify(obj);
@@ -24,7 +24,7 @@ function updateConfirmation() {
     data = document.getElementsByClassName("fullRow");
     for (let c = 0; c < data.length; c++) {
         for (let id_vei_mat in obj) {
-            if (obj[id_vei_mat].id_vei_mat == data[c].getElementsByClassName("id_material").item(0).innerHTML) {
+            if (obj[id_vei_mat].id_vei_mat == data[c].getElementsByClassName("id_vei_mat").item(0).innerHTML) {
                 if (data[c].getElementsByClassName("confirmation").item(0).disabled === false) {
                     if (data[c].getElementsByClassName("confirmation").item(0).checked === true) {
                         confirmation.confirmation = '1';

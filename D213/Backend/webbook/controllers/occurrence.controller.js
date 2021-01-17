@@ -4,7 +4,7 @@ const { validationResult } = require('express-validator/check');
 //função de leitura que retorna o resultado no callback
 function readOccurrence(req, res) {
     //criar e executar a query de leitura na BD
-    connect.con.query('SELECT * from occurrence order by id_occurrence', function(err,
+    connect.con.query('SELECT * from occurrence where status=? order by id_occurrence', ['Finalizada'], function(err,
         rows, fields) {
         if (!err) {
             //verifica os resultados se o número de linhas for 0 devolve dados não encontrados, caso contrário envia os resultados (rows).
@@ -40,7 +40,7 @@ function readOccurrenceMonths(req, res) {
 
 function readOccurrenceUnfinished(req, res) {
     //criar e executar a query de leitura na BD
-    connect.con.query('SELECT * from occurrence where status=? order by id_occurrence', ['Em progresso'], function(err,
+    connect.con.query('SELECT * from occurrence where status=? order by id_occurrence', ['Em curso'], function(err,
         rows, fields) {
         if (!err) {
             //verifica os resultados se o número de linhas for 0 devolve dados não encontrados, caso contrário envia os resultados (rows).
@@ -85,6 +85,44 @@ function updateOccurrenceStatus(req, res) {
     const id_occurrence = req.sanitize('id_occurrence').escape();
     let query = "";
     query = connect.con.query('update ?? SET status=? where id_occurrence=?', ['occurrence', "Finalizada", id_occurrence], function(err, rows,
+        fields) {
+        console.log(query.sql);
+        if (!err) {
+            console.log("Number of records updated: " + rows.affectedRows);
+            res.status(200).send({ "msg": "update with success" });
+        }
+        else {
+            res.status(400).send({ "msg": err.code });
+            console.log('Error while performing Query.', err);
+        }
+    });
+}
+
+function updateOccurrenceArrival(req, res) {
+    //receber os dados do formuário que são enviados por post
+    const id_occurrence = req.sanitize('id_occurrence').escape();
+    const arrival = req.sanitize('arrival').escape();
+    let query = "";
+    query = connect.con.query('update ?? SET arrival=? where id_occurrence=?', ['occurrence', arrival, id_occurrence], function(err, rows,
+        fields) {
+        console.log(query.sql);
+        if (!err) {
+            console.log("Number of records updated: " + rows.affectedRows);
+            res.status(200).send({ "msg": "update with success" });
+        }
+        else {
+            res.status(400).send({ "msg": err.code });
+            console.log('Error while performing Query.', err);
+        }
+    });
+}
+
+function updateOccurrenceDeparture(req, res) {
+    //receber os dados do formuário que são enviados por post
+    const id_occurrence = req.sanitize('id_occurrence').escape();
+    const departure = req.sanitize('arrival').escape();
+    let query = "";
+    query = connect.con.query('update ?? SET departure=? where id_occurrence=?', ['occurrence', departure, id_occurrence], function(err, rows,
         fields) {
         console.log(query.sql);
         if (!err) {
@@ -482,7 +520,7 @@ function readIDVehicleMaterialOccurrence(req, res) {
 
 function readConfirmedVehicleMaterialOccurrence(req, res) {
     const id_occurrence = req.sanitize('id_occurrence').escape();
-    const confirmation = 1;
+    const confirmation = '1';
     //criar e executar a query de leitura na BD
     connect.con.query('SELECT occur_vehic_material.*, material.* FROM occur_vehic_material, vehicle_material, material where id_occurrence=? and confirmation=? and occur_vehic_material.id_vei_mat=vehicle_material.id_vei_mat and vehicle_material.id_material=material.id_material', [id_occurrence, confirmation], function(err,
         rows, fields) {
@@ -658,6 +696,8 @@ module.exports = {
     readOccurrenceUnfinished: readOccurrenceUnfinished,
     readIDOccurrence: readIDOccurrence,
     updateOccurrenceStatus: updateOccurrenceStatus,
+    updateOccurrenceArrival: updateOccurrenceArrival,
+    updateOccurrenceDeparture: updateOccurrenceDeparture(),
 
     readOperationalOccurrence: readOperationalOccurrence,
     readOperationalFromOccurrence: readOperationalFromOccurrence,

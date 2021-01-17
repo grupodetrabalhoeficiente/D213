@@ -33,7 +33,7 @@ exports.updateConfirmation = [check('confirmation')
 // app.put '/occurrences/:id_occurrence/materials_utilizations/:id_vei_mat'   ainda nao testada
 exports.updateUtilization = [check('utilization')
     .custom((val, { req, loc, path }) => {
-        if (val !== 0 && val !== 1) {
+        if (val !== '0' && val !== '1') {
             throw new Error("Utilização inválida.")
         }
         else {

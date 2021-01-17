@@ -16,6 +16,7 @@ openW.onclick = openWitness;
 let openN = document.getElementById("notaId");
 openN.onclick = openNotes;
 
+
 function openPresence() {
     window.location.href = "OperationalsPresence.html";
 }
@@ -60,3 +61,4 @@ function opencloseForm() {
         }
     }
 }*/
+
