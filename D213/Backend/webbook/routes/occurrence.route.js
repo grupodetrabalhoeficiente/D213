@@ -77,6 +77,8 @@ app.route('/occurrences/:id_occurrence/notes')
 
 app.route('/occurrences/:id_occurrence/notes/:id_note')
     .get(controllerOccurrence.readIDNote)
-    .delete(controllerOccurrence.deleteIDNote) // nao é preciso
+
+app.route('/occurrences/:id_occurrence/help_requests')
+    .post(controllerOccurrence.saveOccurrenceHelpRequest)
 
 module.exports = app;

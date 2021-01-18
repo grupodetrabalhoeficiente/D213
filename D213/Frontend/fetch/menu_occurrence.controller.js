@@ -1,7 +1,48 @@
 const id_occurrence = "2";
-
+const stage = 3;
 let arrivalOccurrence = document.getElementById("chegadaId");
 arrivalOccurrence.onclick = arrivalOccurrenceFunction;
+
+function occurrenceStage() {
+    if (stage === 0) {
+        document.getElementById('dadosId').className = 'hidden';
+        document.getElementById('ajudaId').className = 'hidden';
+        document.getElementById('notaId').className = 'hidden';
+        document.getElementById('testemunhaId').className = 'hidden';
+        document.getElementById('colonId').className = 'hidden';
+        document.getElementById('minuteId').className = 'hidden';
+        document.getElementById('hourId').className = 'hidden';
+        document.getElementById('chegadaId').className = 'hidden';
+        document.getElementById('barId').className = 'hidden';
+        document.getElementById('finalizarId').className = 'hidden';
+    }
+    else {
+        if (stage === 2) {
+            document.getElementById('ajudaId').className = 'hidden';
+            document.getElementById('notaId').className = 'hidden';
+            document.getElementById('testemunhaId').className = 'hidden';
+            document.getElementById('colonId').className = 'hidden';
+            document.getElementById('minuteId').className = 'hidden';
+            document.getElementById('hourId').className = 'hidden';
+            document.getElementById('chegadaId').className = 'hidden';
+            document.getElementById('barId').className = 'hidden';
+        }
+        else {
+            if (stage === 3) {
+                document.getElementById('ajudaId').className = 'hidden';
+                document.getElementById('notaId').className = 'hidden';
+                document.getElementById('testemunhaId').className = 'hidden';
+                document.getElementById('barId').className = 'hidden';
+                document.getElementById('finalizarId').className = 'hidden';
+            }
+            else {
+                if (stage === 4) {
+                    document.getElementById('finalizarId').innerHTML = 'FINALIZAR OPERAÇÃO';
+                }
+            }
+        }
+    }
+}
 
 function arrivalOccurrenceFunction() {
     let data = {};
@@ -10,10 +51,7 @@ function arrivalOccurrenceFunction() {
 
     data.arrival = arrival;
 
-    document.getElementById("hourId").value = arrival.slice(11, 13);
-    document.getElementById("minuteId").value = arrival.slice(14, 16);
-
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/evaluations/' + obj[id_operational].id_operational.toString(), {
+    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/arrivals/' + id_occurrence, {
         headers: { 'Content-Type': 'application/json' },
         method: 'PUT',
         body: JSON.stringify(data)
@@ -26,7 +64,8 @@ function arrivalOccurrenceFunction() {
             console.log(data)
         }
         else {
-            //data[c].getElementsByClassName("custom-select").item(0).disabled = true;
+            document.getElementById("hourId").value = arrival.slice(11, 13);
+            document.getElementById("minuteId").value = arrival.slice(14, 16);
             alert("submitted with success");
         }
     }).then(function(result) {
@@ -36,3 +75,7 @@ function arrivalOccurrenceFunction() {
         console.error(err);
     });
 }
+
+$(document).ready(function() {
+    occurrenceStage();
+})
