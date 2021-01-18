@@ -19,6 +19,7 @@ function fillTable() {
 }
 
 function updatePresence() {
+    let flag;
     let presence = {};
     let data = {};
     data = document.getElementsByClassName("fullRow");
@@ -26,6 +27,7 @@ function updatePresence() {
         for (let id_operational in obj) {
             if (obj[id_operational].id_operational == data[c].getElementsByClassName("id_operational").item(0).innerHTML) {
                 if (data[c].getElementsByClassName("presence").item(0).disabled === false) {
+                    flag=true;
                     if (data[c].getElementsByClassName("presence").item(0).checked === true) {
                         presence.presence = '1';
                     }
@@ -57,6 +59,11 @@ function updatePresence() {
                 }
             }
         }
+    }
+    if(flag){
+    localStorage.setItem('stage', Number(localStorage.getItem('stage')) +1);
+    console.log(localStorage.getItem('stage'));
+    window.location.replace("MenuOcorrencia.html");
     }
 }
 $(document).ready(function() {

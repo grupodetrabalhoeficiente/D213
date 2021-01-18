@@ -19,6 +19,9 @@ function saveHelpRequest() {
     data.num_materials= num_materials.toString();
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
+    if(data.material_type.length ===0 &&  data.num_operationals==='0'){
+        
+    }else {
     fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/help_requests', {
         headers: { 'Content-Type': 'application/json' },
         method: 'POST',
@@ -38,6 +41,7 @@ function saveHelpRequest() {
         }
         else {
             alert("submitted with success");
+            localStorage.removeItem('reason');
         }
     }).then(function(result) {
         console.log(result);
@@ -45,4 +49,5 @@ function saveHelpRequest() {
         alert("Submission error");
         console.error(err);
     });
+}
 }

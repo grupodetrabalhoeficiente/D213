@@ -19,6 +19,7 @@ function fillTable() {
 }
 
 function updateConfirmation() {
+    let flag;
     let confirmation = {};
     let data = {};
     data = document.getElementsByClassName("fullRow");
@@ -26,6 +27,7 @@ function updateConfirmation() {
         for (let id_vei_mat in obj) {
             if (obj[id_vei_mat].id_vei_mat == data[c].getElementsByClassName("id_vei_mat").item(0).innerHTML) {
                 if (data[c].getElementsByClassName("confirmation").item(0).disabled === false) {
+                     flag=true;
                     if (data[c].getElementsByClassName("confirmation").item(0).checked === true) {
                         confirmation.confirmation = '1';
                     }
@@ -57,7 +59,12 @@ function updateConfirmation() {
                 }
             }
         }
-
+ 
+    }
+    if(flag){
+    localStorage.setItem('stage', Number(localStorage.getItem('stage')) +1);
+    console.log(localStorage.getItem('stage'));
+    window.location.replace("MenuOcorrencia.html");
     }
 }
 

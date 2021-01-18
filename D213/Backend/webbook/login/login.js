@@ -37,7 +37,7 @@
        User.findOne({where: {email:email}}).then(function(user){
       if(user)
       {
-        return done(null, false, {message : 'That email is already taken'} );
+        return done(null, false, {message : 'Esse email já existe'} );
       }
       else
       {
@@ -78,7 +78,7 @@
     }
     User.findOne({ where : { email: email}}).then(function (user) {
       if (!user) {
-        return done(null, false, { message: 'Email não existe' });
+        return done(null, false, { message: 'Email não existe.' });
       }
       if (!isValidPassword(user.password,password)) {
 
@@ -89,7 +89,7 @@
       return done(null,userinfo);
     }).catch(function(err){
       console.log("Error:",err);
-      return done(null, false, { message: 'Something went wrong with your Signin' });
+      return done(null, false, { message: 'Algum correu mal no início de sessão!' });
     });
   }
   ));
