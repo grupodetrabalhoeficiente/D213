@@ -272,8 +272,8 @@ function updateOperationalOccurrenceDeparture(req, res) {
 }
 
 function updateOperationalOccurrencePoints(req, res) {
-    /*const errors = validationResult(req);
-    if (errors.isEmpty()) {*/
+    const errors = validationResult(req);
+    if (errors.isEmpty()) {
     const points = req.sanitize('points').escape();
     const id_operational = req.sanitize('id_operational').escape();
     const id_occurrence = req.sanitize('id_occurrence').escape();
@@ -290,10 +290,10 @@ function updateOperationalOccurrencePoints(req, res) {
             console.log('Error while performing Query.', err);
         }
     });
-    // }
-    /*else {
+     }
+    else {
         return res.status(400).json({ errors: errors.array() });
-    }*/
+    }
 }
 
 function updateOperationalOccurrencePresence(req, res) {

@@ -95,7 +95,7 @@ exports.updateDeparture = [check('departure', "A hora de partida da ocorrência 
 // app.put /occurrences/:id_occurrence/evaluations/:id_operational  ainda nao testada
 exports.updatePoints = [check('points', "A avaliação é inválida")
     .custom((val, { req, loc, path }) => {
-        if (val !== 1 && val !== 2 && val !== 3 && val !== 4 && val !== 5) {
+        if (val !== '1' && val !== '2' && val !== '3' && val !== '4' && val !== '5') {
             throw new Error("Avaliação inválida.")
         }
         else {

@@ -52,9 +52,23 @@ function fillRank() {
                 txt += "</div>";
             });
             screen.innerHTML += txt;
+            let panels = document.querySelectorAll(".eachPersonRankBody");
+            for (let i = 0; i < panels.length; i++) {
+                panels[i].addEventListener("click", openPanelHandler);
+            }
         }).catch(err => console.error(err));
 }
 $(document).ready(function() {
     fillRank();
     ownRank();
 })
+
+function OpenPanel(elem) {
+    localStorage.setItem("operationalSelected", elem.id_operational);
+    console.log(localStorage.operationalSelected);
+    window.location.replace("OcorrenciaDados.html");
+}
+
+function openPanelHandler(event) {
+    OpenPanel(this);
+}

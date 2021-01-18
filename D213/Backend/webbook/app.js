@@ -10,8 +10,7 @@ const expressValidator = require('express-validator');
 const multer = require('multer');
 const localStorage = require('localStorage');
 //iniciar a aplicação
-// hello massa
-var app = express();
+let app = express();
 app.use(express.static("../../Frontend/"));
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
 app.use(expressSanitizer());
@@ -23,9 +22,6 @@ app.listen(port, function(err) {
     }
     else { console.log(err); }
 });
-app.get('/', function(req, res) {
-    res.send("hello");
-})
 //Multer
 const path = require('path');
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));

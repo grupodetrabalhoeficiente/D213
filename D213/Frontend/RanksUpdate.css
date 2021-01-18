@@ -36,6 +36,9 @@
     color: lightgray;
     z-index:3;
 }
+#defaultRankBody{
+  display:none;
+}
 .myRank{
   position: absolute;
   width: 367px;

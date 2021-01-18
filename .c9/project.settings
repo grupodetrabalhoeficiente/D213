@@ -1,13 +1,4 @@
 {
-    "build": {
-        "@saveall": true
-    },
-    "instance": {
-        "@automaticShutdown": "30"
-    },
-    "javascript": {
-        "@formatOnSave": true
-    },
     "language": {
         "tern_defs": {
             "json()": {
@@ -34,9 +25,6 @@
             "@inited": "true",
             "json()": {}
         }
-    },
-    "typescript": {
-        "@formatOnSave": true
     },
     "welcome": {
         "@first": true

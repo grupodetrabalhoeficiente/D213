@@ -4,6 +4,7 @@
   "description": "project",
   "main": "app.js",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
@@ -12,6 +13,8 @@
     "express-validator": "^5.3.0",
     "multer": "^1.4.2",
     "mysql": "^2.18.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
     "router": "^1.3.5"
   },
   "devDependencies": {},
@@ -21,7 +24,7 @@
   },
   "keywords": [
     "pw",
-     "example",
+    "example",
     "heroku"
   ],
   "author": "grupo213",
