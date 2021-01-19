@@ -13,6 +13,14 @@ function verification(){
     }
 }
 
+function changingPage(){
+    if(idUser != localStorage.operationalSelected){
+        document.getElementById("menuBut").onclick = localStorage.setItem("operationalSelected", idUser);
+        document.getElementById("rankBut").onclick = localStorage.setItem("operationalSelected", idUser);
+        document.getElementById("histBut").onclick = localStorage.setItem("operationalSelected", idUser);
+        document.getElementById("perfilBut").onclick = localStorage.setItem("operationalSelected", idUser);
+    }
+}
 
 function ownProfile() {
     async function fetchAsync() {
@@ -140,6 +148,7 @@ function saveAvatar() {
 
 $(document).ready(function() {
     verification();
+    changingPage();
 })
 
 

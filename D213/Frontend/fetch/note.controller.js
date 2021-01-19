@@ -1,5 +1,4 @@
-const urlParams = new URLSearchParams(window.location.search);
-const id_occurrence = "1";
+const id_occurrence = localStorage.getItem('id_occurrence_in_progress');
 document.getElementById("submit").onclick = function(e) {
     //validação do formulário ao submeter
     saveNotes();

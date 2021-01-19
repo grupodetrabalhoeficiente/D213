@@ -1,4 +1,4 @@
-const id_occurrence = "1";
+const id_occurrence = localStorage.getItem('id_occurrence_in_progress');
 const submit = document.getElementById("submit");
 submit.onclick = updateConfirmation;
 let rows = {};
@@ -63,7 +63,6 @@ function updateConfirmation() {
     }
     if(flag){
     localStorage.setItem('stage', Number(localStorage.getItem('stage')) +1);
-    console.log(localStorage.getItem('stage'));
     window.location.replace("MenuOcorrencia.html");
     }
 }

@@ -1,4 +1,4 @@
-const id_occurrence = "1";
+const id_occurrence = localStorage.getItem('id_occurrence_in_progress');
 const submit = document.getElementById("submit");
 submit.onclick = updateUtilization;
 let rows = {};
@@ -59,6 +59,8 @@ function updateUtilization() {
         }
 
     }
+     localStorage.setItem('stage', Number(localStorage.getItem('stage')) +1);
+    window.location.replace('AvaliarOperacionais.html');
 }
 
 

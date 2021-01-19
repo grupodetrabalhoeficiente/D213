@@ -23,9 +23,14 @@ function fillTable() {
 }
 
 function OpenPanel(elem) {
-    localStorage.setItem("id_occurrence_in_progress", elem.id);
-    localStorage.setItem("stage", 0);
-    window.location.replace("MenuOcorrencia.html");
+    if ( localStorage.getItem('id_occurrence_in_progress') === elem.id) {
+        window.location.replace("MenuOcorrencia.html");
+    }
+    else {
+        localStorage.setItem("id_occurrence_in_progress", elem.id);
+        localStorage.setItem("stage", 0);
+        window.location.replace("MenuOcorrencia.html");
+    }
 }
 
 function openPanelHandler(event) {

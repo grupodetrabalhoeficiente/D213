@@ -1,4 +1,4 @@
-const id_occurrence = "2";
+const id_occurrence = localStorage.getItem('id_occurrence_in_progress');
 const submit = document.getElementById("submit");
 submit.onclick = updatePoints;
 let rows = {};
@@ -54,6 +54,8 @@ function updatePoints() {
             }
         }
     }
+    window.location.replace('MenuPrincipal.html');
+    localStorage.removeItem('id_occurrence_in_progress');
 }
 
 $(document).ready(function() {

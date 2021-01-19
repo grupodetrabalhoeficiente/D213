@@ -1,4 +1,4 @@
-const id_occurrence = "2"
+const id_occurrence = localStorage.getItem('id_occurrence_in_progress');
 let obj = [];
 const submit = document.getElementById("submit");
 submit.onclick = updatePresence;
