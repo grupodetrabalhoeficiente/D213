@@ -12,4 +12,8 @@ app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
 
 app.route('/ranks')
     .get(controllerOperational.readOperationalPoints)
+
+/*app.route('/ranks/:id_operational')
+    .get(controllerOperational.readIDOperational)
+*/
 module.exports = app;

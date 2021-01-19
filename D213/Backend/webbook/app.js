@@ -9,6 +9,9 @@ const expressSanitizer = require('express-sanitizer');
 const expressValidator = require('express-validator');
 const multer = require('multer');
 const localStorage = require('localStorage');
+
+/*const usercontroller = require('./user/usercontroller');*/
+
 //iniciar a aplicação
 let app = express();
 app.use(express.static("../../Frontend/"));
@@ -65,9 +68,13 @@ app.post('/upload', upload.single('image'), (req, res, next) => {
 //forçar utilização das bibliotecas
 app.use(cors());
 app.use(cookieParser());
+
+/*app.use('/users', usercontroller);*/
+
 module.exports = app;
 /*require('./multer.js');*/
 require('./routes/occurrence.route.js');
 require('./routes/perfil.route.js');
 require('./routes/main.route.js');
 require('./routes/rank.route.js');
+require('./routes/auth.js');

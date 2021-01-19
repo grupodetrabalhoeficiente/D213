@@ -5,7 +5,16 @@ confirm.onclick = savePassword;
 /*const submit = document.getElementById("uploadButton");
 submit.onclick = saveAvatar;*/
 
-function profileName() {
+function verification(){
+    if(idUser == localStorage.operationalSelected){
+        ownProfile();
+    }else{
+        otherProfile();
+    }
+}
+
+
+function ownProfile() {
     async function fetchAsync() {
         /*fetch(`https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/${urlParams.get('id_operational')}`)*/
         fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + idUser)
@@ -34,6 +43,40 @@ function profileName() {
     fetchAsync().then(data => console.log("ok")).catch(reason => console.log(reason.message));
 }
 
+//Other operationals profile
+function otherProfile() {
+    async function fetchAsync() {
+        /*fetch(`https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/${urlParams.get('id_operational')}`)*/
+        fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + localStorage.operationalSelected)
+            .then(res => res.json())
+            .then((out) => {
+                $('#rankPosition div').empty();
+                $.each(out, function(index, value) {
+                    if (value.avatar == null) {
+                        document.getElementById('profileImage').src = "Images/default-profile.png";
+                    }
+                    else {
+                        document.getElementById('profileImage').src = value.avatar;
+                    }
+                    document.getElementById('name').innerHTML = value.name;
+                    document.getElementById('profileSpeciality').value = value.speciality;
+                    document.getElementById('profileTypeOfOperational').value = value.operational_type;
+                    document.getElementById('profileEmail').value = value.email;
+                    document.getElementById('profilePhoneNumber').value = value.phone_number;
+                    document.getElementById('profileBirthDate').value = value.birth_date;
+                    document.getElementById("passwordId").remove();
+                    document.getElementById("changePasswordId").remove();
+                    document.getElementById("newPasswordId").remove();
+                    document.getElementById("confirmPasswordId").remove();
+                    document.getElementById('position').innerHTML = value.points;
+                })
+            }).catch(err => console.error(err));
+    }
+    //chama a função fetchAsync()
+    fetchAsync().then(data => console.log("ok")).catch(reason => console.log(reason.message));
+}
+
+
 /*   Save new password   */
 function savePassword() {
     let data = {};
@@ -56,7 +99,7 @@ function savePassword() {
         else {
             document.getElementById("profileNewPassword").value = ""; //limpeza dos dados do form
             document.getElementById("profileConfirmPassword").value = "";
-            profileName();
+            ownProfile();
             alert("submitted with success");
         }
     }).then(function(result) {
@@ -96,8 +139,7 @@ function saveAvatar() {
 /*                  */
 
 $(document).ready(function() {
-    profileName();
-    /*saveAvatar();*/
+    verification();
 })
 
 
@@ -134,7 +176,7 @@ $(document).ready(function() {
     listUsers();
 })*/
 
-/*function profileName() {
+/*function ownProfile() {
     fetch('https://console.aws.amazon.com/cloud9/ide/bdc5dcf6bca04b39ab10a706cdb79f29/operationals/:id_operational')
         .then(function(response) {
             return response.json();
@@ -194,7 +236,7 @@ $(document).ready(function() {
     listUsers();
 })*/
 
-/*function profileName() {
+/*function ownProfile() {
     fetch('https://console.aws.amazon.com/cloud9/ide/bdc5dcf6bca04b39ab10a706cdb79f29/operationals/:id_operational')
         .then(function(response) {
             return response.json();

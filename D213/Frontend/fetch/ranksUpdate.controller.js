@@ -32,7 +32,7 @@ function fillRank() {
             let txt = "";
             let countRank = 0;
             $.each(out, function(index, value) {
-                txt += "<div class='eachPersonRankBody'>";
+                txt += "<div class='eachPersonRankBody' id='"+value.id_operational+"'>";
                 countRank += 1;
                 txt += "<span id='numberRank'>" + countRank + "º</span>";
                 if (value.id_operational == idUser) {
@@ -64,9 +64,9 @@ $(document).ready(function() {
 })
 
 function OpenPanel(elem) {
-    localStorage.setItem("operationalSelected", elem.id_operational);
+    localStorage.setItem("operationalSelected", elem.id);
     console.log(localStorage.operationalSelected);
-    window.location.replace("OcorrenciaDados.html");
+    window.location.replace("./PerfilUpdate.html");
 }
 
 function openPanelHandler(event) {
