@@ -11,7 +11,7 @@ function goBack() {
 }
 
 function fillTable() {
-    fetch('https://d213.herokuapp.com/unfinished_occurrences/')
+    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/unfinished_occurrences/')
         .then(res => res.json())
         .then((out) => {
             $('#table tbody').empty();
