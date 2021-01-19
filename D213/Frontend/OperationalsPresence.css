@@ -153,13 +153,13 @@
     color: #d2d2d2;
 }
 
-#goBack {
+/*#goBack {
     position: absolute;
     top: 35px;
     left: 27px;
     font-size: 24px;
     color: lightgray;
-}
+}*/
 
 .fixed-bottom {
     position: fixed;

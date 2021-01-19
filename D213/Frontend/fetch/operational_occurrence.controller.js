@@ -1,7 +1,12 @@
 const id_operational = "1";
+let back = document.getElementById("goBack");
+back.onclick = goBack;
 
+function goBack() {
+    window.history.back();
+}
 function fillTable() {
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + id_operational + '/occurrences')
+    fetch('https://d213.herokuapp.com/operationals/' + id_operational + '/occurrences')
         .then(res => res.json())
         .then((out) => {
             let count = 1;

@@ -3,7 +3,7 @@ const idUser = "1";
 function ownRank() {
     async function fetchAsync() {
         /*fetch(`https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/${urlParams.get('id_operational')}`)*/
-        fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + idUser)
+        fetch('https://d213.herokuapp.com/operationals/' + idUser)
             .then(res => res.json())
             .then((out) => {
                 $('#myRank div').empty();
@@ -25,7 +25,7 @@ function ownRank() {
 }
 
 function fillRank() {
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/ranks')
+    fetch('https://d213.herokuapp.com/ranks')
         .then(res => res.json())
         .then((out) => {
             let screen = document.getElementById("everybodyRank");

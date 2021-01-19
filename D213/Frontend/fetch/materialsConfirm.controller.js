@@ -3,9 +3,14 @@ const submit = document.getElementById("submit");
 submit.onclick = updateConfirmation;
 let rows = {};
 let obj = [];
+let back = document.getElementById("goBack");
+back.onclick = goBack;
 
+function goBack() {
+    window.history.back();
+}
 function fillTable() {
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/materials')
+    fetch('https://d213.herokuapp.com/occurrences/' + id_occurrence + '/materials')
         .then(res => res.json())
         .then((out) => {
             $('#table tbody').empty();
@@ -35,7 +40,7 @@ function updateConfirmation() {
                         confirmation.confirmation = '0';
                     }
                     console.log(confirmation);
-                    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/materials/' + obj[id_vei_mat].id_vei_mat.toString(), {
+                    fetch('https://d213.herokuapp.com/occurrences/' + id_occurrence + '/materials/' + obj[id_vei_mat].id_vei_mat.toString(), {
                         headers: { 'Content-Type': 'application/json' },
                         method: 'PUT',
                         body: JSON.stringify(confirmation)

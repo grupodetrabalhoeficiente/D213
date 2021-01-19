@@ -25,7 +25,7 @@ function changingPage(){
 function ownProfile() {
     async function fetchAsync() {
         /*fetch(`https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/${urlParams.get('id_operational')}`)*/
-        fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + idUser)
+        fetch('https://d213.herokuapp.com/operationals/' + idUser)
             .then(res => res.json())
             .then((out) => {
                 $('#rankPosition div').empty();
@@ -55,7 +55,7 @@ function ownProfile() {
 function otherProfile() {
     async function fetchAsync() {
         /*fetch(`https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/${urlParams.get('id_operational')}`)*/
-        fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + localStorage.operationalSelected)
+        fetch('https://d213.herokuapp.com/operationals/' + localStorage.operationalSelected)
             .then(res => res.json())
             .then((out) => {
                 $('#rankPosition div').empty();
@@ -93,7 +93,7 @@ function savePassword() {
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
     /*fetch(`https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/${urlParams.get('id_operational')}`, {*/
-    fetch("https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/" + idUser, {
+    fetch("https://d213.herokuapp.com/operationals/" + idUser, {
         headers: { 'Content-Type': 'application/json' },
         method: 'PUT',
         body: JSON.stringify(data)
@@ -124,7 +124,7 @@ function saveAvatar() {
     console.log(localStorage.localUploadedFileName);
     //console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch("https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/" + idUser + "/upload", {
+    fetch("https://d213.herokuapp.com/operationals/" + idUser + "/upload", {
         headers: { 'Content-Type': 'application/json' },
         method: 'PUT',
         body: JSON.stringify(data)
