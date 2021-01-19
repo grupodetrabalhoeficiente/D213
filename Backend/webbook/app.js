@@ -8,9 +8,12 @@ const bodyParser = require('body-parser');
 const expressSanitizer = require('express-sanitizer');
 const expressValidator = require('express-validator');
 const multer = require('multer');
+const localStorage = require('localStorage');
+
+/*const usercontroller = require('./user/usercontroller');*/
+
 //iniciar a aplicação
-// hello massa
-var app = express();
+let app = express();
 app.use(express.static("../../Frontend/"));
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
 app.use(expressSanitizer());
@@ -22,9 +25,6 @@ app.listen(port, function(err) {
     }
     else { console.log(err); }
 });
-app.get('/', function(req, res) {
-    res.send("hello");
-})
 //Multer
 const path = require('path');
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
@@ -36,7 +36,8 @@ const storage = multer.diskStorage({
         console.log(file);
         let name = Date.now() + path.extname(file.originalname);
         cb(null, name);
-        window.localStorage.setItem("localUploadedFileName", name)
+        let nameUpload = "../Backend/webbook/uploads/" + name;
+        localStorage.setItem("localUploadedFileName", nameUpload);
     }
     /*filename: (req, file, cb) => {
         console.log(file);
@@ -53,22 +54,27 @@ const fileFilter = (req, file, cb) => {
 }
 const upload = multer({ storage: storage, fileFilter: fileFilter });
 app.post('/upload', upload.single('image'), (req, res, next) => {
-    try {
+    res.sendFile('Upload.html', { root: '../../Frontend' });
+    /*try {
         return res.status(201).json({
             message: 'File uploded successfully'
         });
     }
     catch (error) {
         console.error(error);
-    }
+    }*/
 });
 
 //forçar utilização das bibliotecas
 app.use(cors());
 app.use(cookieParser());
+
+/*app.use('/users', usercontroller);*/
+
 module.exports = app;
 /*require('./multer.js');*/
 require('./routes/occurrence.route.js');
 require('./routes/perfil.route.js');
 require('./routes/main.route.js');
 require('./routes/rank.route.js');
+require('./routes/auth.js');

@@ -4,7 +4,7 @@ const { validationResult } = require('express-validator/check');
 //função de leitura que retorna o resultado no callback
 function readOccurrence(req, res) {
     //criar e executar a query de leitura na BD
-    connect.con.query('SELECT * from occurrence order by id_occurrence', function(err,
+    connect.con.query('SELECT * from occurrence where status=? order by id_occurrence', ['Finalizada'], function(err,
         rows, fields) {
         if (!err) {
             //verifica os resultados se o número de linhas for 0 devolve dados não encontrados, caso contrário envia os resultados (rows).
@@ -40,7 +40,7 @@ function readOccurrenceMonths(req, res) {
 
 function readOccurrenceUnfinished(req, res) {
     //criar e executar a query de leitura na BD
-    connect.con.query('SELECT * from occurrence where status=? order by id_occurrence', ['Em progresso'], function(err,
+    connect.con.query('SELECT * from occurrence where status=? order by id_occurrence', ['Em curso'], function(err,
         rows, fields) {
         if (!err) {
             //verifica os resultados se o número de linhas for 0 devolve dados não encontrados, caso contrário envia os resultados (rows).
@@ -98,6 +98,44 @@ function updateOccurrenceStatus(req, res) {
     });
 }
 
+function updateOccurrenceArrival(req, res) {
+    //receber os dados do formuário que são enviados por post
+    const id_occurrence = req.sanitize('id_occurrence').escape();
+    const arrival = req.sanitize('arrival').escape();
+    let query = "";
+    query = connect.con.query('update ?? SET arrival=? where id_occurrence=?', ['occurrence', arrival, id_occurrence], function(err, rows,
+        fields) {
+        console.log(query.sql);
+        if (!err) {
+            console.log("Number of records updated: " + rows.affectedRows);
+            res.status(200).send({ "msg": "update with success" });
+        }
+        else {
+            res.status(400).send({ "msg": err.code });
+            console.log('Error while performing Query.', err);
+        }
+    });
+}
+
+function updateOccurrenceDeparture(req, res) {
+    //receber os dados do formuário que são enviados por post
+    const id_occurrence = req.sanitize('id_occurrence').escape();
+    const departure = req.sanitize('departure').escape();
+    let query = "";
+    query = connect.con.query('update ?? SET departure=? where id_occurrence=?', ['occurrence', departure, id_occurrence], function(err, rows,
+        fields) {
+        console.log(query.sql);
+        if (!err) {
+            console.log("Number of records updated: " + rows.affectedRows);
+            res.status(200).send({ "msg": "update with success" });
+        }
+        else {
+            res.status(400).send({ "msg": err.code });
+            console.log('Error while performing Query.', err);
+        }
+    });
+}
+
 //                    Operational- Occurrence
 
 //função de leitura que retorna o resultado de operational_ocorrence no callback
@@ -122,7 +160,7 @@ function readOperationalOccurrence(req, res) { // nao deve ser preciso
 function readOperationalFromOccurrence(req, res) {
     //criar e executar a query de leitura na BD
     const id_occurrence = req.sanitize('id_occurrence').escape();
-    connect.con.query('SELECT * FROM operational_occurrence where id_occurrence=?', [id_occurrence], function(err,
+    connect.con.query('SELECT * FROM operational_occurrence where id_occurrence=? order by id_operational', [id_occurrence], function(err,
         rows, fields) {
         if (!err) {
             //verifica os resultados se o número de linhas for 0 devolve dados não encontrados, caso contrário envia os resultados (rows).
@@ -167,7 +205,7 @@ function readIDOperationalOccurrence(req, res) {
 function readPresentOperationalOccurrence(req, res) {
     const id_occurrence = req.sanitize('id_occurrence').escape();
     //criar e executar a query de leitura na BD
-    connect.con.query('SELECT operational_occurrence.*, operational.* FROM operational_occurrence, operational where id_occurrence=? and presence=? and operational_occurrence.id_operational=operational.id_operational', [id_occurrence, '1'], function(err,
+    connect.con.query('SELECT operational_occurrence.*, operational.* FROM operational_occurrence, operational where id_occurrence=? and presence=? and operational_occurrence.id_operational=operational.id_operational order by operational_occurrence.id_operational', [id_occurrence, '1'], function(err,
         rows, fields) {
         if (!err) {
             //verifica os resultados se o número de linhas for 0 devolve dados não encontrados, caso contrário envia os resultados (rows).
@@ -234,8 +272,8 @@ function updateOperationalOccurrenceDeparture(req, res) {
 }
 
 function updateOperationalOccurrencePoints(req, res) {
-    /*const errors = validationResult(req);
-    if (errors.isEmpty()) {*/
+    const errors = validationResult(req);
+    if (errors.isEmpty()) {
     const points = req.sanitize('points').escape();
     const id_operational = req.sanitize('id_operational').escape();
     const id_occurrence = req.sanitize('id_occurrence').escape();
@@ -252,10 +290,10 @@ function updateOperationalOccurrencePoints(req, res) {
             console.log('Error while performing Query.', err);
         }
     });
-    // }
-    /*else {
+     }
+    else {
         return res.status(400).json({ errors: errors.array() });
-    }*/
+    }
 }
 
 function updateOperationalOccurrencePresence(req, res) {
@@ -438,7 +476,7 @@ function deleteIDWitnessOccurrence(req, res) { // nao deve ser preciso
 function readVehicleMaterialFromOccurrence(req, res) {
     //criar e executar a query de leitura na BD
     const id_occurrence = req.sanitize('id_occurrence').escape();
-    connect.con.query('SELECT occur_vehic_material.*, material.* FROM occur_vehic_material, vehicle_material,material where id_occurrence=? and occur_vehic_material.regist=vehicle_material.regist and vehicle_material.id_material=material.id_material order by id_material', [id_occurrence], function(err,
+    connect.con.query('SELECT occur_vehic_material.*, material.* FROM occur_vehic_material, vehicle_material,material where id_occurrence=? and occur_vehic_material.id_vei_mat=vehicle_material.id_vei_mat and vehicle_material.id_material=material.id_material order by id_vei_mat', [id_occurrence], function(err,
         rows, fields) {
         if (!err) {
             //verifica os resultados se o número de linhas for 0 devolve dados não encontrados, caso contrário envia os resultados (rows).
@@ -482,9 +520,9 @@ function readIDVehicleMaterialOccurrence(req, res) {
 
 function readConfirmedVehicleMaterialOccurrence(req, res) {
     const id_occurrence = req.sanitize('id_occurrence').escape();
-    const confirmation = 1;
+    const confirmation = '1';
     //criar e executar a query de leitura na BD
-    connect.con.query('SELECT occur_vehic_material.*, material.* FROM occur_vehic_material, vehicle_material, material where id_occurrence=? and confirmation=? and occur_vehic_material.id_vei_mat=vehicle_material.id_vei_mat and vehicle_material.id_material=material.id_material', [id_occurrence, confirmation], function(err,
+    connect.con.query('SELECT occur_vehic_material.*, material.* FROM occur_vehic_material, vehicle_material, material where id_occurrence=? and confirmation=? and occur_vehic_material.id_vei_mat=vehicle_material.id_vei_mat and vehicle_material.id_material=material.id_material order by id_vei_mat', [id_occurrence, confirmation], function(err,
         rows, fields) {
         if (!err) {
             //verifica os resultados se o número de linhas for 0 devolve dados não encontrados, caso contrário envia os resultados (rows).
@@ -628,29 +666,33 @@ function saveNote(req, res) {
     }
 }
 
-//função que apaga todos os dados de um iduser
-function deleteIDNote(req, res) { // nao devemos usar
-    //criar e executar a query de leitura na BD
-    const id_note = req.sanitize('id_note').escape();
-    connect.con.query('DELETE from note where id_note = ?', [id_note], function(err, rows, fields) {
+
+//função de gravação que recebe os 5 parametros
+function saveOccurrenceHelpRequest(req, res) {
+    //receber os dados do formuário que são enviados por post
+    const id_occurrence = req.sanitize('id_occurrence').escape();
+    const reason = req.sanitize('reason').escape();
+    const num_operationals = req.sanitize('num_operationals').escape();
+    const num_materials = req.sanitize('num_materials').escape();
+    const material_type = req.sanitize('material_type').escape();
+    let query = "";
+    query = connect.con.query('INSERT INTO ?? (??,??,??,??,??) VALUES (?,?,?,?,?)', ["help_request", "id_occurrence", "reason", "num_operationals", "num_materials", "material_type", id_occurrence, reason, num_operationals, num_materials, material_type], function(err, rows, fields) {
+        console.log(query.sql);
         if (!err) {
-            //verifica os resultados se o número de linhas for 0 devolve dados não encontrados, caso contrário envia os resultados (rows).
-            if (rows.length == 0) {
-                res.status(404).send({
-                    "msg": "data not found"
-                });
-            }
-            else {
-                res.status(200).send({
-                    "msg": "success"
-                });
-            }
+            res.status(200).location(rows.insertId).send({
+                "msg": "inserted with success"
+            });
+            console.log("Number of records inserted: " + rows.affectedRows);
         }
-        else
-            console.log('Error while performing Query.', err);
+        else {
+            if (err.code == "ER_DUP_ENTRY") {
+                res.status(409).send({ "msg": err.code });
+                console.log('Error while performing Query.', err);
+            }
+            else res.status(400).send({ "msg": err.code });
+        }
     });
 }
-
 
 module.exports = {
     readOccurrence: readOccurrence,
@@ -658,6 +700,8 @@ module.exports = {
     readOccurrenceUnfinished: readOccurrenceUnfinished,
     readIDOccurrence: readIDOccurrence,
     updateOccurrenceStatus: updateOccurrenceStatus,
+    updateOccurrenceArrival: updateOccurrenceArrival,
+    updateOccurrenceDeparture: updateOccurrenceDeparture,
 
     readOperationalOccurrence: readOperationalOccurrence,
     readOperationalFromOccurrence: readOperationalFromOccurrence,
@@ -684,5 +728,6 @@ module.exports = {
     readNoteFromOccurrence: readNoteFromOccurrence,
     readIDNote: readIDNote,
     saveNote: saveNote,
-    deleteIDNote: deleteIDNote
+
+    saveOccurrenceHelpRequest: saveOccurrenceHelpRequest
 };
