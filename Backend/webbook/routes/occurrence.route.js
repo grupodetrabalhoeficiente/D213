@@ -1,3 +1,5 @@
+const {verify} = require('../controllers/middleware.js')
+//app.get('/comments', verify, routeHandler)
 const app = require('../app.js');
 const controllerOccurrence = require('../controllers/occurrence.controller');
 const bodyParser = require('body-parser');
@@ -6,10 +8,10 @@ const validator = require("../assets/Validations/validator");
 
 
 app.route('/occurrences')
-    .get(controllerOccurrence.readOccurrence)
+    .get( controllerOccurrence.readOccurrence)
 
 app.route('/occurrences/:id_occurrence')
-    .get(controllerOccurrence.readIDOccurrence)
+    .get(verify, controllerOccurrence.readIDOccurrence)
 
 app.route('/unfinished_occurrences')
     .get(controllerOccurrence.readOccurrenceUnfinished)
