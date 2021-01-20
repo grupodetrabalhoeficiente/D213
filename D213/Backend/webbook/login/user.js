@@ -1,4 +1,4 @@
-var mysql = require('mysql');  
+/*var mysql = require('mysql');  
 var UserSchema = new mysql.Schema({  
   name: String,
   email: String,
@@ -6,3 +6,4 @@ var UserSchema = new mysql.Schema({
 });
 mysql.model('User', UserSchema);
 module.exports = mysql.model('User');
+*/

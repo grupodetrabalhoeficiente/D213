@@ -1,4 +1,4 @@
-const id_occurrence = localStorage.getItem('id_occurrence_in_progress');
+const id_occurrence = /*localStorage.getItem('id_occurrence_in_progress')*/ '2';
 let arrivalOccurrence = document.getElementById("chegadaId");
 arrivalOccurrence.onclick = arrivalOccurrenceFunction;
 let occurrenceButton = document.getElementById('finalizarId');

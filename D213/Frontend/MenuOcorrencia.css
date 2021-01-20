@@ -376,7 +376,7 @@ top: 35px;
     opacity: 1;
     overflow: hidden;
     position:relative;
-    border-color: #A7A7A7;
+    border-color: white;
     z-index:3;
 }
 
@@ -390,9 +390,10 @@ top: 35px;
     position:absolute;
     top:124px;
     left:30px;
-    background-color: rgba(170,30,190,1);
+    background-color: white;
     overflow: hidden;
     display:none;
     z-index: 1;
     transition: height 0.8s ease;
+    border: black 2px solid;
 }

@@ -25,7 +25,7 @@ function changingPage(){
 function ownProfile() {
     async function fetchAsync() {
         /*fetch(`https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/${urlParams.get('id_operational')}`)*/
-        fetch('https://d213.herokuapp.com/operationals/' + idUser)
+        fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + idUser)
             .then(res => res.json())
             .then((out) => {
                 $('#rankPosition div').empty();
@@ -55,7 +55,7 @@ function ownProfile() {
 function otherProfile() {
     async function fetchAsync() {
         /*fetch(`https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/${urlParams.get('id_operational')}`)*/
-        fetch('https://d213.herokuapp.com/operationals/' + localStorage.operationalSelected)
+        fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + localStorage.operationalSelected)
             .then(res => res.json())
             .then((out) => {
                 $('#rankPosition div').empty();

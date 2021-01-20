@@ -2,6 +2,9 @@ const express = require('express');
 const port = process.env.PORT || 8080;
 const host = process.env.HOST || '127.0.0.1';
 //carregar bibliotecas globais
+const models=require("./models/");
+const passport = require('passport');
+const session = require('express-session');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -18,6 +21,45 @@ app.use(express.static("../../Frontend/"));
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
 app.use(expressSanitizer());
 app.use(expressValidator());
+app.set('trust proxy',1);
+app.use(session({
+    secret: 'fire',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        secure: true,
+        maxAge: 60000,
+        httpOnly: true,
+    }
+}))
+app.use(function(req, res, next) {
+    if(global.sessData === undefined) {
+        global.sessData = req.session;
+        global.sessData.ID = req.sessionID;
+    }
+    else {
+        console.log('session exists', global.sessData.ID);
+    }
+    next();
+});
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+require('./routes/auth.js')(app, passport);
+require('./config/passport/passport.js')(passport, models.user);
+
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+require('./routes/auth.js')(app, passport);
+require('./config/passport/passport.js')(passport, models.user);
+
+//Sync Database
+models.sequelize.sync().then(function() {
+  console.log('Nice! Database looks fine');
+
+}).catch(function(err) {
+  console.log(err, "Something went wrong with the Database Update!");
+});
+
 
 app.listen(port, function(err) {
     if (!err) {
@@ -25,6 +67,7 @@ app.listen(port, function(err) {
     }
     else { console.log(err); }
 });
+
 //Multer
 const path = require('path');
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
