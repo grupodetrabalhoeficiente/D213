@@ -1,7 +1,7 @@
 //rotas de autenticação
 //exportar todas as rotas criadas
 
-const authController = require('../controllers/auth.controller.js');
+/*const authController = require('../controllers/auth.controller.js');
 module.exports = function(app, passport) {
     //app.get('/signup', authController.signup);
     app.get('/signin', authController.signin);
@@ -11,7 +11,7 @@ module.exports = function(app, passport) {
         successRedirect: '/signupSuccess',
         failureRedirect: '/signup'
     }));*/
-    app.get('/logout', authController.logout);
+   /* app.get('/logout', authController.logout);
     app.post('/signin', passport.authenticate('local-signin', {
         successRedirect: '/signinSuccess',
         failureRedirect: '/signin'
@@ -24,3 +24,4 @@ module.exports = function(app, passport) {
     }
 };
 
+*/

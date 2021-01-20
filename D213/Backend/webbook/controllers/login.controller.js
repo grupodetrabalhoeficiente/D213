@@ -1,12 +1,48 @@
 const connect = require('../config/connect.js');
 const jsonMessagesPath = __dirname + "/../assets/jsonMessages/";
 const jsonMessages = require(jsonMessagesPath + "bd");
+const jwt = require('jsonwebtoken');
 
 
-function readEmail(req, res) {
-    const email = req.param('email');
-    const post = { email: email };
-    const query = connect.con.query('SELECT email FROM login WHERE ?',post, function(err, rows, fields) {
+exports.login = function(req, res) {
+    let email = req.body.email;
+    let password = req.body.password;
+    const query = connect.con.query('SELECT * FROM login where email = ? and password =? limit 1',[email, password], function(err, rows, fields) {
+        if (err) {
+            console.log(err);
+            res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.dbError);
+        }
+        else {
+            if (rows.length == 0) {
+                res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
+            }
+            else {
+                let user = JSON.parse(JSON.stringify(rows));
+                //use the payload to store information about the user such as username, user role, etc.
+                let payload = { email: email}
+                //create the access token with the shorter lifespan
+                let accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
+                    algorithm: "HS256",
+                    expiresIn: process.env.ACCESS_TOKEN_LIFE
+                })
+                //create the refresh token with the longer lifespan
+                let refreshToken = jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET, {
+                    algorithm: "HS256",
+                    expiresIn: process.env.REFRESH_TOKEN_LIFE
+                })
+                
+                //store the refresh token in the user array
+                user[0].email.refreshToken = refreshToken;
+                //send the access token to the client inside a cookie
+                res.cookie("jwt", accessToken, {maxAge: 1000 * 60 * 15,secure: true, httpOnly: true})
+                res.send();
+            }
+        }
+    });
+}
+
+exports.refresh = function(req, res) {
+    const query = connect.con.query('SELECT * FROM login ', function(err, rows, fields) {
         console.log(query.sql);
         if (err) {
             console.log(err);
@@ -17,110 +53,38 @@ function readEmail(req, res) {
                 res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
             }
             else {
-                res.send(rows);
+                 let accessToken = req.cookies.jwt
+
+                if (!accessToken) {
+                    return res.status(403).send()
+                }
+
+                let payload
+                try {
+                    payload = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET)
+                }
+                catch (e) {
+                    return res.status(401).send()
+                }
+
+                //retrieve the refresh token from the users array
+                let refreshToken = rows[payload.username].refreshToken
+
+                //verify the refresh token
+                try {
+                    jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET)
+                }
+                catch (e) {
+                    return res.status(401).send()
+                }
+
+                let newToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
+                    algorithm: "HS256",
+                    expiresIn: process.env.ACCESS_TOKEN_LIFE
+                })
+                res.cookie("jwt", accessToken, {secure: true, httpOnly: true})
+                res.send()
             }
         }
     });
 }
-
-function readLoginID(req, res) {
-    const id = req.param('id');
-    const post = { id_login: id };
-    const query = connect.con.query('SELECT id_login, email, password, profile FROM login where ? ', post, function(err, rows, fields) {
-        console.log(query.sql);
-        if (err) {
-            console.log(err);
-            res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.dbError);
-        }
-        else {
-            if (rows.length == 0) {
-                res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
-            }
-            else {
-                res.send(rows);
-            }
-        }
-    });
-}
-
-function updateLogin(req, res) {
-    const id = req.sanitize('id').escape();
-    const email = req.sanitize('email').escape();
-    const password = req.sanitize('password').escape();
-
-    const errors = req.validationErrors();
-    if (errors) {
-        res.send(errors);
-        console.log(errors);
-        return;
-    }
-    else {
-        if (id != "NULL" && typeof(id) != 'undefined' && typeof(email) != 'undefined' && typeof(password) != 'undefined') {
-            const update = [email, password, id];
-            console.log(update);
-            const query = connect.con.query('UPDATE login SET email =?, password =? WHERE id_login=?', update, function(err, rows, fields) {
-                console.log(query.sql);
-                if (!err) {
-                    res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
-                }
-                else {
-                    console.log(err);
-                    res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
-                }
-            });
-        }
-        else
-            res.status(jsonMessages.db.requiredData.status).send(jsonMessages.db.requiredData);
-    }
-}
-
-function deleteLogin(req, res) {
-    const idLogin = req.param('id');
-    const query = connect.con.query('DELETE FROM login WHERE id_login=?', idLogin, function(err, rows, fields) {
-        console.log(query.sql);
-        if (!err) {
-            res.status(jsonMessages.db.successDelete.status).send(jsonMessages.db.successDelete);
-        }
-        else {
-            console.log(err);
-            res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
-        }
-    });
-}
-
-function updatePassword(req, res) {
-    const id = req.sanitize('id').escape();
-    const password = req.sanitize('password').escape();
-    const errors = req.validationErrors();
-    if (errors) {
-        res.send(errors);
-        console.log(errors);
-        return;
-    }
-    else {
-        if (id != "NULL" && typeof(id) != 'undefined' && typeof(password) != 'undefined') {
-            const update = [password, id];
-            console.log(update);
-            const query = connect.con.query('UPDATE login SET password =? WHERE id_login=?', update, function(err, rows, fields) {
-                console.log(query.sql);
-                if (!err) {
-                    res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
-                }
-                else {
-                    console.log(err);
-                    res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
-                }
-            });
-        }
-        else
-            res.status(jsonMessages.db.requiredData.status).send(jsonMessages.db.requiredData);
-    }
-}
-
-module.exports = {
-    readEmail: readEmail,
-    readLoginID: readLoginID,
-    updateLogin: updateLogin,
-    deleteLogin: deleteLogin,
-    updatePassword: updatePassword,
-};

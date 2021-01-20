@@ -1,4 +1,4 @@
-const jsonMessagesPath = __dirname + "/../assets/jsonMessages/";
+/*const jsonMessagesPath = __dirname + "/../assets/jsonMessages/";
 const jsonMessages = require(jsonMessagesPath + "login");
 var exports = module.exports = {};
 /*exports.signup = function(req, res) {
@@ -7,7 +7,7 @@ var exports = module.exports = {};
 exports.signupSuccess = function(req, res) {
     res.status(jsonMessages.user.signupSuccess.status).send(jsonMessages.user.signupSuccess);
 };*/
-exports.signin = function(req, res) {
+/*exports.signin = function(req, res) {
     res.status(jsonMessages.user.invalid.status).send(jsonMessages.user.invalid);
 };
 exports.signinSuccess = function(req, res) {
@@ -22,4 +22,4 @@ exports.logout = function(req, res, err) {
         }
         res.status(jsonMessages.user.logoutSuccess.status).send(jsonMessages.user.logoutSuccess);
     });
-};
+};*/

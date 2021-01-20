@@ -1,4 +1,4 @@
-let bcrypt = require('bcrypt-nodejs');
+/*let bcrypt = require('bcrypt-nodejs');
 const jsonMessagesPath = __dirname + "/../../assets/jsonMessages/";
 let jsonMessages = require(jsonMessagesPath + "login");
 module.exports = function(passport, user) {
@@ -81,4 +81,4 @@ module.exports = function(passport, user) {
       });
     }
   ));
-};
+};*/

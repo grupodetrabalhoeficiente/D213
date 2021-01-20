@@ -2,6 +2,7 @@ const express = require('express');
 const port = process.env.PORT || 8080;
 const host = process.env.HOST || '127.0.0.1';
 //carregar bibliotecas globais
+require('dotenv').config()
 const models=require("./models/");
 const passport = require('passport');
 const session = require('express-session');
@@ -12,16 +13,80 @@ const expressSanitizer = require('express-sanitizer');
 const expressValidator = require('express-validator');
 const multer = require('multer');
 const localStorage = require('localStorage');
+const {login, refresh} = require('./controllers/login.controller.js')
 
-/*const usercontroller = require('./user/usercontroller');*/
-
-//iniciar a aplicação
 let app = express();
 app.use(express.static("../../Frontend/"));
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
 app.use(expressSanitizer());
 app.use(expressValidator());
-app.set('trust proxy',1);
+app.use(cookieParser());
+/*                 Login                   */
+app.post('/login', login)
+app.post('/refresh', refresh)
+
+
+/*exports.login = function(req, res){
+const email = req.param('email');
+    const post = { email: email };
+    const query = connect.con.query('SELECT email FROM login WHERE ?',post, function(err, rows, fields) {
+        console.log(query.sql);
+        if (err) {
+            console.log(err);
+            res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.dbError);
+        }
+        else {
+            if (rows.length == 0) {
+                res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
+            }
+            else {
+                res.send(rows);
+            }
+        }
+    });
+    let username = req.body.username
+    let password = req.body.password
+
+    //use the payload to store information about the user such as username, user role, etc.
+    let payload = {username: username}
+
+    //create the access token with the shorter lifespan
+    let accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
+        algorithm: "HS256",
+        expiresIn: process.env.ACCESS_TOKEN_LIFE
+    })
+
+    //create the refresh token with the longer lifespan
+    let refreshToken = jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET, {
+        algorithm: "HS256",
+        expiresIn: process.env.REFRESH_TOKEN_LIFE
+    })
+
+    //store the refresh token in the user array
+    users[username].refreshToken = refreshToken
+
+    //send the access token to the client inside a cookie
+    //res.cookie("jwt", accessToken, {secure: true, httpOnly: true})
+    res.localStorage.setItem("jwt", accessToken, {secure: true, httpOnly: true})
+    res.send()
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+/*const usercontroller = require('./user/usercontroller');*/
+
+
+
+/*app.set('trust proxy',1);
 app.use(session({
     secret: 'fire',
     resave: false,
@@ -47,18 +112,13 @@ app.use(passport.session()); // persistent login sessions
 require('./routes/auth.js')(app, passport);
 require('./config/passport/passport.js')(passport, models.user);
 
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
-require('./routes/auth.js')(app, passport);
-require('./config/passport/passport.js')(passport, models.user);
-
 //Sync Database
 models.sequelize.sync().then(function() {
   console.log('Nice! Database looks fine');
 
 }).catch(function(err) {
   console.log(err, "Something went wrong with the Database Update!");
-});
+});*/
 
 
 app.listen(port, function(err) {
