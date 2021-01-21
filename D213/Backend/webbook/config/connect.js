@@ -8,7 +8,3 @@ module.exports = {
 
     })
 }
-/*module.exports = {
-  'secret': 'supersecret'
-};
-*/

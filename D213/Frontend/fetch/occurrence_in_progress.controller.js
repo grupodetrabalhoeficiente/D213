@@ -28,15 +28,56 @@ function fillTable() {
 }
 
 function OpenPanel(elem) {
-    if ( localStorage.getItem('id_occurrence_in_progress') === elem.id) {
-        window.location.replace("MenuOcorrencia.html");
+    let data = {};
+    data.id_operational = localStorage.id_operational_logged;
+    if (localStorage.getItem('id_occurrence_in_progress') === elem.id) {
+        fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + localStorage.getItem('id_occurrence_in_progress') + '/responsible', {
+            headers: { 'Content-Type': 'application/json' },
+            method: 'POST',
+            body: JSON.stringify(data)
+        }).then(function(response) {
+            if (!response.ok) {
+                console.log(response.status); //=> number 100–599
+                console.log(response.statusText); //=> String
+                console.log(response.headers); //=> Headers
+                console.log(response.url); //=> String
+            }
+            else {
+                window.location.replace("MenuOcorrencia.html");
+            }
+        }).then(function(result) {
+            console.log(result);
+        }).catch(function(err) {
+            alert("Submission error");
+            console.error(err);
+        });
     }
     else {
-        localStorage.setItem("id_occurrence_in_progress", elem.id);
-        localStorage.setItem("stage", 2);
-        window.location.replace("MenuOcorrencia.html");
+        fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + elem.id + '/responsible', {
+            headers: { 'Content-Type': 'application/json' },
+            method: 'POST',
+            body: JSON.stringify(data)
+        }).then(function(response) {
+            if (!response.ok) {
+                console.log(response.status); //=> number 100–599
+                console.log(response.statusText); //=> String
+                console.log(response.headers); //=> Headers
+                console.log(response.url); //=> String
+            }
+            else {
+                localStorage.setItem("id_occurrence_in_progress", elem.id);
+                localStorage.setItem("stage", 2); // mudar para 0 quando estiver pronto
+                window.location.replace("MenuOcorrencia.html");
+            }
+        }).then(function(result) {
+            console.log(result);
+        }).catch(function(err) {
+            alert("Submission error");
+            console.error(err);
+        });
     }
 }
+
 
 function openPanelHandler(event) {
     OpenPanel(this);

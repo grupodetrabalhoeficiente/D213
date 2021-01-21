@@ -18,23 +18,25 @@
 
 <body>
     <div class="screen">
-<!--navbar-->
-<span id="titleOccurrence" class="title">Ocorrência #111</span>
-<a><i id="goBack"class="fas fa-arrow-left fa-2x"></i></a>
-<!---->
+        <!--navbar-->
+        <span id="titleOccurrence" class="title">Ocorrência #111</span>
+        <a><i id="goBack"class="fas fa-arrow-left fa-2x"></i></a>
+        <!---->
         <div class="midScreen">
             <img src="Images/logoPng.png" alt="logo" class="logoClass" id="logoId"></img>
             <button class="dadosClass" id="dadosId"></button>
             <div id="dadosFormId" class="dadosFormClass form-group">
-                <div class="dadosFormDiv form-control">
-                    
+                <div id="topDadosId">
+                    <span id="topDadosText">Equipa</span>
                 </div>
-                <div class="dadosFormDiv form-control">
-                    
-                </div>
+                <!--<div class="dadosFormDiv form-control">
+                    <img src="" id="dadosDivAvatar"/>
+                    <span id="dadosDivName"></span>
+                    <i class="fas fa-chevron-down chevron-down"></i>
+                </div>-->
             </div>
             <div id="ocorrenciaFormId" class="ocorrenciaFormClass form-group">
-                <button href="OperationalsPresence.html"class="chamadaClass form-control" id="chamadaId">Chamada
+                <button href="OperationalsPresence.html" class="chamadaClass form-control" id="chamadaId">Chamada
                         <div id="div"class ="chamadaButtonDiv">
                             <i class="fas fa-chevron-right"id="chevronChamadaId"></i>
                         </div>
@@ -52,7 +54,7 @@
                             <i class="fas fa-chevron-right"id="chevronMaterialId"></i>
                         </div>
                     </button>
-                <input id ="hourId" class="hourClass form-control" type "number" placeholder="00" disabled></input>
+                <input id="hourId" class="hourClass form-control" type "number" placeholder="00" disabled></input>
                 <input id="minuteId" class="minuteClass form-control" type "number" placeholder="00" disabled></input>
                 <span id="colonId">:</span>
                 <button class="testemunhaClass form-control" id="testemunhaId">Registar testemunhas

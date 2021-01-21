@@ -1,31 +1,37 @@
-const urlParams = new URLSearchParams(window.location.search);
-const idUser = "1"; //Temporario depois alterar pra LocalHost
 const confirm = document.getElementById("confirmPassword");
 confirm.onclick = savePassword;
 /*const submit = document.getElementById("uploadButton");
 submit.onclick = saveAvatar;*/
 
-function verification(){
-    if(idUser == localStorage.operationalSelected){
+function verification() {
+    if (localStorage.operationalSelected == null) {
         ownProfile();
-    }else{
-        otherProfile();
+        
+    }
+    else {
+        if (localStorage.id_operational_logged == localStorage.operationalSelected) {
+            ownProfile();
+           
+        }
+        else {
+            otherProfile();
+           
+        }
     }
 }
 
-function changingPage(){
-    if(idUser != localStorage.operationalSelected){
-        document.getElementById("menuBut").onclick = localStorage.setItem("operationalSelected", idUser);
-        document.getElementById("rankBut").onclick = localStorage.setItem("operationalSelected", idUser);
-        document.getElementById("histBut").onclick = localStorage.setItem("operationalSelected", idUser);
-        document.getElementById("perfilBut").onclick = localStorage.setItem("operationalSelected", idUser);
+function changingPage() {
+    if (localStorage.id_operational_logged != localStorage.operationalSelected) {
+        document.getElementById("menuBut").onclick = localStorage.setItem("operationalSelected", localStorage.id_operational_logged);
+        document.getElementById("rankBut").onclick = localStorage.setItem("operationalSelected",localStorage.id_operational_logged);
+        document.getElementById("histBut").onclick = localStorage.setItem("operationalSelected", localStorage.id_operational_logged);
+        document.getElementById("perfilBut").onclick = localStorage.setItem("operationalSelected", localStorage.id_operational_logged);
     }
 }
 
 function ownProfile() {
     async function fetchAsync() {
-        /*fetch(`https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/${urlParams.get('id_operational')}`)*/
-        fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + idUser)
+        fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + localStorage.id_operational_logged)
             .then(res => res.json())
             .then((out) => {
                 $('#rankPosition div').empty();
@@ -54,7 +60,6 @@ function ownProfile() {
 //Other operationals profile
 function otherProfile() {
     async function fetchAsync() {
-        /*fetch(`https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/${urlParams.get('id_operational')}`)*/
         fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + localStorage.operationalSelected)
             .then(res => res.json())
             .then((out) => {
@@ -93,7 +98,7 @@ function savePassword() {
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
     /*fetch(`https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/${urlParams.get('id_operational')}`, {*/
-    fetch("https://d213.herokuapp.com/operationals/" + idUser, {
+    fetch("https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/" + localStorage.id_operational_logged, {
         headers: { 'Content-Type': 'application/json' },
         method: 'PUT',
         body: JSON.stringify(data)
@@ -121,10 +126,9 @@ function savePassword() {
 function saveAvatar() {
     let data = {};
     data.avatar = localStorage.localUploadedFileName;
-    console.log(localStorage.localUploadedFileName);
     //console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch("https://d213.herokuapp.com/operationals/" + idUser + "/upload", {
+    fetch("https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/" + localStorage.id_operational_logged + "/upload", {
         headers: { 'Content-Type': 'application/json' },
         method: 'PUT',
         body: JSON.stringify(data)
@@ -150,119 +154,3 @@ $(document).ready(function() {
     verification();
     changingPage();
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*function listUsers() {
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operational/:operational_id')
-        .then(res => res.json())
-        .then((out) => {
-            $('#perfilForm form').empty();
-            $.each(out, function(index, value) {
-                $('#perfilForm form').append('<tr><td>' + value.username + '</td><td>' + value.name + '</td><td>' + value.email + '</td></tr>')
-            });
-        }).catch(err => console.error(err));
-}
-
-$(document).ready(function() {
-    listUsers();
-})*/
-
-/*function ownProfile() {
-    fetch('https://console.aws.amazon.com/cloud9/ide/bdc5dcf6bca04b39ab10a706cdb79f29/operationals/:id_operational')
-        .then(function(response) {
-            return response.json();
-            console.log('Puta que pariu')
-        });
-}*/
-/*
-window.onload = ola;
-
-function ola() {
-    /*alert('asdasd');
-    fetch('https://console.aws.amazon.com/cloud9/ide/bdc5dcf6bca04b39ab10a706cdb79f29/operationals/:id_operational')
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(json) {
-            console.log(json);
-        });
-};
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*function listUsers() {
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operational/:operational_id')
-        .then(res => res.json())
-        .then((out) => {
-            $('#perfilForm form').empty();
-            $.each(out, function(index, value) {
-                $('#perfilForm form').append('<tr><td>' + value.username + '</td><td>' + value.name + '</td><td>' + value.email + '</td></tr>')
-            });
-        }).catch(err => console.error(err));
-}
-
-$(document).ready(function() {
-    listUsers();
-})*/
-
-/*function ownProfile() {
-    fetch('https://console.aws.amazon.com/cloud9/ide/bdc5dcf6bca04b39ab10a706cdb79f29/operationals/:id_operational')
-        .then(function(response) {
-            return response.json();
-            console.log('Puta que pariu')
-        });
-}*/
-/*
-window.onload = ola;
-
-function ola() {
-    /*alert('asdasd');
-    fetch('https://console.aws.amazon.com/cloud9/ide/bdc5dcf6bca04b39ab10a706cdb79f29/operationals/:id_operational')
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(json) {
-            console.log(json);
-        });
-};
-*/

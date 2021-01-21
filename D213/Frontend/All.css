@@ -99,7 +99,7 @@ body{
     color: #d2d2d2;
 }
 
-.goBack {
+#goBack {
     position: absolute;
     top: 35px;
     left: 27px;
@@ -569,7 +569,7 @@ body{
   position: absolute;
     color: #3A3939;
     width: 100%;
-    top: 30px;
+    top: 25px;
     left: 81px;
     font-size: 28px;
     font-family: INHERIT;

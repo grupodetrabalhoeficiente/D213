@@ -1,5 +1,4 @@
-const urlParams = new URLSearchParams(window.location.search);
-const idUser = "1"; //Temporario depois alterar pra LocalHost
+const idUser = localStorage.id_operational_logged; //Temporario depois alterar pra LocalHost
 
 
 function saveAvatar() {

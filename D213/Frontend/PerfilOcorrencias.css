@@ -28,23 +28,14 @@
     text-align: center;
     display:block;
 }
-.fa-arrow-left {
-    opacity: 1;
-    z-index:1;
-    color:black;
-    position: absolute;
-}
-.fa-arrow-left:hover {
-  color: red;
-  text-decoration: none;
-}
+
 /*fim navbar*/
 
-.ocorrenceDiv{
+.ocorrenceDiv {
     position: relative;
     width: 90%;
     height: 6%;
-    top: 30%;
+    top: 20%;
     display: block;
     margin-left: auto;
     margin-right: auto;

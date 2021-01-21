@@ -1,8 +1,7 @@
-const idUser = "1";
+const idUser = localStorage.id_operational_logged;
 
 function ownRank() {
     async function fetchAsync() {
-        /*fetch(`https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/${urlParams.get('id_operational')}`)*/
         fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + idUser)
             .then(res => res.json())
             .then((out) => {
@@ -65,7 +64,6 @@ $(document).ready(function() {
 
 function OpenPanel(elem) {
     localStorage.setItem("operationalSelected", elem.id);
-    console.log(localStorage.operationalSelected);
     window.location.replace("./PerfilUpdate.html");
 }
 

@@ -37,7 +37,7 @@ function opencloseForm() {
     if (closed == 1) {
         closed = 0;
         dadosForm.style.display = "block";
-        teamButton.style.top = "390px";
+        teamButton.style.top = "499px";
     }
     else {
         closed = 1;
