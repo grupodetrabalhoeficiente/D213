@@ -28,11 +28,10 @@ function occurenceOperationals() {
         .then((out) => {
             let dadosDiv = document.getElementById("dadosFormId");
             let txt = "";
-            let countRank = 0;
             $.each(out, function(index, value) {
                 txt += "<div class='dadosFormDiv form-control' id='"+value.id_operational+"'>";
                 if (value.avatar == null) {
-                    txt += "<img id='avatarRank' src='Images/default-profile.png'></img>";
+                    txt += "<img id='dadosDivAvatar' src='Images/default-profile.png'></img>";
                 }
                 else {
                     txt += "<img id='dadosDivAvatar' src='" + value.avatar + "'></img>";
