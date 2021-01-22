@@ -1,9 +1,7 @@
-function openRegistoOcorrencia() {
-    window.location.href = "LoginOcorrencia.html"; // mudar isto quando tiver a pagina-- botao para abrir login da ocorrencia
-}
+
 
 /*  ChartDiv   */
-google.charts.load('current', { packages: ['corechart', 'bar'] });
+/*google.charts.load('current', { packages: ['corechart', 'bar'] });
 google.charts.setOnLoadCallback(drawBasic);
 
 function drawBasic() {
@@ -14,7 +12,7 @@ function drawBasic() {
 
     var options = {
         /*title: 'Número de ocorrencias nos ultimos meses',*/
-        hAxis: {
+       /* hAxis: {
             format: 'string',
             viewWindow: {
                 min: [0],
@@ -50,4 +48,4 @@ function drawBasic() {
     chart.draw(data, options);
 
 
-}
+}*/

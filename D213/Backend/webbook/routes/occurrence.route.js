@@ -9,6 +9,9 @@ const {login, refresh, responsible} = require('../controllers/auth.controller.js
 
 app.route('/occurrences/:id_occurrence/responsible')
     .post(responsible)
+
+app.route('/all_occurrences')
+    .get(controllerOccurrence.readOccurrenceMonths)
     
 app.route('/occurrences')
     .get( verify,controllerOccurrence.readOccurrence)
