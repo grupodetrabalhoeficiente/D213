@@ -79,8 +79,6 @@ app.post('/upload', upload.single('image'), (req, res, next) => {
 app.use(cors());
 app.use(cookieParser());
 
-/*app.use('/users', usercontroller);*/
-
 module.exports = app;
 /*require('./multer.js');*/
 require('./routes/occurrence.route.js');
