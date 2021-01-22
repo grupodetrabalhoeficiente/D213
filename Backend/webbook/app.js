@@ -20,12 +20,6 @@ app.use(expressSanitizer());
 app.use(expressValidator());
 app.use(cookieParser());
 /*                 Login                   */
-app.post('/login', login)
-app.post('/occurrences/:id_occurrence/responsible',verify,responsible)
-app.get('/logout',logout )
-
-
-
 
 
 app.listen(port, function(err) {
@@ -34,6 +28,9 @@ app.listen(port, function(err) {
     }
     else { console.log(err); }
 });
+app.post('/login', login)
+app.post('/occurrences/:id_occurrence/responsible',verify,responsible)
+app.get('/logout',logout )
 
 //Multer
 const path = require('path');
