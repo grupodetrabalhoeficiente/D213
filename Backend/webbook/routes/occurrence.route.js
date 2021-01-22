@@ -11,7 +11,7 @@ app.route('/occurrences/:id_occurrence/responsible')
     .post(responsible)
 
 app.route('/all_occurrences')
-    .get(verify,controllerOccurrence.readOccurrenceMonths)
+    .get(controllerOccurrence.readOccurrenceMonths)
     
 app.route('/occurrences')
     .get( verify,controllerOccurrence.readOccurrence)
