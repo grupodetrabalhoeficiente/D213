@@ -8,12 +8,6 @@ function ownRank() {
                 $('#myRank div').empty();
                 $.each(out, function(index, value) {
                     document.getElementById('myNameRank').innerHTML = value.name;
-                    if (value.points == null) {
-                        document.getElementById('myPointsRank').innerHTML = "0Pontos";
-                    }
-                    else {
-                        document.getElementById('myPointsRank').innerHTML = value.points + "Pontos";
-                    }
                     document.getElementById('mySpotRank').innerHTML = localStorage.rankP + "º";
                     document.getElementById('myAvatarRank').src = value.avatar;
                 })
@@ -35,7 +29,14 @@ function fillRank() {
                 countRank += 1;
                 txt += "<span id='numberRank'>" + countRank + "º</span>";
                 if (value.id_operational == idUser) {
+                    console.log(value.points);
                     localStorage.setItem("rankP", countRank);
+                     if (value.points == null) {
+                        document.getElementById('myPointsRank').innerHTML = "0Pontos";
+                    }
+                    else {
+                        document.getElementById('myPointsRank').innerHTML = value.points + "Pontos";
+                    }
                 }
                 if (value.avatar == null) {
                     txt += "<img id='avatarRank' src='Images/default-profile.png'></img>";
@@ -59,11 +60,13 @@ function fillRank() {
 }
 $(document).ready(function() {
     fillRank();
-    ownRank();
+    window.setTimeout(1000,ownRank());
 })
 
 function OpenPanel(elem) {
     localStorage.setItem("operationalSelected", elem.id);
+   localStorage.setItem("rankoperationalSelected",document.getElementById(elem.id).children.item(0).innerHTML.slice(0,1));
+    console.log(localStorage.operationalSelected);
     window.location.replace("./PerfilUpdate.html");
 }
 

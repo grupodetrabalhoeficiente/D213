@@ -319,14 +319,12 @@ body{
 }
 /*tabela*/
 .VerMais {
-  background-color: #7d2d2d;
-  width: 90px;
-  height: 40px;
-  border-top-left-radius: 32px;
-  border-top-right-radius: 32px;
-  border-bottom-left-radius: 32px;
-  border-bottom-right-radius: 32px;
-  color: white;
+  color: #AB0404;
+  background-color: white;
+  opacity: 0.3;
+  border: none; 
+  padding: 5px 5px; 
+  cursor: pointer; 
 }
 /*                                                               Login                                   */
 .inputLogin{
@@ -500,7 +498,6 @@ body{
 #gifMenu {
   width: 42px;
   height: 42px;
-  background: url("../images/v390_505.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -515,7 +512,7 @@ body{
   width:100%;
   max-height: 137px;
   height:100%;
-  background: rgb(171 4 4 / 60%);
+  background: linear-gradient(180deg, #570007 0%, #AB0404 100%);
   position: relative;
   top: 20%;
   border-top-left-radius: 100px;
@@ -574,3 +571,62 @@ body{
     font-size: 28px;
     font-family: INHERIT;
 }
+/*OcorrenciaDados*/
+#TagTipo {
+  width: 249px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 114px;
+  left: 18px;
+  font-size: 24px;
+  opacity: 1;
+  text-align: center;
+}
+#TagGravidade {
+  width: 377px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 167px;
+  left: 19px;
+  font-size: 24px;
+  opacity: 1;
+  text-align: left;
+}
+#TagEquipa {
+  width: 81px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 220px;
+  left: 19px;
+  font-family: Inter;
+  font-weight: Bold;
+  font-size: 24px;
+  opacity: 1;
+  text-align: center;
+}
+.titleDadosOcorrencia {
+    position: absolute;
+    color: #3A3939;
+    width: 100%;
+    top: 25px;
+    left: 89px;
+    font-size: 28px;
+    font-family: INHERIT;
+}
+.accordion{
+  display:block;
+  margin-right:auto;
+  margin-left:auto;
+  width:80%;
+  position:relative;
+}
+.divTeam{
+  height: 50%;
+  top: 38%;
+  position: relative;
+  overflow:auto;
+}
+/*----*/
+/*OcorrenciaEmCurso*/
+
+/**/

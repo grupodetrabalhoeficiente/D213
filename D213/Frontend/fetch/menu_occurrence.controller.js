@@ -11,6 +11,13 @@ function goBack() {
 }
 
 
+
+/*let x = document.getElementById('chevron-down')
+x.onclick = expand();
+function expand(){
+    console.log("asdadsa")
+    x.style.height="200px";
+}*/
 /*function criarDiv() {
     console.log('fds')
     fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/'+id_occurrence+'/operationals')
@@ -37,18 +44,28 @@ function occurenceOperationals() {
                     txt += "<img id='dadosDivAvatar' src='" + value.avatar + "'></img>";
                 }
                 txt += "<span id='dadosDivName'>" + value.name + "</span>";
-                txt += "<i class='fas fa-chevron-down chevron-down'></i>";
+                txt += "<i class='fas fa-chevron-down chevron-down' id='chevron-down'></i>";
                 txt += "</div>";
             });
             dadosDiv.innerHTML += txt;
+            let panels = document.querySelectorAll(".dadosFormDiv");
+            for (let i = 0; i < panels.length; i++) {
+                panels[i].addEventListener("click", openPanelHandler);
+            }
         }).catch(err => console.error(err));
 }
+function OpenPanel(elem) {
+    if(document.getElementById(elem.id).style.height!="200px"){
+        document.getElementById(elem.id).style.height="200px";
+    }else{
+        document.getElementById(elem.id).style.height="45px";
+        console.log(123);
+    }
+}
 
-
-
-
-
-
+function openPanelHandler(event) {
+    OpenPanel(this);
+}
 
 
 
@@ -62,7 +79,7 @@ function occurrenceStage() {
         }).catch(err => console.error(err));
 
     if (Number(localStorage.getItem('stage')) === 0 || Number(localStorage.getItem('stage')) === 1) {
-        document.getElementById('dadosId').className = 'hidden';
+       // document.getElementById('dadosId').className = /*'dadosDiv'*/;
         document.getElementById('ajudaId').className = 'hidden';
         document.getElementById('notaId').className = 'hidden';
         document.getElementById('testemunhaId').className = 'hidden';

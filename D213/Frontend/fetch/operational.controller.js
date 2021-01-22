@@ -1,92 +1,85 @@
 const confirm = document.getElementById("confirmPassword");
 confirm.onclick = savePassword;
-/*const submit = document.getElementById("uploadButton");
-submit.onclick = saveAvatar;*/
+let logout = document.getElementById('logout');
+logout.onclick = logoutFunction;
+let panels = document.querySelectorAll(".menu");
+for (let i = 0; i < panels.length; i++) {
+    panels[i].addEventListener("click", removeLocalStorage);
+}
+
+function removeLocalStorage() {
+    localStorage.removeItem('operationalSelected');
+    localStorage.removeItem('rankoperationalSelected')
+};
 
 function verification() {
+    localStorage.operationalSelected;
     if (localStorage.operationalSelected == null) {
         ownProfile();
-        
+
     }
     else {
         if (localStorage.id_operational_logged == localStorage.operationalSelected) {
             ownProfile();
-           
+
         }
         else {
             otherProfile();
-           
-        }
-    }
-}
 
-function changingPage() {
-    if (localStorage.id_operational_logged != localStorage.operationalSelected) {
-        document.getElementById("menuBut").onclick = localStorage.setItem("operationalSelected", localStorage.id_operational_logged);
-        document.getElementById("rankBut").onclick = localStorage.setItem("operationalSelected",localStorage.id_operational_logged);
-        document.getElementById("histBut").onclick = localStorage.setItem("operationalSelected", localStorage.id_operational_logged);
-        document.getElementById("perfilBut").onclick = localStorage.setItem("operationalSelected", localStorage.id_operational_logged);
+        }
     }
 }
 
 function ownProfile() {
-    async function fetchAsync() {
-        fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + localStorage.id_operational_logged)
-            .then(res => res.json())
-            .then((out) => {
-                $('#rankPosition div').empty();
-                $.each(out, function(index, value) {
-                    if (value.avatar == null) {
-                        document.getElementById('profileImage').src = "Images/default-profile.png";
-                    }
-                    else {
-                        document.getElementById('profileImage').src = value.avatar;
-                    }
-                    document.getElementById('name').innerHTML = value.name;
-                    document.getElementById('profileSpeciality').value = value.speciality;
-                    document.getElementById('profileTypeOfOperational').value = value.operational_type;
-                    document.getElementById('profileEmail').value = value.email;
-                    document.getElementById('profilePhoneNumber').value = value.phone_number;
-                    document.getElementById('profileBirthDate').value = value.birth_date;
-                    document.getElementById('profilePassword').value = value.password;
-                    document.getElementById('position').innerHTML = value.points;
-                })
-            }).catch(err => console.error(err));
-    }
-    //chama a função fetchAsync()
-    fetchAsync().then(data => console.log("ok")).catch(reason => console.log(reason.message));
+    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + localStorage.id_operational_logged)
+        .then(res => res.json())
+        .then((out) => {
+            $('#rankPosition div').empty();
+            $.each(out, function(index, value) {
+                if (value.avatar == null) {
+                    document.getElementById('profileImage').src = "Images/default-profile.png";
+                }
+                else {
+                    document.getElementById('profileImage').src = value.avatar;
+                }
+                document.getElementById('name').innerHTML = value.name;
+                document.getElementById('profileSpeciality').value = value.speciality;
+                document.getElementById('profileTypeOfOperational').value = value.operational_type;
+                document.getElementById('profileEmail').value = value.email;
+                document.getElementById('profilePhoneNumber').value = value.phone_number;
+                document.getElementById('profileBirthDate').value = value.birth_date;
+                document.getElementById('profilePassword').value = value.password;
+                document.getElementById('position').innerHTML = localStorage.rankP;
+            })
+        }).catch(err => console.error(err));
 }
 
 //Other operationals profile
 function otherProfile() {
-    async function fetchAsync() {
-        fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + localStorage.operationalSelected)
-            .then(res => res.json())
-            .then((out) => {
-                $('#rankPosition div').empty();
-                $.each(out, function(index, value) {
-                    if (value.avatar == null) {
-                        document.getElementById('profileImage').src = "Images/default-profile.png";
-                    }
-                    else {
-                        document.getElementById('profileImage').src = value.avatar;
-                    }
-                    document.getElementById('name').innerHTML = value.name;
-                    document.getElementById('profileSpeciality').value = value.speciality;
-                    document.getElementById('profileTypeOfOperational').value = value.operational_type;
-                    document.getElementById('profileEmail').value = value.email;
-                    document.getElementById('profilePhoneNumber').value = value.phone_number;
-                    document.getElementById('profileBirthDate').value = value.birth_date;
-                    document.getElementById("passwordId").remove();
-                    document.getElementById("changePasswordId").remove();
-                    document.getElementById("newPasswordId").remove();
-                    document.getElementById("confirmPasswordId").remove();
-                    document.getElementById('position').innerHTML = value.points;
-                })
-            }).catch(err => console.error(err));
-    }
-    //chama a função fetchAsync()
-    fetchAsync().then(data => console.log("ok")).catch(reason => console.log(reason.message));
+    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + localStorage.operationalSelected)
+        .then(res => res.json())
+        .then((out) => {
+            $('#rankPosition div').empty();
+            $.each(out, function(index, value) {
+                if (value.avatar == null) {
+                    document.getElementById('profileImage').src = "Images/default-profile.png";
+                }
+                else {
+                    document.getElementById('profileImage').src = value.avatar;
+                }
+                document.getElementById('name').innerHTML = value.name;
+                document.getElementById('profileSpeciality').value = value.speciality;
+                document.getElementById('profileTypeOfOperational').value = value.operational_type;
+                document.getElementById('profileEmail').value = value.email;
+                document.getElementById('profilePhoneNumber').value = value.phone_number;
+                document.getElementById('profileBirthDate').value = value.birth_date;
+                document.getElementById("passwordId").remove();
+                document.getElementById("changePasswordId").remove();
+                document.getElementById("newPasswordId").remove();
+                document.getElementById("confirmPasswordId").remove();
+                document.getElementById('position').innerHTML = localStorage.rankoperationalSelected;
+            })
+        }).catch(err => console.error(err));
 }
 
 
@@ -147,10 +140,13 @@ function saveAvatar() {
     });
 }
 
-
-/*                  */
-
+function logoutFunction() {
+    window.location.replace("Login.html");
+    localStorage.clear();
+    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/logout')
+        .then(res => res.json())
+        .then((out) => {}).catch(err => console.error(err));
+}
 $(document).ready(function() {
     verification();
-    changingPage();
 })

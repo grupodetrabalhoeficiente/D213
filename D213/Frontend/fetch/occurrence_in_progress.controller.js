@@ -1,8 +1,6 @@
 let rows = {};
 let obj = [];
-$(document).ready(function() {
-    fillTable();
-})
+
 let back = document.getElementById("goBack");
 back.onclick = goBack;
 
@@ -82,3 +80,6 @@ function OpenPanel(elem) {
 function openPanelHandler(event) {
     OpenPanel(this);
 }
+$(document).ready(function() {
+    fillTable();
+})

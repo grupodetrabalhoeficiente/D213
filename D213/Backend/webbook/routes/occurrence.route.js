@@ -33,7 +33,7 @@ app.route('/departures/:id_occurrence')
 
 // Operational Occurrence
 app.route('/occurrences/:id_occurrence/operationals')
-    .get(controllerOccurrence.readOperationalFromOccurrence)
+    .get(verify,controllerOccurrence.readOperationalFromOccurrence)
 
 app.route('/occurrences/:id_occurrence/operationals/:id_operational')
     .get(verify,controllerOccurrence.readIDOperationalOccurrence)
@@ -42,14 +42,8 @@ app.route('/occurrences/:id_occurrence/operationals/:id_operational')
 app.route('/occurrences/:id_occurrence/presences/:id_operational')
     .put(verify,verifyresponsible,validator.updatePresence, controllerOccurrence.updateOperationalOccurrencePresence) // certo (validator feito)
 
-/*app.route('/occurrences/:id_occurrence/arrivals/:id_operational')
-    .put(verify,validator.updateArrival, controllerOccurrence.updateOperationalOccurrenceArrival) // ver melhor (validator feito)
-
-app.route('/occurrences/:id_occurrence/departures/:id_operational')
-    .put(verify,verifyresponsible,validator.updateDeparture, controllerOccurrence.updateOperationalOccurrenceDeparture) // ver melhor (validator feito)*/
-
 app.route('/occurrences/:id_occurrence/evaluations')
-    .get(verify,verifyresponsible,controllerOccurrence.readPresentOperationalOccurrence)
+    .get(verify,controllerOccurrence.readPresentOperationalOccurrence)
 
 app.route('/occurrences/:id_occurrence/evaluations/:id_operational')
     .put(verify,verifyresponsible,validator.updatePoints, controllerOccurrence.updateOperationalOccurrencePoints) // ver melhor (validator feito)

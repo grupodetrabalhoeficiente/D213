@@ -56,11 +56,6 @@
         
         
         
-        
-        
-        
-        
-        
         <div class="information">
             <form id="perfilForm" name="perfil-Form" action="https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operational/:operational_id" method="put">
                 <div class="form-group">
@@ -107,7 +102,11 @@
                     <input id="profileConfirmPassword" name="confirmPassword"class="inputPerfil form-control" type="password" Placeholder="Confirmar password"></input>
                     <input id="confirmPassword" class="btn buttonInput" type="button" value="Confirmar"></input>
                 </div>
-            </form>
+                </form>
+                <button class="form-group" id="logout">
+                    <span id="logoutText">Logout</span>
+                    <i class="fas fa-sign-out-alt fa-2x signoutIcon"></i>
+                </button>
         </div>
         
         
@@ -123,10 +122,10 @@
         
         <nav class="menubar fixed-bottom">
             <ul class="nav navbar-nav">
-                <li><a href="MenuPrincipal.html" id="menuBut"><i class="fa fa-home fa-3x"></i></a></li>
-                <li><a href="RanksUpdate.html" id="rankBut"><i class="fa fa-medal fa-3x"></i></a></li>
-                <li><a href="HistoricoOcorrencias.html" id="histBut"><i class="fa fa-chart-line fa-3x"></i></a></li>
-                <li><a href="PerfilUpdate.html" id="perfilBut"><i class="fas fa-user-circle fa-3x"></i></a></li>
+                <li><a href="MenuPrincipal.html" id="menuBut" class="menu"><i class="fa fa-home fa-3x"></i></button></li>
+                <li><a href="RanksUpdate.html" id="rankBut" class="menu"><i class="fa fa-medal fa-3x"></i></a></li>
+                <li><a href="HistoricoOcorrencias.html" id="histBut" class="menu"><i class="fa fa-chart-line fa-3x"></i></a></li>
+                <li><a href="PerfilUpdate.html" id="perfilBut" class="menu"><i class="fas fa-user-circle fa-3x"></i></a></li>
             </ul>
         </nav>
     </div>
