@@ -61,7 +61,7 @@ function readOccurrenceFromOperational(req, res) {
 function readIDOperational(req, res) {
     //criar e executar a query de leitura na BD
     const id_operational = req.sanitize('id_operational').escape();
-    connect.con.query('SELECT operational.*,password,email from operational,login where id_operational = ? and operational.id_login=login.id_login', [id_operational],
+    connect.con.query('SELECT operational.* from operational where id_operational = ? ', [id_operational],
         function(err, rows, fields) {
             if (!err) {
                 //verifica os resultados se o número de linhas for 0 devolve dados não encontrados, caso contrário envia os resultados (rows).
@@ -142,7 +142,7 @@ function updateAvatar(req, res) {
         console.log(avatar);
         const id_operational = req.sanitize('id_operational').escape();
         let query = "";
-        query = connect.con.query('UPDATE login INNER JOIN operational ON login.id_login=operational.id_login and id_operational=?  SET avatar=?  ', [id_operational, avatar], function(err, rows, fields) {
+        query = connect.con.query('UPDATE users INNER JOIN operational ON users.id=operational.id and id_operational=?  SET avatar=?  ', [id_operational, avatar], function(err, rows, fields) {
             console.log(query.sql);
             if (!err) {
                 console.log("Number of records updateAvatar: " + rows.affectedRows);

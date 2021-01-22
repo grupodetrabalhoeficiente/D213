@@ -1,3 +1,4 @@
+const {verify} = require('../controllers/middleware.js');
 const app = require('../app.js');
 const controllerOperational = require('../controllers/operational.controller.js');
 const bodyParser = require('body-parser');
@@ -5,22 +6,21 @@ const { check, validationResult } = require('express-validator');
 const express = require('express');
 const validator = require("../assets/Validations/validator");
 
-
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
 
 app.route('/operationals')
-  .get(controllerOperational.readOperationalPoints) // certo e fetch
+  .get(verify,controllerOperational.readOperationalPoints) // certo e fetch
 
 app.route('/operationals/:id_operational')
-  .get(controllerOperational.readIDOperational) //certo e fetch
-  .put(validator.updatePassword, controllerOperational.updateOperational) // certo e fetch (ta feito o validator)
+  .get(verify,controllerOperational.readIDOperational) //certo e fetch
+  .put(verify,validator.updatePassword, controllerOperational.updateOperational) // certo e fetch (ta feito o validator)
 
 app.route('/operationals/:id_operational/occurrences')
-  .get(controllerOperational.readOccurrenceFromOperational) // certo e fetch
+  .get(verify,controllerOperational.readOccurrenceFromOperational) // certo e fetch
 
 
 app.route('/operationals/:id_operational/upload')
-  .put(controllerOperational.updateAvatar)
+  .put(verify,controllerOperational.updateAvatar)
 /*
 app.post('/operationals/:id_operational', upload.single('avatar'), function(req, res, next) {
   // req.file is the `avatar` file
