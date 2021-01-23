@@ -59,10 +59,40 @@ function updatePoints() {
             }
         }
     }
-    window.location.replace('MenuPrincipal.html');
-    localStorage.removeItem('id_occurrence_in_progress');
+    finishOccurrenceFunction();
 }
 
+
+function finishOccurrenceFunction() {
+    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/status/' + id_occurrence, {
+        headers: { 'Content-Type': 'application/json' },
+        method: 'PUT',
+    }).then(function(response) {
+        if (!response.ok) {
+            console.log(response.status); //=> number 100–599
+            console.log(response.statusText); //=> String
+            console.log(response.headers); //=> Headers
+            console.log(response.url); //=> String
+        }
+        else {
+            localStorage.removeItem('id_occurrence_in_progress');
+            localStorage.removeItem('stage');
+            localStorage.removeItem('help');
+            localStorage.removeItem('materials');
+            localStorage.removeItem('presence');
+            localStorage.removeItem('arrival');
+            alert("Ocorrencia terminada com sucesso");
+            window.location.replace('MenuPrincipal.html')
+        }
+    }).then(function(result) {
+        console.log(result);
+    }).catch(function(err) {
+        alert("Submission error");
+        console.error(err);
+    });
+}
 $(document).ready(function() {
     fillTable();
 })
+
+

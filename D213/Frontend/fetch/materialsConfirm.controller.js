@@ -67,6 +67,7 @@ function updateConfirmation() {
  
     }
     if(flag){
+        localStorage.setItem('materials',"checked");
     localStorage.setItem('stage', Number(localStorage.getItem('stage')) +1);
     window.location.replace("MenuOcorrencia.html");
     }

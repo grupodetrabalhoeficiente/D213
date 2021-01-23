@@ -1,16 +1,66 @@
-const id_occurrence = /*localStorage.getItem('id_occurrence_in_progress')*/ '2';
+const id_occurrence = localStorage.getItem('id_occurrence_in_progress');
 let arrivalOccurrence = document.getElementById("chegadaId");
 arrivalOccurrence.onclick = arrivalOccurrenceFunction;
 let occurrenceButton = document.getElementById('finalizarId');
 occurrenceButton.onclick = advanceOccurrence;
-let back = document.getElementById("goBack");
-back.onclick = goBack;
+let openP = document.getElementById("chamadaId");
+openP.onclick = openPresence;
+let openC = document.getElementById("materialId");
+openC.onclick = openMateriais;
+let openH = document.getElementById("ajudaId");
+openH.onclick = openPedidos;
+let openW = document.getElementById("testemunhaId");
+openW.onclick = openWitness;
+let openN = document.getElementById("notaId");
+openN.onclick = openNotes;
+let teamButton = document.getElementById("dadosId");
+teamButton.onclick = opencloseForm;
+let dadosForm = document.getElementById("dadosFormId");
+let closed = 1;
+
+
+
+function openWitness() {
+    window.location.href = "RegistarTestemunhas.html";
+}
+
+function openNotes() {
+    window.location.href = "Notas.html";
+}
+
+function opencloseForm() {
+    if (closed == 1) {
+        closed = 0;
+        dadosForm.style.display = "block";
+        teamButton.style.top = "499px";
+    }
+    else {
+        closed = 1;
+        dadosForm.style.display = "none";
+        teamButton.style.top = "0px";
+    }
+}
 
 function goBack() {
     window.history.back();
 }
+function openPedidos() {
+    if (localStorage.getItem('help') == undefined) {
+        window.location.href = "PedidoDeAjuda1.html";
+    }
+}
 
+function openPresence() {
+    if (localStorage.getItem('presence') == undefined) {
+        window.location.href = "OperationalsPresence.html";
+    }
+}
 
+function openMateriais() {
+    if (localStorage.getItem('materials') == undefined) {
+        window.location.href = "ConfirmarMateriais.html"
+    }
+}
 
 /*let x = document.getElementById('chevron-down')
 x.onclick = expand();
@@ -30,13 +80,13 @@ function expand(){
         }).catch(err => console.error(err));
 }*/
 function occurenceOperationals() {
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/'+id_occurrence+'/operationals')
+    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/operationals')
         .then(res => res.json())
         .then((out) => {
             let dadosDiv = document.getElementById("dadosFormId");
             let txt = "";
             $.each(out, function(index, value) {
-                txt += "<div class='dadosFormDiv form-control' id='"+value.id_operational+"'>";
+                txt += "<div class='dadosFormDiv form-control' id='" + value.id_operational + "'>";
                 if (value.avatar == null) {
                     txt += "<img id='dadosDivAvatar' src='Images/default-profile.png'></img>";
                 }
@@ -56,10 +106,11 @@ function occurenceOperationals() {
 }
 
 function OpenPanel(elem) {
-    if(document.getElementById(elem.id).style.height!="200px"){
-        document.getElementById(elem.id).style.height="200px";
-    }else{
-        document.getElementById(elem.id).style.height="45px";
+    if (document.getElementById(elem.id).style.height != "200px") {
+        document.getElementById(elem.id).style.height = "200px";
+    }
+    else {
+        document.getElementById(elem.id).style.height = "45px";
         console.log(123);
     }
 }
@@ -80,7 +131,7 @@ function occurrenceStage() {
         }).catch(err => console.error(err));
 
     if (Number(localStorage.getItem('stage')) === 0 || Number(localStorage.getItem('stage')) === 1) {
-       // document.getElementById('dadosId').className = /*'dadosDiv'*/;
+        document.getElementById('dadosId').className = 'hidden';
         document.getElementById('ajudaId').className = 'hidden';
         document.getElementById('notaId').className = 'hidden';
         document.getElementById('testemunhaId').className = 'hidden';
@@ -162,28 +213,45 @@ function departureOccurrenceFunction() {
     });
 }
 
-function finishOccurrenceFunction() {
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/status/' + id_occurrence, {
-        headers: { 'Content-Type': 'application/json' },
-        method: 'PUT',
-    }).then(function(response) {
-        if (!response.ok) {
-            console.log(response.status); //=> number 100–599
-            console.log(response.statusText); //=> String
-            console.log(response.headers); //=> Headers
-            console.log(response.url); //=> String
-        }
-        else {
-            localStorage.setItem('stage', Number(localStorage.getItem('stage')) + 1);
-            alert("submitted with success");
-            window.location.replace('UtilizacaoMateriais.html')
-        }
-    }).then(function(result) {
-        console.log(result);
-    }).catch(function(err) {
-        alert("Submission error");
-        console.error(err);
-    });
+
+
+
+function arrivalOccurrenceFunction() {
+    if (localStorage.getItem('arrival') == undefined) {
+        let data = {};
+        let arrival = new Date().toISOString().slice(0, 10) + " " + new Date().toISOString().slice(11, 19);
+        data.arrival = arrival;
+        fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/arrivals/' + id_occurrence, {
+            headers: { 'Content-Type': 'application/json' },
+            method: 'PUT',
+            body: JSON.stringify(data)
+        }).then(function(response) {
+            if (!response.ok) {
+                console.log(response.status); //=> number 100–599
+                console.log(response.statusText); //=> String
+                console.log(response.headers); //=> Headers
+                console.log(response.url); //=> String
+                console.log(data)
+            }
+            else {
+                document.getElementById("hourId").value = arrival.slice(11, 13);
+                document.getElementById("minuteId").value = arrival.slice(14, 16);
+                document.getElementById('ajudaId').className = 'ajudaClass form-control';
+                document.getElementById('notaId').className = 'notaClass form-control';
+                document.getElementById('testemunhaId').className = 'testemunhaClass form-control';
+                document.getElementById('barId').className = '';
+                document.getElementById('finalizarId').innerHTML = 'FINALIZAR OPERAÇÃO';
+                document.getElementById('finalizarId').className = 'finalizarClass';
+                localStorage.setItem('stage', Number(localStorage.getItem('stage')) + 1);
+                localStorage.setItem('arrival',"checked");
+            }
+        }).then(function(result) {
+            console.log(result);
+        }).catch(function(err) {
+            alert("Submission error");
+            console.error(err);
+        });
+    }
 }
 
 function advanceOccurrence() {
@@ -191,47 +259,14 @@ function advanceOccurrence() {
         departureOccurrenceFunction();
     }
     if (Number(localStorage.getItem('stage')) === 4) {
-        finishOccurrenceFunction();
+        localStorage.setItem('stage', Number(localStorage.getItem('stage')) + 1);
+        window.location.replace('UtilizacaoMateriais.html')
     }
-}
-
-function arrivalOccurrenceFunction() {
-    let data = {};
-    let arrival = new Date().toISOString().slice(0, 10) + " " + new Date().toISOString().slice(11, 19);
-    data.arrival = arrival;
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/arrivals/' + id_occurrence, {
-        headers: { 'Content-Type': 'application/json' },
-        method: 'PUT',
-        body: JSON.stringify(data)
-    }).then(function(response) {
-        if (!response.ok) {
-            console.log(response.status); //=> number 100–599
-            console.log(response.statusText); //=> String
-            console.log(response.headers); //=> Headers
-            console.log(response.url); //=> String
-            console.log(data)
-        }
-        else {
-            document.getElementById("hourId").value = arrival.slice(11, 13);
-            document.getElementById("minuteId").value = arrival.slice(14, 16);
-            document.getElementById('ajudaId').className = 'ajudaClass form-control';
-            document.getElementById('notaId').className = 'notaClass form-control';
-            document.getElementById('testemunhaId').className = 'testemunhaClass form-control';
-            document.getElementById('barId').className = '';
-            document.getElementById('finalizarId').innerHTML = 'FINALIZAR OPERAÇÃO';
-            document.getElementById('finalizarId').className = 'finalizarClass';
-            localStorage.setItem('stage', Number(localStorage.getItem('stage')) + 1);
-            alert("submitted with success");
-        }
-    }).then(function(result) {
-        console.log(result);
-    }).catch(function(err) {
-        alert("Submission error");
-        console.error(err);
-    });
 }
 
 $(document).ready(function() {
     occurrenceStage();
-    occurenceOperationals();
+    if (localStorage.getItem('stage') >= 2) {
+        occurenceOperationals();
+    }
 })

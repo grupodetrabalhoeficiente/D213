@@ -1,4 +1,4 @@
-const id_occurrence = /*localStorage.getItem('id_occurrence_in_progress')*/ 2;
+const id_occurrence = localStorage.getItem('id_occurrence_in_progress');
 document.getElementById("submit").onclick = saveHelpRequest;
 let back = document.getElementById("goBack");
 back.onclick = goBack;
@@ -41,8 +41,6 @@ function saveHelpRequest() {
         }
         else {
             alert("submitted with success");
-            localStorage.removeItem('reason');
-            window.location.replace('MenuOcorrencia.html');
         }
     }).then(function(result) {
         console.log(result);
@@ -51,5 +49,8 @@ function saveHelpRequest() {
         console.error(err);
         
     });
+    localStorage.setItem('help',"checked");
+    localStorage.removeItem('reason');
+    window.location.replace('MenuOcorrencia.html');
 }
 }

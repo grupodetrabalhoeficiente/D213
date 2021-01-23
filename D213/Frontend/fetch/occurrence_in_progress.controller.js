@@ -64,7 +64,7 @@ function OpenPanel(elem) {
             }
             else {
                 localStorage.setItem("id_occurrence_in_progress", elem.id);
-                localStorage.setItem("stage", 2); // mudar para 0 quando estiver pronto
+                localStorage.setItem("stage", 0); 
                 window.location.replace("MenuOcorrencia.html");
             }
         }).then(function(result) {

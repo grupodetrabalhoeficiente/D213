@@ -49,7 +49,7 @@ function ownProfile() {
                 document.getElementById('profilePhoneNumber').value = value.phone_number;
                 document.getElementById('profileBirthDate').value = value.birth_date;
                 document.getElementById('profilePassword').value = value.password;
-                document.getElementById('position').innerHTML = localStorage.rankP;
+                document.getElementById('position').innerHTML = localStorage.rankP+"º Lugar";
             })
         }).catch(err => console.error(err));
 }
@@ -77,7 +77,7 @@ function otherProfile() {
                 document.getElementById("changePasswordId").remove();
                 document.getElementById("newPasswordId").remove();
                 document.getElementById("confirmPasswordId").remove();
-                document.getElementById('position').innerHTML = localStorage.rankoperationalSelected;
+                document.getElementById('position').innerHTML = localStorage.rankoperationalSelected+"º Lugar";
             })
         }).catch(err => console.error(err));
 }

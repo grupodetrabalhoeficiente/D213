@@ -17,7 +17,7 @@
   
   for (const occurrence of occurrencesobj) {
     if (occurrence.arrival !== null) {
-     if (occurrence.arrival.slice(0, 4) === "2020") {
+     if (occurrence.arrival.slice(0, 4) === "2021") {
       if (occurrence.arrival.slice(5, 7) == "01") {
        occurrences[0]++;
       }
@@ -86,7 +86,7 @@
   data.addColumn('number', 'Ocorrencias');
 
   let options = {
-   title: 'Ocorrências por mês 2020/2021',
+   title: 'Ocorrências por mês 2021/2022',
    hAxis: {
     format: 'string',
     viewWindow: {

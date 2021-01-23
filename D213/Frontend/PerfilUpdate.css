@@ -206,18 +206,17 @@ z-index:1;
 /*     MidScreen     */
 #name{
     position: absolute;
-    width: 414px;
-    height: 44px;
+    width: 353px;
+    height: 30px;
     left: 0px;
-    top: 209px;
-
+    top: 160px;
+    
     font-family: Inter;
     font-style: normal;
     font-weight: 600;
-    font-size: 36px;
-    line-height: 44px;
-    /* identical to box height */
-
+    font-size: 25px;
+    line-height: 30px;
+    align-items: center;
     text-align: center;
 }
 .ocurrenceButton{
@@ -226,7 +225,7 @@ z-index:1;
     max-height:44px;
     width:100%;
     height:100%;
-    top:278px;
+    top:355px;
     left:85px;
     background: linear-gradient(180deg, #570007 0%, #AB0404 100%);
     padding:0;
@@ -247,6 +246,12 @@ z-index:1;
     font-size: 30px;
     line-height: 36px;
     text-align: center;
+}
+.trophyProfile{
+    position:absolute;
+    top:424px;
+    left:180px;
+    color:#A3A3A3;
 }
 .fa-clipboard-list{
     color:white;
@@ -295,24 +300,16 @@ z-index:1;
 }
 #rankPosition{
     position: absolute;
-    width: 202.66px;
-    height: 155px;
-    left: 106px;
-    top: 391px;
-}
-#rankPosition{
-    position: absolute;
-    width: 41px;
-    height: 45px;
-    left: 187px;
-    top: 434px;
+    width: 103px;
+    height: 30px;
+    left: 154px;
+    top: 483px;
     font-family: Inter;
     font-style: normal;
     font-weight: 600;
-    font-size: 36px;
-    line-height: 44px;
-    text-align: center;
-    color: #D2A361;
+    font-size: 25px;
+    line-height: 30px;
+    color: #939393;
 }
 
 html {
@@ -491,14 +488,14 @@ html {
 }
 #shadowImg{
     border-radius: 50%;
-  width: 35%;
-  height: 135px;
-  opacity: 1;
-  position: absolute;
-  top: 65px;
-  left: 139px;
-  box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.35);
-  z-index:2;
+    height: 130px;
+    width:130px;
+    opacity: 1;
+    position: absolute;
+    top: 30px;
+    left: 111px;
+    box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.35);
+    z-index:2;
 }
 #topDivBackground{
 width: 414px;
