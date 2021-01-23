@@ -205,7 +205,7 @@ function readIDOperationalOccurrence(req, res) {
 function readPresentOperationalOccurrence(req, res) {
     const id_occurrence = req.sanitize('id_occurrence').escape();
     //criar e executar a query de leitura na BD
-    connect.con.query('SELECT operational_occurrence.*, operational.* FROM operational_occurrence, operational where id_occurrence=? and presence=? and operational_occurrence.id_operational=operational.id_operational order by operational_occurrence.id_operational', [id_occurrence, '1'], function(err,
+    connect.con.query('SELECT operational_occurrence.*, operational.name,occurrence.occurrence_type,occurrence.local,operational.speciality ,operational.operational_type FROM operational_occurrence, operational,occurrence where occurrence.id_occurrence=? and operational_occurrence.id_occurrence=occurrence.id_occurrence  and presence=? and operational_occurrence.id_operational=operational.id_operational order by operational_occurrence.id_operational', [id_occurrence, '1'], function(err,
         rows, fields) {
         if (!err) {
             //verifica os resultados se o número de linhas for 0 devolve dados não encontrados, caso contrário envia os resultados (rows).
@@ -623,9 +623,9 @@ function saveOccurrenceHelpRequest(req, res) {
     const reason = req.sanitize('reason').escape();
     const num_operationals = req.sanitize('num_operationals').escape();
     const num_materials = req.sanitize('num_materials').escape();
-    const material_type = req.sanitize('material_type').escape();
+    const materials_type = req.sanitize('materials_type').escape();
     let query = "";
-    query = connect.con.query('INSERT INTO ?? (??,??,??,??,??) VALUES (?,?,?,?,?)', ["help_request", "id_occurrence", "reason", "num_operationals", "num_materials", "material_type", id_occurrence, reason, num_operationals, num_materials, material_type], function(err, rows, fields) {
+    query = connect.con.query('INSERT INTO ?? (??,??,??,??,??) VALUES (?,?,?,?,?)', ["help_request", "id_occurrence", "reason", "num_operationals", "num_materials", "materials_type", id_occurrence, reason, num_operationals, num_materials, materials_type], function(err, rows, fields) {
         console.log(query.sql);
         if (!err) {
             res.status(200).location(rows.insertId).send({

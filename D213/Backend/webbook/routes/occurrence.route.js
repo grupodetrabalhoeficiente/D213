@@ -38,7 +38,6 @@ app.route('/occurrences/:id_occurrence/operationals')
 app.route('/occurrences/:id_occurrence/operationals/:id_operational')
     .get(verify,controllerOccurrence.readIDOperationalOccurrence)
 
-
 app.route('/occurrences/:id_occurrence/presences/:id_operational')
     .put(verify,verifyresponsible,validator.updatePresence, controllerOccurrence.updateOperationalOccurrencePresence) // certo (validator feito)
 
@@ -79,6 +78,6 @@ app.route('/occurrences/:id_occurrence/notes/:id_note')
     .get(verify,controllerOccurrence.readIDNote)
 
 app.route('/occurrences/:id_occurrence/helprequests')
-    .post(verify,verifyresponsible,controllerOccurrence.saveOccurrenceHelpRequest)
-
+    .post(/*verify,verifyresponsible,*/controllerOccurrence.saveOccurrenceHelpRequest)  // MUDAR AQUI !!!
+    
 module.exports = app;

@@ -8,13 +8,13 @@
   overflow: hidden;
   z-index:-1;
 }
-.navbar{
-  width: 100%;
-  max-width:414px;
-  background-color: rgba(255,255,255,1);
-  z-index:3;
-  text-align:center;
-  overflow: hidden;
+/*  NavBar  */
+#goBack {
+    position: absolute;
+    top:21px;
+    left: 27px;
+    font-size: 24px;
+    color: lightgray;
 }
 .everybodyRankClass{
   position: absolute;
@@ -38,6 +38,17 @@
 }
 #defaultRankBody{
   display:none;
+}
+#divTop{
+  position: absolute;
+  left: 0px;
+width: 414px;
+height: 135px;
+top: 73px;
+
+background: #FFFFFF;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+z-index:1;
 }
 .myRank{
   position: absolute;
@@ -94,18 +105,30 @@ color: #000000;
 #myAvatarRank{
   position: absolute;
 height: 66px;
+width:66px;
 top:-16%;
 left:1%;
 box-sizing: border-box;
 box-shadow: 0px 4px 10px rgba(101, 101, 101, 0.15);
 border-radius: 50%;
 }
+#shadowImg{
+  position: absolute;
+  height: 66px;
+  width: 66px;
+  top:-16%;
+  left:1%;
+  box-sizing: border-box;
+  border-radius: 50%;
+  box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.35);
+  z-index:3;
+}
 #ranksText{
   position: absolute;
 width: 412px;
 height: 138px;
 left: 0px;
-top: 72px;
+top: 68px;
 
 font-family: Inter;
 font-style: normal;
@@ -114,11 +137,12 @@ font-size: 144px;
 line-height: 174px;
 text-align: center;
 color:rgba(185, 185, 185, 0.08);
+z-index:2;
 }
 #nameRank{
   position: relative;
   left: 15%;
-  top:-56px;
+  top:-96px;
   width: 185px;
   height: 19px;
   font-family: Inter;
@@ -128,6 +152,16 @@ color:rgba(185, 185, 185, 0.08);
   line-height: 22px;
   color: #000000;
 }
+#shadowImgEveryone{
+  position: relative;
+  width: 40px;
+  height: 40px;
+  box-sizing: border-box;
+  left:14%;
+  top:-43px;
+  border-radius: 50%;
+  box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.35);
+}
 #avatarRank{
   position: relative;
   width: 40px;
@@ -135,14 +169,14 @@ color:rgba(185, 185, 185, 0.08);
   box-sizing: border-box;
   box-shadow: inset 0px 3px 4px 0px rgba(101, 101, 101, 0.15);
   left:14%;
-  top:-43px;
+  top:-83px;
   border-radius: 50%;
 }
 #pointsRank{
   position: relative;
   display: block;
-  left: 125px;
-  top:-80px;
+  left: 150px;
+  top:-119px;
   font-family: Inter;
   font-style: normal;
   font-weight: 800;
@@ -229,14 +263,6 @@ color:rgba(185, 185, 185, 0.08);
     z-index: 2;
     top: 16px!important;
     color: #d2d2d2;
-}
-
-#goBack {
-  position: absolute;
-  top: 35px;
-  left: 27px;
-  font-size: 24px;
-  color: lightgray;
 }
 
 .fixed-bottom {

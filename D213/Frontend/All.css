@@ -320,8 +320,6 @@ body{
 /*tabela*/
 .VerMais {
   color: #AB0404;
-  background-color: white;
-  opacity: 0.3;
   border: none; 
   padding: 5px 5px; 
   cursor: pointer; 
@@ -577,17 +575,16 @@ body{
   color: rgba(0,0,0,1);
   position: absolute;
   top: 114px;
-  left: 18px;
+  left: 5%;
   font-size: 24px;
   opacity: 1;
-  text-align: center;
 }
 #TagGravidade {
   width: 377px;
   color: rgba(0,0,0,1);
   position: absolute;
   top: 167px;
-  left: 19px;
+  left: 5%;
   font-size: 24px;
   opacity: 1;
   text-align: left;

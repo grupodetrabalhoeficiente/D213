@@ -12,7 +12,7 @@ let pnPassword = document.getElementById("profileNewPassword");
 let frame = document.getElementById("frameId");
 let viewPassword = document.getElementById("viewTxt");
 //Upload screen
-let profileImg = document.getElementById("profileImage");
+let profileImg = document.getElementById("shadowImg");
 profileImg.onclick = openUploadScreenOpen;
 let uploadAvatar = document.getElementById("uploadAvatarDiv");
 let clickOut = document.getElementById("clickOutside");

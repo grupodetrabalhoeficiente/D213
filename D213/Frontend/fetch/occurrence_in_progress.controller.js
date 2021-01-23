@@ -15,7 +15,7 @@ function fillTable() {
             $('#table tbody').empty();
             $.each(out, function(index, value) {
                 obj.push({ "id_occurrence": value.id_occurrence });
-                $('#table tbody').append('<tr class="fullRow"><th class ="id_occurrence" scope="row">' + value.id_occurrence + '</th><td>' + value.occurrence_type + '</td> <td>  <input id="' + value.id_occurrence + '"type="button" class="VerMais ' + value.id_occurrence + '" value="Ver Mais"/> </td> </tr>')
+                $('#table tbody').append('<tr class="fullRow"><th class ="id_occurrence" scope="row">' + value.id_occurrence + '</th><td>' + value.occurrence_type + '</td> <td>'+value.local+'</td><td>  <div id="' + value.id_occurrence + '" class="VerMais ' + value.id_occurrence + '" > <i class="fas fa-plus"></i> </div></td>  </tr>')
             });
             rows = JSON.stringify(obj);
             let panels = document.querySelectorAll(".VerMais");

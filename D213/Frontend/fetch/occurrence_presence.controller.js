@@ -17,6 +17,9 @@ function fillTable() {
                 if (value.statute !== "chefe") {
                     obj.push({ "id_operational": value.id_operational });
                     $('#table tbody').append('<tr class="fullRow"><th class ="id_operational"scope="row">' + value.id_operational + '</th><td>' + value.statute + '</td> <td>  <label class="custom-checkbox checkboxOperationals" tab-index="0" aria-label="Checkbox Label"> <input class="presence"type="checkbox" checked> <span class="checkmark"></span> </label> </td> </tr>')
+                } else {
+                    obj.push({ "id_operational": value.id_operational });
+                    $('#table tbody').append('<tr class="fullRow"><th class ="id_operational"scope="row">' + value.id_operational + '</th><td>' + value.statute + '</td> <td>  <label class="custom-checkbox checkboxOperationals" tab-index="0" aria-label="Checkbox Label"> <input class="presence"type="checkbox" disabled checked> <span class="checkmark"></span> </label> </td> </tr>')
                 }
 
             });

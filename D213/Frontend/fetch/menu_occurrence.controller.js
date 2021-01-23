@@ -54,6 +54,7 @@ function occurenceOperationals() {
             }
         }).catch(err => console.error(err));
 }
+
 function OpenPanel(elem) {
     if(document.getElementById(elem.id).style.height!="200px"){
         document.getElementById(elem.id).style.height="200px";

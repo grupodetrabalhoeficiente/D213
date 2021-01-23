@@ -12,7 +12,7 @@
 
  async function drawBasic() {
   const response = await fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/all_occurrences');
-   const occurrencesobj = await response.json();
+  const occurrencesobj = await response.json();
   var data = new google.visualization.DataTable();
   
   for (const occurrence of occurrencesobj) {
@@ -86,7 +86,7 @@
   data.addColumn('number', 'Ocorrencias');
 
   let options = {
-   /*title: 'Número de ocorrencias nos ultimos meses',*/
+   title: 'Ocorrências por mês 2020/2021',
    hAxis: {
     format: 'string',
     viewWindow: {
@@ -95,12 +95,11 @@
     }
    },
    chartArea: {
-    left: 10,
+    left: 18,
     right: 10,
     top: 20,
     bottom: 25
-   },
-   legend: { position: 'none' }
+   }
   };
   var data = google.visualization.arrayToDataTable([
    ['Mês', 'Ocorrencias', { role: 'style' }],

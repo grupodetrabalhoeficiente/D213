@@ -38,6 +38,7 @@ function fillRank() {
                         document.getElementById('myPointsRank').innerHTML = value.points + "Pontos";
                     }
                 }
+                txt += "<div id='shadowImgEveryone'></div>";
                 if (value.avatar == null) {
                     txt += "<img id='avatarRank' src='Images/default-profile.png'></img>";
                 }

@@ -17,7 +17,7 @@ function fillTable() {
             $('#table tbody').empty();
             $.each(out, function(index, value) {
                 obj.push({ "id_operational": value.id_operational });
-                $('#table tbody').append('<tr class="fullRow"><th class ="id_operational"scope="row">' + value.id_operational + '</th><td>' + value.name + '</td> <td> <select class="custom-select" id="inputGroupSelect' + count.toString() + '"> <option selected>Avaliação</option>  <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option>  <option value="5">5</option></select> </td>')
+                $('#table tbody').append('<tr class="fullRow"><th class ="id_operational"scope="row">' + value.id_operational + '</th><td>' + value.name + '</td> <td> <select class="custom-select" id="inputGroupSelect' + count.toString() + '">   <option selected value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option>  <option value="5">5</option></select> </td>')
                 count++;
             });
             rows = JSON.stringify(obj);
