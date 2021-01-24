@@ -9,6 +9,10 @@ app.use(function(req, res, next) {
   next();
 })
 
+app.get('/heroku',function(req,res){
+  res.send("heroku hello")
+})
+
 app.route('/ranks')
     .get(verify,controllerOperational.readOperationalPoints)
 
