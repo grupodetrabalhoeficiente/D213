@@ -1,5 +1,5 @@
 function fillTeam() {
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/'+localStorage.id_occurrence+'/evaluations/')
+    fetch('https://d213.herokuapp.com/occurrences/'+localStorage.id_occurrence+'/evaluations/')
         .then(res => res.json())
         .then((out) => {
             let screen = document.getElementById("divTeam");

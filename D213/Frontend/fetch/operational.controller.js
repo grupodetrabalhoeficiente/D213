@@ -31,7 +31,7 @@ function verification() {
 }
 
 function ownProfile() {
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + localStorage.id_operational_logged)
+    fetch('https://d213.herokuapp.com/operationals/' + localStorage.id_operational_logged)
         .then(res => res.json())
         .then((out) => {
             $.each(out, function(index, value) {
@@ -55,7 +55,7 @@ function ownProfile() {
 
 //Other operationals profile
 function otherProfile() {
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + localStorage.operationalSelected)
+    fetch('https://d213.herokuapp.com/operationals/' + localStorage.operationalSelected)
         .then(res => res.json())
         .then((out) => {
             $('#rankPosition div').empty();
@@ -89,8 +89,8 @@ function savePassword() {
     data.confirmPassword = document.getElementById("profileConfirmPassword").value;
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    /*fetch(`https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/${urlParams.get('id_operational')}`, {*/
-    fetch("https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/" + localStorage.id_operational_logged, {
+    /*fetch(`https://d213.herokuapp.com/operationals/${urlParams.get('id_operational')}`, {*/
+    fetch("https://d213.herokuapp.com/operationals/" + localStorage.id_operational_logged, {
         headers: { 'Content-Type': 'application/json' },
         method: 'PUT',
         body: JSON.stringify(data)
@@ -120,7 +120,7 @@ function saveAvatar() {
     data.avatar = localStorage.localUploadedFileName;
     //console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch("https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/" + localStorage.id_operational_logged + "/upload", {
+    fetch("https://d213.herokuapp.com/operationals/" + localStorage.id_operational_logged + "/upload", {
         headers: { 'Content-Type': 'application/json' },
         method: 'PUT',
         body: JSON.stringify(data)
@@ -147,7 +147,7 @@ function logoutFunction() {
     localStorage.removeItem('operationalSelected');
     localStorage.removeItem('id_operational_logged');
     localStorage.removeItem('rankoperationalSelected');
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/logout')
+    fetch('https://d213.herokuapp.com/logout')
         .then(res => res.json())
         .then((out) => {}).catch(err => console.error(err));
 }

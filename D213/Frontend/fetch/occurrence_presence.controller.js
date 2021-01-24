@@ -6,7 +6,7 @@ submit.onclick = updatePresence;
 
 
 function fillTable() {
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/operationals')
+    fetch('https://d213.herokuapp.com/occurrences/' + id_occurrence + '/operationals')
         .then(res => res.json())
         .then((out) => {
             $('#table tbody').empty();
@@ -37,7 +37,7 @@ function updatePresence() {
                     else {
                         presence.presence = '0';
                     }
-                    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/presences/' + obj[id_operational].id_operational.toString(), {
+                    fetch('https://d213.herokuapp.com/occurrences/' + id_occurrence + '/presences/' + obj[id_operational].id_operational.toString(), {
                         headers: { 'Content-Type': 'application/json' },
                         method: 'PUT',
                         body: JSON.stringify(presence)

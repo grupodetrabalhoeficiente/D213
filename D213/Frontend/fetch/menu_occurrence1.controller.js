@@ -70,7 +70,7 @@ function expand(){
 }*/
 /*function criarDiv() {
     console.log('fds')
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/'+id_occurrence+'/operationals')
+    fetch('https://d213.herokuapp.com/occurrences/'+id_occurrence+'/operationals')
         .then(res => res.json())
         .then((out) => {
             $('#dadosFormId form').empty();
@@ -80,7 +80,7 @@ function expand(){
         }).catch(err => console.error(err));
 }*/
 function occurenceOperationals() {
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/operationals')
+    fetch('https://d213.herokuapp.com/occurrences/' + id_occurrence + '/operationals')
         .then(res => res.json())
         .then((out) => {
             let dadosDiv = document.getElementById("dadosFormId");
@@ -122,7 +122,7 @@ function openPanelHandler(event) {
 
 
 function occurrenceStage() {
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence)
+    fetch('https://d213.herokuapp.com/occurrences/' + id_occurrence)
         .then(res => res.json())
         .then((out) => {
             $.each(out, function(index, value) {
@@ -183,7 +183,7 @@ function departureOccurrenceFunction() {
     let data = {};
     let departure = new Date().toISOString().slice(0, 10) + " " + new Date().toISOString().slice(11, 19);
     data.departure = departure;
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/departures/' + id_occurrence, {
+    fetch('https://d213.herokuapp.com/departures/' + id_occurrence, {
         headers: { 'Content-Type': 'application/json' },
         method: 'PUT',
         body: JSON.stringify(data)
@@ -220,7 +220,7 @@ function arrivalOccurrenceFunction() {
         let data = {};
         let arrival = new Date().toISOString().slice(0, 10) + " " + new Date().toISOString().slice(11, 19);
         data.arrival = arrival;
-        fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/arrivals/' + id_occurrence, {
+        fetch('https://d213.herokuapp.com/arrivals/' + id_occurrence, {
             headers: { 'Content-Type': 'application/json' },
             method: 'PUT',
             body: JSON.stringify(data)

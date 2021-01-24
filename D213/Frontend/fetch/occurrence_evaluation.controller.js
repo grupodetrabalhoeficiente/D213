@@ -9,7 +9,7 @@ function goBack() {
     window.history.back();
 }
 function fillTable() {
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/evaluations')
+    fetch('https://d213.herokuapp.com/occurrences/' + id_occurrence + '/evaluations')
         .then(res => res.json())
         .then((out) => {
             let count = 1;
@@ -31,7 +31,7 @@ function updatePoints() {
             if (obj[id_operational].id_operational == data[c].getElementsByClassName("id_operational").item(0).innerHTML) {
                 if (data[c].getElementsByClassName("custom-select").item(0).disabled === false) {
                     points.points = data[c].getElementsByClassName("custom-select").item(0).value;
-                    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/evaluations/' + obj[id_operational].id_operational.toString(), {
+                    fetch('https://d213.herokuapp.com/occurrences/' + id_occurrence + '/evaluations/' + obj[id_operational].id_operational.toString(), {
                         headers: { 'Content-Type': 'application/json' },
                         method: 'PUT',
                         body: JSON.stringify(points)
@@ -61,7 +61,7 @@ function updatePoints() {
 
 
 function finishOccurrenceFunction() {
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/status/' + id_occurrence, {
+    fetch('https://d213.herokuapp.com/status/' + id_occurrence, {
         headers: { 'Content-Type': 'application/json' },
         method: 'PUT',
     }).then(function(response) {
