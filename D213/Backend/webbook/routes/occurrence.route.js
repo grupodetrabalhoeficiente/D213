@@ -1,5 +1,6 @@
 const {verify,verifyresponsible} = require('../controllers/middleware.js')
-const app = require('../app.js');
+const appfile = require('../app.js');
+const app = new appfile(app);
 const controllerOccurrence = require('../controllers/occurrence.controller');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));

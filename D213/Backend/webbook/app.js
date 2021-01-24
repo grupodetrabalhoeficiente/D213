@@ -80,6 +80,6 @@ app.post('/upload', upload.single('image'), (req, res, next) => {
 
 //forçar utilização das bibliotecas
 module.exports = app;
-require('./routes/occurrence.route.js');
+/*require('./routes/occurrence.route.js');
 require('./routes/operational.route.js');
-require('./routes/main.route.js');
+require('./routes/main.route.js');*/
