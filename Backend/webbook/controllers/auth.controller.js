@@ -82,6 +82,7 @@ exports.responsible = function(req, res) {
         }
     });
 }
+
 exports.logout = function(req,res) {
     res.clearCookie("jwt");
     res.clearCookie("jwtresponsible");

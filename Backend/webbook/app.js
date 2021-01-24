@@ -19,7 +19,6 @@ app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
 app.use(expressSanitizer());
 app.use(expressValidator());
 app.use(cookieParser());
-/*                 Login                   */
 
 
 app.listen(port, function(err) {
@@ -28,6 +27,7 @@ app.listen(port, function(err) {
     }
     else { console.log(err); }
 });
+/*                 Login                   */
 app.post('/login', login)
 app.post('/occurrences/:id_occurrence/responsible',verify,responsible)
 app.get('/logout',logout )
@@ -75,11 +75,8 @@ app.post('/upload', upload.single('image'), (req, res, next) => {
 //forçar utilização das bibliotecas
 app.use(cors());
 app.use(cookieParser());
-
 module.exports = app;
 /*require('./multer.js');*/
 require('./routes/occurrence.route.js');
-require('./routes/perfil.route.js');
+require('./routes/operational.route.js');
 require('./routes/main.route.js');
-require('./routes/rank.route.js');
-require('./routes/auth.js');

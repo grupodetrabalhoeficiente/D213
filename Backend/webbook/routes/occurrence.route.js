@@ -4,7 +4,7 @@ const controllerOccurrence = require('../controllers/occurrence.controller');
 const bodyParser = require('body-parser');
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
 const validator = require("../assets/Validations/validator");
-const {login, refresh, responsible} = require('../controllers/auth.controller.js')
+const { responsible} = require('../controllers/auth.controller.js')
 
 
 app.route('/occurrences/:id_occurrence/responsible')
@@ -12,6 +12,9 @@ app.route('/occurrences/:id_occurrence/responsible')
 
 app.route('/all_occurrences')
     .get(verify,controllerOccurrence.readOccurrenceMonths)
+    
+app.route('/finished_occurrences')
+    .get(verify,controllerOccurrence.readFinishedOccurrences)
     
 app.route('/occurrences')
     .get( verify,controllerOccurrence.readOccurrence)
@@ -23,68 +26,54 @@ app.route('/unfinished_occurrences')
     .get(verify,controllerOccurrence.readOccurrenceUnfinished)
 
 app.route('/status/:id_occurrence')
-    .put(verify,verifyresponsible, validator.updateStatus, controllerOccurrence.updateOccurrenceStatus) // ver isto ainda (validator feito)
+    .put(verify,verifyresponsible, validator.updateStatus, controllerOccurrence.updateOccurrenceStatus) 
 
 app.route('/arrivals/:id_occurrence')
-    .put(verify,verifyresponsible,controllerOccurrence.updateOccurrenceArrival) //                     Fazer validator
+    .put(verify,verifyresponsible,controllerOccurrence.updateOccurrenceArrival) 
 
 app.route('/departures/:id_occurrence')
-    .put(verify,verifyresponsible,controllerOccurrence.updateOccurrenceDeparture) //                   Fazer validator
+    .put(verify,verifyresponsible,controllerOccurrence.updateOccurrenceDeparture) 
 
 // Operational Occurrence
 app.route('/occurrences/:id_occurrence/operationals')
-    .get(controllerOccurrence.readOperationalFromOccurrence)
+    .get(verify,controllerOccurrence.readOperationalFromOccurrence)
 
 app.route('/occurrences/:id_occurrence/operationals/:id_operational')
     .get(verify,controllerOccurrence.readIDOperationalOccurrence)
 
-
 app.route('/occurrences/:id_occurrence/presences/:id_operational')
-    .put(verify,verifyresponsible,validator.updatePresence, controllerOccurrence.updateOperationalOccurrencePresence) // certo (validator feito)
-
-/*app.route('/occurrences/:id_occurrence/arrivals/:id_operational')
-    .put(verify,validator.updateArrival, controllerOccurrence.updateOperationalOccurrenceArrival) // ver melhor (validator feito)
-
-app.route('/occurrences/:id_occurrence/departures/:id_operational')
-    .put(verify,verifyresponsible,validator.updateDeparture, controllerOccurrence.updateOperationalOccurrenceDeparture) // ver melhor (validator feito)*/
+    .put(verify,verifyresponsible,validator.updatePresence, controllerOccurrence.updateOperationalOccurrencePresence) 
 
 app.route('/occurrences/:id_occurrence/evaluations')
-    .get(verify,verifyresponsible,controllerOccurrence.readPresentOperationalOccurrence)
+    .get(verify,controllerOccurrence.readPresentOperationalOccurrence)
 
 app.route('/occurrences/:id_occurrence/evaluations/:id_operational')
-    .put(verify,verifyresponsible,validator.updatePoints, controllerOccurrence.updateOperationalOccurrencePoints) // ver melhor (validator feito)
+    .put(verify,verifyresponsible,validator.updatePoints, controllerOccurrence.updateOperationalOccurrencePoints) 
 
 // Witness Ocurrence
 app.route('/occurrences/:id_occurrence/witnesses')
-    .get(verify,controllerOccurrence.readWitnessFromOccurrence)
-    .post(verify,verifyresponsible,validator.addWitness, controllerOccurrence.saveWitnessOccurrence) // certo e fetch (ta feito o validator)
+    .post(verify,verifyresponsible,validator.addWitness, controllerOccurrence.saveWitnessOccurrence) 
 
-app.route('/occurrences/:id_occurrence/witnesses/:id_witness')
-    .get(verify,controllerOccurrence.readIDWitnessOccurrence)
 
 // Vehicle material occurrence
 app.route('/occurrences/:id_occurrence/materials')
     .get(verify,verifyresponsible,controllerOccurrence.readVehicleMaterialFromOccurrence)
 
 app.route('/occurrences/:id_occurrence/materials/:id_vei_mat')
-    .get(verify,verifyresponsible,controllerOccurrence.readIDVehicleMaterialOccurrence)
-    .put(verify,verifyresponsible,validator.updateConfirmation, controllerOccurrence.updateVehicleMaterialOccurrenceConfirmation) // (esta feito o validator)
+    .put(verify,verifyresponsible,validator.updateConfirmation, controllerOccurrence.updateVehicleMaterialOccurrenceConfirmation) 
 
-app.route('/occurrences/:id_occurrence/materials_utilizations') // olhar para esta rota e decidir se é utilizations ou confirmations
-    .get(verify,verifyresponsible,controllerOccurrence.readConfirmedVehicleMaterialOccurrence) // parece certo
+app.route('/occurrences/:id_occurrence/materials_utilizations') 
+    .get(verify,verifyresponsible,controllerOccurrence.readConfirmedVehicleMaterialOccurrence) 
 
-app.route('/occurrences/:id_occurrence/materials_utilizations/:id_vei_mat') // certo 
-    .put(verify,verifyresponsible,validator.updateUtilization, controllerOccurrence.updateVehicleMaterialOccurrenceUtilization) // (validator feito mas nao sei se esta certo)
+app.route('/occurrences/:id_occurrence/materials_utilizations/:id_vei_mat') 
+    .put(verify,verifyresponsible,validator.updateUtilization, controllerOccurrence.updateVehicleMaterialOccurrenceUtilization) 
 
 // Notes
 app.route('/occurrences/:id_occurrence/notes')
-    .get(verify,controllerOccurrence.readNoteFromOccurrence)
-    .post(verify,verifyresponsible,validator.addNote, controllerOccurrence.saveNote) // certo e fetch (feito o validator)
+    .post(verify,verifyresponsible,validator.addNote, controllerOccurrence.saveNote) 
 
-app.route('/occurrences/:id_occurrence/notes/:id_note')
-    .get(verify,controllerOccurrence.readIDNote)
 
 app.route('/occurrences/:id_occurrence/helprequests')
-    .post(verify,verifyresponsible,controllerOccurrence.saveOccurrenceHelpRequest)
-
+    .post(verify,verifyresponsible,controllerOccurrence.saveOccurrenceHelpRequest)  
+    
 module.exports = app;
