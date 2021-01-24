@@ -19,16 +19,14 @@ app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
 app.use(expressSanitizer());
 app.use(expressValidator());
 app.use(cookieParser());
-/*app.use(function(req, res, next) {
+app.use(cors());
+app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", '*');
   res.header("Access-Control-Allow-Credentials", true);
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
   res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
   next();
-})*/
-app.use(cors({
-    exposedHeaders: ['Location'],
-}));
+})
 app.listen(port, function(err) {
     if (!err) {
         console.log('Your app is listening on ' + host + ' and port ' + port);
@@ -81,10 +79,7 @@ app.post('/upload', upload.single('image'), (req, res, next) => {
 });
 
 //forçar utilização das bibliotecas
-app.use(cors());
-app.use(cookieParser());
 module.exports = app;
-/*require('./multer.js');*/
 require('./routes/occurrence.route.js');
 require('./routes/operational.route.js');
 require('./routes/main.route.js');
