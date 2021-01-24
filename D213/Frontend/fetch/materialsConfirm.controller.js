@@ -58,7 +58,7 @@ function updateConfirmation() {
                     }).then(function(result) {
                         console.log(result);
                     }).catch(function(err) {
-                        alert("Submission error");
+ data[c].getElementsByClassName("confirmation").item(0).disabled = true;
                         console.error(err);
                     });
                 }

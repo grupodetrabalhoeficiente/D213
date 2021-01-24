@@ -24,16 +24,9 @@ function saveNotes() {
             console.log(response.statusText); //=> String
             console.log(response.headers); //=> Headers
             console.log(response.url); //=> String
-            if (response.status === 409) {
-                alert("Duplicated Email");
-            }
-            else {
-                throw Error(response.statusText);
-            }
         }
         else {
             document.getElementById("form-notas").reset(); //limpeza dos dados do form
-            alert("submitted with success");
         }
     }).then(function(result) {
         console.log(result);

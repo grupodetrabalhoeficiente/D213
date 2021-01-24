@@ -10,6 +10,8 @@
 ::-ms-input-placeholder { /* Microsoft Edge */
   color: #BDBDBD;
 }
+/*font*/
+
 body{
   font-family: 'Roboto', sans-serif;
   align-items: center;
@@ -24,6 +26,19 @@ body{
   position: absolute;
   overflow: hidden;
   z-index:-1;
+}
+.title {
+    position: relative;
+    color: rgb(58 57 57);
+    width: 100%;
+    top: 3.5%;
+    font-size: 28px;
+    font-family: INHERIT;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+
 }
 .hidden{
   display: none;
@@ -122,19 +137,22 @@ body{
 }
  /*                                                                AvaliarOperacionais                                      */
  .titleAvaliarOperacionais {
-    position: absolute;
-    color: #3A3939;
+       color: #3A3939;
+    position: relative;
     width: 100%;
-    top: 25px;
-    left: 81px;
+    top: 7%;
     font-size: 28px;
     font-family: INHERIT;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    display: block;
 }
 .AvaliarDiv{
     position: relative;
     width: 90%;
     height: 65%;
-    top: 13%;
+    top: 8%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -159,21 +177,11 @@ body{
     box-shadow: -4px 4px 2px rgb(171 171 171 / 50%);
 }
  /*                                                                ConfirmarMateriais                                     */
- .titleConfirmarMateriais {
-    position: absolute;
-    color: rgb(58 57 57);
-    width: 100%;
-    top: 25px;
-    left: 89px;
-    font-size: 28px;
-    font-family: INHERIT;
-
-}
 .TabelaDiv{
-    position: relative;
+   position: relative;
     width: 90%;
     height: 55%;
-    top: 18%;
+    top: 8%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -296,15 +304,7 @@ body{
   text-align: center;
 }*/
 /*                                                               HistoricoOcorrencias                                   */
-.titleHistoricoOcorrencias {
-    position: absolute;
-    color: #3A3939;
-    width: 100%;
-    top: 25px;
-    left: 89px;
-    font-size: 28px;
-    font-family: INHERIT;
-}
+
 .historicoOcorrenciasDiv{
     position: absolute;
     width: 90%;
@@ -358,8 +358,8 @@ body{
 #secure4allTxt {
   color: rgba(0,0,0,1);
   top:15%;
-  font-family: 'Inter', sans-serif;
-  font-weight: Bold;
+  font-family: 'Roboto', sans-serif;
+  font-weight: Bolder;
   font-size: 30px;
   opacity: 1;
   z-index:1;
@@ -379,29 +379,15 @@ body{
 }
 
 #passInput {
-  position: absolute;
-  top: 17%;
+  top: 8%;
 }
 #viewTxt {
-  width:60px;
-  top: 33%;
-  left: 79%;
+      width: 60px;
+    left: 79%;
 }
 #submitInput {
-  width:100%;
-  height:100%;
-  max-width: 343px;
-  max-height: 51px;
-  background: rgba(171,4,4,1);
-  opacity: 1;
-  position: relative;
-  top: 23%;
-  border-top-left-radius: 100px;
-  border-top-right-radius: 100px;
-  border-bottom-left-radius: 100px;
-  border-bottom-right-radius: 100px;
-  overflow: hidden;
-  color:white;
+  height:10%;
+  top:50%;
 }
 /* ERROR  PART*/
 .errorFrame {
@@ -569,37 +555,67 @@ body{
     font-size: 28px;
     font-family: INHERIT;
 }
-/*OcorrenciaDados*/
+                                                  /*OcorrenciaDados*/
+#TagDeparture {
+  width: 100%;
+    color: rgba(0,0,0,1);
+    position: absolute;
+    top: 21%;
+    left: 5%;
+    font-size: 21px;
+    opacity: 1;
+    text-align: left;
+}
+#TagArrival{
+  width: 100%;
+    color: rgba(0,0,0,1);
+    position: absolute;
+    top: 26%;
+    left: 5%;
+    font-size: 21px;
+    opacity: 1;
+    text-align: left;
+}
 #TagTipo {
-  width: 249px;
-  color: rgba(0,0,0,1);
-  position: absolute;
-  top: 114px;
-  left: 5%;
-  font-size: 24px;
-  opacity: 1;
+  width: 100%;
+    color: rgba(0,0,0,1);
+    position: absolute;
+    top: 11%;
+    left: 5%;
+    font-size: 20px;
+    opacity: 1;
 }
 #TagGravidade {
-  width: 377px;
-  color: rgba(0,0,0,1);
-  position: absolute;
-  top: 167px;
-  left: 5%;
-  font-size: 24px;
-  opacity: 1;
-  text-align: left;
+   width: 100%;
+    color: rgba(0,0,0,1);
+    position: absolute;
+    top: 16%;
+    left: 5%;
+    font-size: 21px;
+    opacity: 1;
+    text-align: left;
+}
+#TagCusto{
+  width: 100%;
+    color: rgba(0,0,0,1);
+    position: absolute;
+    top: 31%;
+    left: 5%;
+    font-size: 21px;
+    opacity: 1;
+    text-align: left;
 }
 #TagEquipa {
-  width: 81px;
-  color: rgba(0,0,0,1);
-  position: absolute;
-  top: 220px;
-  left: 19px;
-  font-family: Inter;
-  font-weight: Bold;
-  font-size: 24px;
-  opacity: 1;
-  text-align: center;
+  width: 100%;
+    color: rgba(0,0,0,1);
+    position: absolute;
+    top: 38%;
+    left: 5%;
+    font-family: Inter;
+    font-weight: Bold;
+    font-size: 21px;
+    opacity: 1;
+    text-align: left;
 }
 .titleDadosOcorrencia {
     position: absolute;
@@ -618,12 +634,102 @@ body{
   position:relative;
 }
 .divTeam{
-  height: 50%;
-  top: 38%;
+  height: 46%;
+  top: 44%;
   position: relative;
   overflow:auto;
 }
+.accordion-button:not(.collapsed) {
+    color: #000000 !important;
+    background-color: #fefefe!important;
+}
 /*----*/
-/*OcorrenciaEmCurso*/
+/*OcorrenciaMenu*/
 
+/* check1 */
+.check-box-group1 {
+ display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -18%;
+    left:83%;
+  
+}
+ .label1 {
+     width: 300px;
+ }
+.custom-checkbox1 {
+     cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin: 7%;
+}
+
+.custom-checkbox1 .label1 {
+  font-size: 1.2em;
+  margin: 0 10px;
+}
+
+.custom-checkbox1 .checkmark1 {
+  width: 40px;
+  height: 35px;
+  border: 2px solid #222;
+  display: inline-block;
+  border-radius: 3px;
+  background: #222 url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/White_check.svg/1200px-White_check.svg.png) center/1250% no-repeat;
+  transition: background-size 0.2s ease;
+}
+
+.custom-checkbox1 input:checked + .checkmark1 {
+  background-size: 60%;
+  transition: background-size 0.25s cubic-bezier(0.7, 0, 0.18, 1.24);
+}
+
+.custom-checkbox1 input {
+  display: none;
+}
+
+/**/
+/*check2*/
+.check-box-group2 {
+ display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -23%;
+    left:83%;
+  
+}
+ .label2 {
+     width: 300px;
+ }
+.custom-checkbox2 {
+     cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin: 7%;
+}
+
+.custom-checkbox2 .label2 {
+  font-size: 1.2em;
+  margin: 0 10px;
+}
+
+.custom-checkbox2 .checkmark2 {
+  width: 40px;
+  height: 35px;
+  border: 2px solid #222;
+  display: inline-block;
+  border-radius: 3px;
+  background: #222 url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/White_check.svg/1200px-White_check.svg.png) center/1250% no-repeat;
+  transition: background-size 0.2s ease;
+}
+
+.custom-checkbox2 input:checked + .checkmark2 {
+  background-size: 60%;
+  transition: background-size 0.25s cubic-bezier(0.7, 0, 0.18, 1.24);
+}
+
+.custom-checkbox2 input {
+  display: none;
+}
 /**/

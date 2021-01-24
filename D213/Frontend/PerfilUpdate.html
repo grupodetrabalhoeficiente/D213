@@ -23,10 +23,10 @@
         </form>
     </div>
     <div class="frame container" id="frameId">
-        
+        <nav id="navbar" class="navbar fixed-top">
             <a><i id="goBack"class="fas fa-arrow-left fa-2x"></i></a>
-            <span class="title">Perfil</span>
-        
+            <span id="title"class="title">Perfil</span>
+        </nav>
         
         <!--
         <div class="avatar">
@@ -45,6 +45,10 @@
                 <img id="profileImage" src="" class="profileImageClass"></img>
             </div>
             <span id="name" class="nameProfile">PlaceHolder</span>
+            <span id="profileSpeciality" class="inputPerfil">Especialidade</span>
+            <button id="logout">
+                <i class="fas fa-sign-out-alt fa-2x signoutIcon"></i>
+            </button>
         </div>
         <!--<div id="shadowImg"></div>
         <div id="profileImageDiv">
@@ -56,7 +60,7 @@
         </button>
         <i class="fas fa-trophy trophyProfile fa-3x"></i>
         <!-- Apaga no css <span id="rankText">Rank</span> -->
-        <a id="watchMore" href="#watchMore">Ver mais<div id="arrow" class="arrow"><i class="fas fa-chevron-down"></i></div></a>
+        <!-- <a id="watchMore" href="#watchMore">Ver mais<div id="arrow" class="arrow"><i class="fas fa-chevron-down"></i></div></a> -->
         <div id="rankPosition">
             <span id="position">?º</span>
         </div>
@@ -66,19 +70,21 @@
         <div class="information">
             <form id="perfilForm" name="perfil-Form" action="https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operational/:operational_id" method="put">
                 <div class="form-group">
-                    <label id="labelContactsId" for="profileContacts" class="labelContacts">Contactos</label>
+                    <span id="spanContactsId" for="profileContacts" class="labelContacts">Contactos</span>
                 </div>
                 <div class="form-group">
-                    <label id="labelProfileEmail" for="profileEmail" class="labelProfile">E-mail</label>
-                    <input id="profileEmail" class="inputPerfil form-control" type="email" disabled value="A696969@rger.com"></input>
+                    <i id="iconProfilePhoneNumber" class="fas fa-phone-square fa-2x"></i>
+                    <span id="profilePhoneNumber" class="inputPerfil">999999999</span>
                 </div>
                 <div class="form-group">
-                    <label id="labelProfilePhoneNumber" for="profilePhoneNumber" class="labelProfile"> Número de telemóvel</label>
-                    <input id="profilePhoneNumber" class="inputPerfil form-control" type="text" disabled value="969696969"></input>
+                    <i id="iconProfileEmail" class="fas fa-envelope-square fa-2x"></i>
+                    <span id="profileEmail" class="inputPerfil">a99999@alunos.uminho.pt</span>
                 </div>
+                
                 <div class="form-group">
-                    <label id="labelMoreInfoId" for="profileMoreInfo" class="labelMoreInfo">Mais Informações</label>
+                    <span id="spanMoreInfoId" for="profileMoreInfo" class="labelMoreInfo">Mais Informações</span>
                 </div>
+                
                 <!--
                 <div class="form-group">
                     <label id="labelProfileSpeciality" for="profileSpeciality" class="labelProfile">Especialidade</label>
@@ -86,36 +92,35 @@
                 </div>
                 -->
                 <div class="form-group">
-                    <label id="labelProfileTypeOfOperational" for="profileTypeOfOperational" class="labelProfile">Tipo de Operacional</label>
-                    <input id="profileTypeOfOperational" class="inputPerfil form-control" type="text" disabled value="Tipo de operacional"></input>
+                    <span id="labelProfileTypeOfOperational" for="profileTypeOfOperational" class="labelProfile">Tipo de Operacional:</span>
+                    <span id="profileTypeOfOperational" class="inputPerfil">Bombeiro</span>
                 </div>
                 <div class="form-group">
-                    <label id="labelProfileBirthDate" for="profileBirthDate" class="labelProfile">Data de nascimento</label>
-                    <input id="profileBirthDate" class="inputPerfil form-control" type="datetime" disabled value="2002-12-31"></input>
+                    <span id="labelProfileBirthDate" for="profileBirthDate" class="labelProfile">Data de nascimento:</span>
+                    <span id="profileBirthDate" class="inputPerfil">2002-12-31</span>
                 </div>
+                <!--
                 <div class="form-group" id="passwordId">
-                    <label id="labelProfilePassword" for="profilePassword" class="labelProfile">Password</label>
-                    <input id="profilePassword" class="inputPerfil form-control" type="password" disabled value="password"></input>
+                    <span id="labelProfilePassword" for="profilePassword" class="labelProfile">Password:</span>
+                    <span id="profilePassword" class="inputPerfil">**********</span>
                 </div>
+                -->
                 <div class="form-group" id="changePasswordId">
-                    <label href"#confirmPassword" id="labelChangePassword" for="profileChangePassword" class="labelProfile">Alterar password</label>
+                    <span id="labelChangePassword" for="profileChangePassword" class="labelProfile">Alterar password?</span>
                 </div>
                 <div class="form-group" id="newPasswordId">
-                    <label id="labelProfileNewPassword" for="profileNewPassword" class="labelProfile">Nova password</label>
-                    <input id="profileNewPassword" name="newPassword" class="inputPerfil form-control" type="password" Placeholder="Nova password">
-                    <button id="viewTxt" class="btn buttonInput" type="button">Mostrar</button>
+                    <span id="labelProfileNewPassword" for="profileNewPassword" class="labelProfile"><i class="fas fa-lock"></i> Nova password</span>
+                    <input id="profileNewPassword" name="newPassword" class="inputPerfil form-control" type="password" Placeholder="**********">
+                        <i id="viewTxt" class="fas fa-eye"></i>
                     </input>
                 </div>
                 <div class="form-group" id="confirmPasswordId">
-                    <label id="labelProfileConfirmPassword" for="profileConfirmPassword" class="labelProfile">Confirmar password</label>
-                    <input id="profileConfirmPassword" name="confirmPassword"class="inputPerfil form-control" type="password" Placeholder="Confirmar password"></input>
-                    <input id="confirmPassword" class="btn buttonInput" type="button" value="Confirmar"></input>
+                    <span id="labelProfileConfirmPassword" for="profileConfirmPassword" class="labelProfile"><i class="fas fa-lock"></i> Confirmar password</span>
+                    <input id="profileConfirmPassword" name="confirmPassword"class="inputPerfil form-control" type="password" Placeholder="**********">
+                        <i id="confirmPassword" class="fas fa-arrow-circle-right"></i>
+                    </input>
                 </div>
                 </form>
-                <button class="form-group" id="logout">
-                    <span id="logoutText">Logout</span>
-                    <i class="fas fa-sign-out-alt fa-2x signoutIcon"></i>
-                </button>
         </div>
         
         

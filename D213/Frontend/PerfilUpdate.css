@@ -89,7 +89,7 @@ border-right:0;
 .frame {
     max-width: 414px;
     width:100%;
-    height: 1650px;
+    height: 925px;
     background: rgb(253 253 253);
     opacity: 1;
     position: absolute;
@@ -97,13 +97,16 @@ border-right:0;
 }
 .information{
     position: absolute;
-    width: 340px;
-    height: 727px;
-    left: 36px;
-    top: 692px;
+width: 354px;
+height: 267px;
+left: 30px;
+top: 533px;
 }
 
 /* NavBar*/
+.navbar{
+    transition: 0.2s;
+}
 /*.navbar{
     z-index:3;
     overflow: hidden;
@@ -122,24 +125,23 @@ font-weight: 300;
 font-size: 24px;
 line-height: 24px;
 text-align: center;
-position:relative;
-top:2px;
+position:absolute;
+top:17px;
+left:0px;
 width:100%;
 color: #B1B1B1;
-z-index:1;
+z-index:4;
 
 }
 #goBack {
     position: absolute;
-    top:21px;
+    top:19px;
     left: 27px;
     font-size: 24px;
     color: lightgray;
-    z-index:1;
+    z-index:5;
 }
 /*        */
-
-
 /* MenuBar */
 .menubar i:hover {  
   color: #000000;           /*rgba(171,4,4,1);*/
@@ -327,117 +329,189 @@ html {
 
 
 /* FORM */
-#labelContactsId{
-    width: 340px;
-    height: 35px;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 30px;
-    line-height: 36px;
-    color: #B8B8B8;
+#spanContactsId{
+width: 353px;
+height: 24px;
+font-family: Inter;
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 24px;
+color: #A3A3A3;
 }
-#labelProfileEmail{
-    color: #AB0404;
-}
-#profileEmail{
-    background:#ffffff;
-    border-top:0px;
-    border-left:0px;
-    border-right:0px;
-}
-#labelProfilePhoneNumber{
-    color: #AB0404;
+#iconProfilePhoneNumber{
+    color: #CDCDCD;
 }
 #profilePhoneNumber{
-    background:#ffffff;
-    border-top:0px;
-    border-left:0px;
-    border-right:0px;
+    position: absolute;
+    width: 111px;
+    height: 24px;
+    top:17.5%;
+    left:11%;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+
+color: #CDCDCD;
 }
-#labelMoreInfoId{
+#iconProfileEmail{
+    color: #CDCDCD;
+}
+#profileEmail{
+    position: absolute;
+    width: 298px;
+    height: 24px;
+    left: 11%;
+    top: 36%;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #CDCDCD;
+}
+#spanMoreInfoId{
     font-family: Inter;
     font-style: normal;
     font-weight: 600;
-    font-size: 30px;
-    line-height: 36px;
-    color: #B8B8B8;
+    font-size: 20px;
+    line-height: 24px;
+    color: #A3A3A3;
 }
 #profileSpeciality{
-    background:#ffffff;
-    border-top:0px;
-    border-left:0px;
-    border-right:0px;
+    position: absolute;
+width: 353px;
+height: 22px;
+left: 0%;
+top: 190px;
+font-family: Inter;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 22px;
+align-items: center;
+text-align: center;
+color: #C1C1C1;
+z-index:1;
 }
 #labelProfileSpeciality{
     color: #AB0404;
 }
 #profileTypeOfOperational{
-    background:#ffffff;
-    border-top:0px;
-    border-left:0px;
-    border-right:0px;
+    position:absolute;
+    top:68%;
+    left:50.5%;
+    width:190px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #999999;
+    text-overflow: ellipsis;
 }
 #labelProfileTypeOfOperational{
-    color: #AB0404;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #CDCDCD;
+
 }
 #profileBirthDate{
-    background:#ffffff;
-    border-top:0px;
-    border-left:0px;
-    border-right:0px;
+    position:absolute;
+    top:83.5%;
+    left:50.5%;
+    width:190px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #999999;
+    text-overflow: ellipsis;
 }
 #labelProfileBirthDate{
-    color: #AB0404;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #CDCDCD;
 }
 #profilePassword{
-    background:#ffffff;
-    border-top:0px;
-    border-left:0px;
-    border-right:0px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #999999;
 }
 #labelProfilePassword{
-    color: #AB0404;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #CDCDCD;
 }
 #labelChangePassword{
-    color: #AB0404;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #A3A3A3;
 }
 #labelProfileNewPassword {
-    color: #AB0404;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #CDCDCD;
     display: none;
 }
 #profileNewPassword{
     display: none;
-    background:#ffffff;
-    border-top:0px;
-    border-left:0px;
-    border-right:0px;
+    background: #F1F1F1;
+    border-radius: 10px;
 }
 #labelProfileConfirmPassword {
-    color: #AB0404;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #CDCDCD;
     display: none;
 }
 #profileConfirmPassword{
     display: none;
-    background:#ffffff;
-    border-top:0px;
-    border-left:0px;
-    border-right:0px;
+    background: #F1F1F1;
+    border-radius: 10px;
 }
 #viewTxt {
     position:absolute;
-    max-width: 70px;
-    top: 707px;
-    left: 78%;
-    width: 100%;
+    top:127%;
+    left:90%;
+    color: #999999;
     display: none;
 }
 #confirmPassword {
-    position:absolute;
-    max-width: 90px;
-    top: 786px;
-    left:75%;
-    width:100%;
+    position: absolute;
+    top: 155%;
+    left: 90.5%;
+    color: #999999;
     display: none;
 }
 #logout{
@@ -445,11 +519,12 @@ html {
     border: none;
     text-align: center;
     position:absolute;
-    left:46px;
-    width: 244px;
-    height: 44px;
+    top:2%;
+    left: 85%;
+    width: 45px;
+    height: 45px;
     background: linear-gradient(180deg, #570007 0%, #AB0404 100%);
-    border-radius: 10px;
+    border-radius: 50px;
 }
 #logoutText{
     width: 89px;
@@ -467,10 +542,7 @@ html {
     color: #FFFFFF;
 }
 .signoutIcon{
-    position:absolute;
     color:white;
-    top:7px;
-    left:150px;
 }
 
 
@@ -511,7 +583,7 @@ background: linear-gradient(180deg, #1F0002 0%, #8F0000 82.11%);
 width: 353px;
 height: 231px;
 left: calc(50% - 353px/2 - 0.5px);
-top: calc(50% - 231px/2 - 611.5px);
+top: 100px;
 
 background: #FFFFFF;
 box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.5);

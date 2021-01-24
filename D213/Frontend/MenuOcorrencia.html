@@ -19,7 +19,10 @@
 <body>
     <div class="screen">
         <!--navbar-->
-        <span id="titleOccurrence" class="title">Ocorrência #111</span>
+        <nav id="navbar" class="navbar fixed-top">
+            <a><i id="goBack"class="fas fa-arrow-left fa-2x"></i></a>
+            <span id="title" class="title">Ocorrência #</span>
+        </nav>
         <!---->
         <div class="midScreen">
             <img src="Images/logoPng.png" alt="logo" class="logoClass" id="logoId"></img>
@@ -44,12 +47,31 @@
                             <i class="fas fa-chevron-right"id="chevronChamadaId"></i>
                         </div>
                 </button>
+                <!--check1-->
+                <div class="check-box-group1">
+                  <label class="custom-checkbox1" tab-index="0" aria-label="chamadaCheck">
+                    <input id="chamadaCheck1" value="chamadaCheck" type="checkbox" checked>
+                    <span class="checkmark1"></span>
+                    <span class="label1"></span>
+                    </label>
+                </div>
+                <!--check1-->
+                <!--check2-->
+                <div class="check-box-group2">
+                  <label class="custom-checkbox2" tab-index="0" aria-label="chamadaCheck">
+                    <input id="chamadaCheck2" value="chamadaCheck" type="checkbox" checked>
+                    <span class="checkmark2"></span>
+                    <span class="label2"></span>
+                    </label>
+                </div>
+                <!--check2-->
                 <span class="chamadaCheckClass form-control" id="chamadaCheckId"><i class="fas fa-check fa-2x"></i></span>
                 <button class="materialClass form-control" id="materialId">Confirmar materiais
                         <div class ="materiaisButtonDiv">
                             <i class="fas fa-chevron-right"id="chevronMaterialId"></i>
                         </div>
                     </button>
+                    
                 <span class="materialCheckClass form-control" id="chamadaCheckId"><i class="fas fa-check fa-2x"></i></span>
                 <hr id="barId"></hr>
                 <button class="chegadaClass form-control" id="chegadaId">Chegada ao terreno
@@ -89,7 +111,6 @@
         </nav>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script type="text/javascript" src="./fetch/menu_occurrence1.controller.js"></script>
     <script type="text/javascript" src="MenuOcorrencia.js"></script>
 </body>

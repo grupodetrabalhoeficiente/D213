@@ -34,7 +34,6 @@ function ownProfile() {
     fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + localStorage.id_operational_logged)
         .then(res => res.json())
         .then((out) => {
-            $('#rankPosition div').empty();
             $.each(out, function(index, value) {
                 if (value.avatar == null) {
                     document.getElementById('profileImage').src = "Images/default-profile.png";
@@ -43,13 +42,13 @@ function ownProfile() {
                     document.getElementById('profileImage').src = value.avatar;
                 }
                 document.getElementById('name').innerHTML = value.name;
-                document.getElementById('profileSpeciality').value = value.speciality;
-                document.getElementById('profileTypeOfOperational').value = value.operational_type;
-                document.getElementById('profileEmail').value = value.email;
-                document.getElementById('profilePhoneNumber').value = value.phone_number;
-                document.getElementById('profileBirthDate').value = value.birth_date;
-                document.getElementById('profilePassword').value = value.password;
-                document.getElementById('position').innerHTML = localStorage.rankP+"º Lugar";
+                document.getElementById('profileSpeciality').innerHTML = value.speciality;
+                document.getElementById('profileTypeOfOperational').innerHTML = value.operational_type;
+                document.getElementById('profileEmail').innerHTML = value.email;
+                document.getElementById('profilePhoneNumber').innerHTML = value.phone_number;
+                document.getElementById('profileBirthDate').innerHTML = value.birth_date.slice(0, 10);
+                /*document.getElementById('profilePassword').innerHTML = value.password;*/
+                document.getElementById('position').innerHTML = localStorage.rankP + "º Lugar";
             })
         }).catch(err => console.error(err));
 }
@@ -68,11 +67,11 @@ function otherProfile() {
                     document.getElementById('profileImage').src = value.avatar;
                 }
                 document.getElementById('name').innerHTML = value.name;
-                document.getElementById('profileSpeciality').value = value.speciality;
-                document.getElementById('profileTypeOfOperational').value = value.operational_type;
-                document.getElementById('profileEmail').value = value.email;
-                document.getElementById('profilePhoneNumber').value = value.phone_number;
-                document.getElementById('profileBirthDate').value = value.birth_date;
+                document.getElementById('profileSpeciality').innerHTML = value.speciality;
+                document.getElementById('profileTypeOfOperational').innerHTML = value.operational_type;
+                document.getElementById('profileEmail').innerHTML = value.email;
+                document.getElementById('profilePhoneNumber').innerHTML = value.phone_number;
+                document.getElementById('profileBirthDate').innerHTML = value.birth_date.slice(0, 10);
                 document.getElementById("passwordId").remove();
                 document.getElementById("changePasswordId").remove();
                 document.getElementById("newPasswordId").remove();
@@ -142,7 +141,12 @@ function saveAvatar() {
 
 function logoutFunction() {
     window.location.replace("Login.html");
-    localStorage.clear();
+    localStorage.removeItem('id_operational_logged');
+    localStorage.removeItem('rankP');
+    localStorage.removeItem('id_occurrence');
+    localStorage.removeItem('operationalSelected');
+    localStorage.removeItem('id_operational_logged');
+    localStorage.removeItem('rankoperationalSelected');
     fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/logout')
         .then(res => res.json())
         .then((out) => {}).catch(err => console.error(err));

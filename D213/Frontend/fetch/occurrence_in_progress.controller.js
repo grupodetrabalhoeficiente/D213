@@ -51,6 +51,10 @@ function OpenPanel(elem) {
         });
     }
     else {
+            localStorage.removeItem('help');
+            localStorage.removeItem('materials');
+            localStorage.removeItem('presence');
+            localStorage.removeItem('arrival');
         fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + elem.id + '/responsible', {
             headers: { 'Content-Type': 'application/json' },
             method: 'POST',

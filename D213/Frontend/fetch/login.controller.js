@@ -43,7 +43,6 @@ function myLogin() {
                 else {
                     localStorage.setItem('id_operational_logged', user.slice(20, 21))
                 }
-                alert("submitted with success");
                 window.location.href = "MenuPrincipal.html";
             }
         }).then(function(result) {

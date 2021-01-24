@@ -1,5 +1,8 @@
- localStorage.id_operational_logged;
- let panels = document.querySelectorAll(".menu");
+
+let goBack = document.getElementById("goBack");
+goBack.addEventListener("click",goBackFunction)
+ 
+let panels = document.querySelectorAll(".menu");
 for (let i = 0; i < panels.length; i++) {
     panels[i].addEventListener("click", removeLocalStorage);
 }
@@ -9,6 +12,9 @@ function removeLocalStorage() {
     localStorage.removeItem('rankoperationalSelected')
 };
 
+function goBackFunction(){
+         window.location.replace('PerfilUpdate.html')
+}
 
  function fillTable() {
      if (localStorage.operationalSelected == null || localStorage.id_operational_logged == localStorage.operationalSelected) {

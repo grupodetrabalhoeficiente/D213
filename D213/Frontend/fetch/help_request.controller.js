@@ -1,11 +1,6 @@
 const id_occurrence = localStorage.getItem('id_occurrence_in_progress');
 document.getElementById("submit").onclick = saveHelpRequest;
-let back = document.getElementById("goBack");
-back.onclick = goBack;
 
-function goBack() {
-    window.history.back();
-}
 function saveHelpRequest() {
     let data = {};
     let rows = {};
@@ -38,9 +33,6 @@ function saveHelpRequest() {
             console.log(response.statusText); //=> String
             console.log(response.headers); //=> Headers
             console.log(response.url); //=> String
-        }
-        else {
-            alert("submitted with success");
         }
     }).then(function(result) {
         console.log(result);

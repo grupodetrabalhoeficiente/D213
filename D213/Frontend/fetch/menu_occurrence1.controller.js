@@ -126,7 +126,7 @@ function occurrenceStage() {
         .then(res => res.json())
         .then((out) => {
             $.each(out, function(index, value) {
-                document.getElementById('titleOccurrence').innerHTML = 'Ocorrência #' + value.id_occurrence;
+                document.getElementById('title').innerHTML = 'Ocorrência #' + value.id_occurrence;
             })
         }).catch(err => console.error(err));
 
@@ -203,7 +203,6 @@ function departureOccurrenceFunction() {
             document.getElementById('barId').className = '';
             document.getElementById('finalizarId').className = 'hidden';
             localStorage.setItem('stage', Number(localStorage.getItem('stage')) + 1);
-            alert("submitted with success");
         }
     }).then(function(result) {
         console.log(result);

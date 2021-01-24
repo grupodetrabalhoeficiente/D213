@@ -5,19 +5,19 @@ submit.onclick = getReason;
 function getReason() {
     let reason = "";
     if (document.getElementById("areaIncendio").checked === true) {
-        reason += document.getElementById("areaIncendio").value + " "
+        reason += document.getElementById("areaIncendio").value + "; "
     }
     if (document.getElementById("faltaAgua").checked === true) {
-        reason += document.getElementById("faltaAgua").value + " "
+        reason += document.getElementById("faltaAgua").value + "; "
     }
     if (document.getElementById("faltaMaterial").checked === true) {
-        reason += document.getElementById("faltaMaterial").value + " "
+        reason += document.getElementById("faltaMaterial").value + "; "
     }
     if (document.getElementById("faltaOperacionais").checked === true) {
-        reason += document.getElementById("faltaOperacionais").value + " "
+        reason += document.getElementById("faltaOperacionais").value + "; "
     }
     if (document.getElementById("feridosGraves").checked === true) {
-        reason += document.getElementById("feridosGraves").value + " "
+        reason += document.getElementById("feridosGraves").value + "; "
     }
     if (reason.length === 0) {
 

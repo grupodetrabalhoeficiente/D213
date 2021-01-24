@@ -1,7 +1,6 @@
 const id_occurrence = localStorage.getItem('id_occurrence_in_progress');
 const submit = document.getElementById("submit");
 submit.onclick = updatePoints;
-let rows = {};
 let obj = [];
 let back = document.getElementById("goBack");
 back.onclick = goBack;
@@ -20,7 +19,6 @@ function fillTable() {
                 $('#table tbody').append('<tr class="fullRow"><th class ="id_operational"scope="row">' + value.id_operational + '</th><td>' + value.name + '</td> <td> <select class="custom-select" id="inputGroupSelect' + count.toString() + '">   <option selected value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option>  <option value="5">5</option></select> </td>')
                 count++;
             });
-            rows = JSON.stringify(obj);
         }).catch(err => console.error(err));
 }
 
@@ -47,12 +45,11 @@ function updatePoints() {
                         }
                         else {
                             data[c].getElementsByClassName("custom-select").item(0).disabled = true;
-                            alert("submitted with success");
                         }
                     }).then(function(result) {
                         console.log(result);
                     }).catch(function(err) {
-                        alert("Submission error");
+                        data[c].getElementsByClassName("custom-select").item(0).disabled = true;
                         console.error(err);
                     });
                 }
@@ -87,8 +84,16 @@ function finishOccurrenceFunction() {
     }).then(function(result) {
         console.log(result);
     }).catch(function(err) {
-        alert("Submission error");
+        localStorage.removeItem('id_occurrence_in_progress');
+            localStorage.removeItem('stage');
+            localStorage.removeItem('help');
+            localStorage.removeItem('materials');
+            localStorage.removeItem('presence');
+            localStorage.removeItem('arrival');
+            alert("Ocorrencia terminada com sucesso");
+            window.location.replace('MenuPrincipal.html')
         console.error(err);
+        
     });
 }
 $(document).ready(function() {
