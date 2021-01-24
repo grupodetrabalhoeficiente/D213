@@ -19,6 +19,7 @@ app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
 app.use(expressSanitizer());
 app.use(expressValidator());
 app.use(cookieParser());
+app.set('trust proxy', 1);
 app.use(cors());
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", '*');
