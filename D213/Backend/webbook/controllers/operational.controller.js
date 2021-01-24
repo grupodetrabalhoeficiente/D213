@@ -61,7 +61,7 @@ function readOccurrenceFromOperational(req, res) {
 function readIDOperational(req, res) {
     //criar e executar a query de leitura na BD
     const id_operational = req.sanitize('id_operational').escape();
-    connect.con.query('SELECT operational.*,users.email from operational,users where operational.id_operational = ? ', [id_operational],
+    connect.con.query('SELECT operational.*,users.email from operational,users where operational.id_operational = ? and users.id=operational.id', [id_operational],
         function(err, rows, fields) {
             if (!err) {
                 //verifica os resultados se o número de linhas for 0 devolve dados não encontrados, caso contrário envia os resultados (rows).
