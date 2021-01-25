@@ -3,14 +3,6 @@ const app = require('../app.js');
 const controllerOccurrence = require('../controllers/occurrence.controller');
 const validator = require("../assets/Validations/validator");
 const { responsible} = require('../controllers/auth.controller.js')
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", '*');
-  res.header("Access-Control-Allow-Credentials", true);
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
-  next();
-})
-
 
 app.route('/occurrences/:id_occurrence/responsible')
     .post(responsible)
@@ -76,7 +68,6 @@ app.route('/occurrences/:id_occurrence/materials_utilizations/:id_vei_mat')
 // Notes
 app.route('/occurrences/:id_occurrence/notes')
     .post(verify,verifyresponsible,validator.addNote, controllerOccurrence.saveNote) 
-
 
 app.route('/occurrences/:id_occurrence/helprequests')
     .post(verify,verifyresponsible,controllerOccurrence.saveOccurrenceHelpRequest)  

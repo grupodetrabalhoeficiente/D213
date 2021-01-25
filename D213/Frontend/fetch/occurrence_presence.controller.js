@@ -1,6 +1,6 @@
 const id_occurrence = localStorage.getItem('id_occurrence_in_progress');
 let obj = [];
-const submit = document.getElementById("submit");
+const submit = document.getElementById("submit1");
 submit.onclick = updatePresence;
 
 
@@ -13,10 +13,10 @@ function fillTable() {
             $.each(out, function(index, value) {
                 if (value.statute !== "chefe") {
                     obj.push({ "id_operational": value.id_operational });
-                    $('#table tbody').append('<tr class="fullRow"><th class ="id_operational"scope="row">' + value.id_operational + '</th><td>' + value.statute + '</td> <td>  <label class="custom-checkbox checkboxOperationals" tab-index="0" aria-label="Checkbox Label"> <input class="presence"type="checkbox" checked> <span class="checkmark"></span> </label> </td> </tr>')
+                    $('#table tbody').append('<tr class="fullRow"><th class ="id_operational"scope="row">' + value.id_operational + '</th><td>' + value.statute + '</td> <td>  <label class="checkboxOperationals" tab-index="0" aria-label="Checkbox Label"> <input class="presence"type="checkbox" checked> <span class="checkmark"></span> </label> </td> </tr>')
                 } else {
                     obj.push({ "id_operational": value.id_operational });
-                    $('#table tbody').append('<tr class="fullRow"><th class ="id_operational"scope="row">' + value.id_operational + '</th><td>' + value.statute + '</td> <td>  <label class="custom-checkbox checkboxOperationals" tab-index="0" aria-label="Checkbox Label"> <input class="presence"type="checkbox" disabled checked> <span class="checkmark"></span> </label> </td> </tr>')
+                    $('#table tbody').append('<tr class="fullRow"><th class ="id_operational"scope="row">' + value.id_operational + '</th><td>' + value.statute + '</td> <td>  <label class="checkboxOperationals" tab-index="0" aria-label="Checkbox Label"> <input class="presence"type="checkbox" disabled checked> <span class="checkmark"></span> </label> </td> </tr>')
                 }
 
             });
@@ -49,7 +49,6 @@ function updatePresence() {
                             console.log(response.url); //=> String
                         }
                         else {
-                            alert("submitted with success");
                             data[c].getElementsByClassName("presence").item(0).disabled = true;
                         }
                     }).then(function(result) {

@@ -95,7 +95,7 @@
     }
    },
    chartArea: {
-    left: 10,
+    left: 18,
     right: 10,
     top: 20,
     bottom: 25

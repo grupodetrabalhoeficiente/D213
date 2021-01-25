@@ -34,10 +34,11 @@ app.listen(port, function(err) {
     }
     else { console.log(err); }
 });
+
 /*                 Login                   */
 app.post('/login', login)
 app.post('/occurrences/:id_occurrence/responsible',verify,responsible)
-app.get('/logout',logout )
+app.get('/logout', logout )
 
 //Multer
 const path = require('path');

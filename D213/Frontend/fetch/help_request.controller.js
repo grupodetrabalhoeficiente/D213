@@ -1,5 +1,7 @@
 const id_occurrence = localStorage.getItem('id_occurrence_in_progress');
 document.getElementById("submit2").onclick = saveHelpRequest;
+let confirm = document.getElementById("confirmarTxtId");
+confirm.onclick = closeForm;
 
 function saveHelpRequest() {
     let data = {};
@@ -17,11 +19,10 @@ function saveHelpRequest() {
     data.num_operationals = document.getElementById("operationalSelect").value;
     data.num_materials= String(num_materials);
     data.materials_type=materials_type;
-    
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
     if(data.materials_type.length ===0 &&  data.num_operationals==='0'){
-        
+         openForm();
     }else {
     fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/helprequests', {
         headers: { 'Content-Type': 'application/json' },
@@ -33,11 +34,11 @@ function saveHelpRequest() {
             console.log(response.statusText); //=> String
             console.log(response.headers); //=> Headers
             console.log(response.url); //=> String
+             openForm();
         }
     }).then(function(result) {
         console.log(result);
     }).catch(function(err) {
-        alert("Submission error");
         console.error(err);
         
     });
@@ -45,4 +46,16 @@ function saveHelpRequest() {
     localStorage.removeItem('reason');
     window.location.replace('MenuOcorrencia.html');
 }
+}
+
+
+//Error Open Close Functions
+function openForm() {
+    document.getElementById("textTxt1").className = "textTxtClass text-center";
+    document.getElementById("textTxt").className = "hidden";
+    document.getElementById("errorFrame").className = "errorFrame2";
+}
+
+function closeForm() {
+    document.getElementById("errorFrame").className = "hidden";
 }

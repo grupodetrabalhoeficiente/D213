@@ -3,6 +3,11 @@ document.getElementById("submit").onclick = function(e) {
     //validação do formulário ao submeter
     saveWitness();
 };
+//Confirm Button
+let confirm = document.getElementById("confirmarTxtId");
+confirm.onclick = closeForm;
+
+
 let back = document.getElementById("goBack");
 back.onclick = goBack;
 
@@ -29,21 +34,28 @@ function saveWitness() {
             console.log(response.statusText); //=> String
             console.log(response.headers); //=> Headers
             console.log(response.url); //=> String
-            if (response.status === 409) {
-                alert("Duplicated Email");
-            }
-            else {
-                throw Error(response.statusText);
-            }
+            openForm();
         }
         else {
             document.getElementById("form-testemunha").reset(); //limpeza dos dados do form
-            alert("submitted with success");
         }
     }).then(function(result) {
         console.log(result);
     }).catch(function(err) {
+        openForm();
         alert("Submission error");
         console.error(err);
     });
 }
+
+//Error Open Close Functions
+function openForm() {
+    document.getElementById("textTxt1").className = "textTxtClass text-center";
+    document.getElementById("textTxt").className = "hidden";
+    document.getElementById("errorFrame").className = "errorFrame";
+}
+
+function closeForm() {
+    document.getElementById("errorFrame").className = "hidden";
+}
+

@@ -1,9 +1,7 @@
 const id_occurrence = localStorage.getItem('id_occurrence_in_progress');
-const submit = document.getElementById("submit");
+const submit = document.getElementById("submit1");
 submit.onclick = updatePoints;
 let obj = [];
-let back = document.getElementById("goBack");
-back.onclick = goBack;
 
 function goBack() {
     window.history.back();

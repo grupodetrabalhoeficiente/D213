@@ -1,6 +1,7 @@
 let rows = {};
 let obj = [];
-
+let confirm = document.getElementById("confirmarTxtId");
+confirm.onclick = closeForm;
 let back = document.getElementById("goBack");
 back.onclick = goBack;
 
@@ -39,6 +40,7 @@ function OpenPanel(elem) {
                 console.log(response.statusText); //=> String
                 console.log(response.headers); //=> Headers
                 console.log(response.url); //=> String
+                openForm();
             }
             else {
                 window.location.replace("MenuOcorrencia.html");
@@ -46,6 +48,7 @@ function OpenPanel(elem) {
         }).then(function(result) {
             console.log(result);
         }).catch(function(err) {
+            openForm();
             alert("Submission error");
             console.error(err);
         });
@@ -65,6 +68,7 @@ function OpenPanel(elem) {
                 console.log(response.statusText); //=> String
                 console.log(response.headers); //=> Headers
                 console.log(response.url); //=> String
+                openForm();
             }
             else {
                 localStorage.setItem("id_occurrence_in_progress", elem.id);
@@ -74,6 +78,7 @@ function OpenPanel(elem) {
         }).then(function(result) {
             console.log(result);
         }).catch(function(err) {
+            openForm();
             alert("Submission error");
             console.error(err);
         });
@@ -87,3 +92,14 @@ function openPanelHandler(event) {
 $(document).ready(function() {
     fillTable();
 })
+
+//Error Open Close Functions
+function openForm() {
+    document.getElementById("textTxt1").className = "textTxtClass text-center";
+    document.getElementById("textTxt").className = "hidden";
+    document.getElementById("errorFrame").className = "errorFrame";
+}
+
+function closeForm() {
+    document.getElementById("errorFrame").className = "hidden";
+}

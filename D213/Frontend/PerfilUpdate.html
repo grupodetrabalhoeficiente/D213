@@ -24,7 +24,7 @@
         </form>
     </div>
     <div class="frame container" id="frameId">
-        <nav id="navbar1" class="navbar1 fixed-top">
+        <nav id="navbar2" class="navbar2 fixed-top">
             <a><i id="goBack"class="fas fa-arrow-left fa-2x"></i></a>
             <span id="title"class="title">Perfil</span>
         </nav>
@@ -44,7 +44,7 @@
             <span id="occurrenceText">Ocorrências</span>
             <i class="fas fa-clipboard-list fa-2x"></i>
         </button>
-        <i class="fas fa-trophy trophyProfile fa-3x"></i>
+        <i id="trophyIconProfile"class="fas fa-trophy trophyProfile fa-3x"></i>
         <div id="rankPosition">
             <span id="position">?º</span>
         </div>
@@ -55,7 +55,7 @@
                 </div>
                 <div class="form-group">
                     <i id="iconProfilePhoneNumber" class="fas fa-phone-square fa-2x"></i>
-                    <span id="profilePhoneNumber" class="inputPerfil">999999999</span>
+                    <a href="93969696"id="profilePhoneNumber" class="inputPerfil">93969696</a>
                 </div>
                 <div class="form-group">
                     <i id="iconProfileEmail" class="fas fa-envelope-square fa-2x"></i>
@@ -81,7 +81,7 @@
                 <div class="form-group" id="newPasswordId">
                     <span id="labelProfileNewPassword" for="profileNewPassword" class="labelProfile"><i class="fas fa-lock"></i> Nova password</span>
                     <input id="profileNewPassword" name="newPassword" class="inputPerfil form-control" type="password" Placeholder="**********">
-                        <i id="viewTxt" class="fas fa-eye"></i>
+                        <i id="viewTxtProfileUpdate" class="fas fa-eye"></i>
                     </input>
                 </div>
                 <div class="form-group" id="confirmPasswordId">
@@ -90,7 +90,7 @@
                         <i id="confirmPassword" class="fas fa-arrow-circle-right"></i>
                     </input>
                 </div>
-                </form>
+            </form>
         </div>
         
         
@@ -102,7 +102,17 @@
         
         
         
-        
+        <!-- Error -->
+        <div id="errorFrame" class="hidden">
+            <div id="errorBoxClass" class="errorBoxClass">
+                <span id="errorTxtClass" class="errorTxtClass text-center">Erro!</span>
+                <span id="textTxt" class="hidden">Ocorreu um erro a submeter.</span>
+                <span id="textTxt1" class="hidden">Ocorreu um erro a submeter.</span>
+            </div>
+            <div id="confirmBoxId" class="confirmBoxClass">
+                <button id="confirmarTxtId" class="confirmarTxtClass text-center" type="button">OK</button>
+            </div>
+        </div>
         
         <nav class="menubar fixed-bottom">
             <ul class="nav navbar-nav">

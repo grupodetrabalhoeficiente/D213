@@ -10,7 +10,7 @@ let cPassword = document.getElementById("confirmPassword");
 let pcPassword = document.getElementById("profileConfirmPassword");
 let pnPassword = document.getElementById("profileNewPassword");
 let frame = document.getElementById("frameId");
-let viewPassword = document.getElementById("viewTxt");
+let viewPassword = document.getElementById("viewTxtProfileUpdate");
 viewPassword.onclick = showPassword;
 //Upload screen
 let profileImg = document.getElementById("shadowImg");
@@ -18,6 +18,9 @@ profileImg.onclick = openUploadScreenOpen;
 let uploadAvatar = document.getElementById("uploadAvatarDiv");
 let clickOut = document.getElementById("clickOutside");
 clickOut.onclick = openUploadScreenClose;
+//Confirm Button
+let confirmError = document.getElementById("confirmarTxtId");
+confirmError.onclick = closeForm;
 
 let goBack = document.getElementById("goBack");
 goBack.addEventListener("click",goBackFunction)
@@ -68,9 +71,9 @@ function ownProfile() {
                 document.getElementById('profileSpeciality').innerHTML = value.speciality;
                 document.getElementById('profileTypeOfOperational').innerHTML = value.operational_type;
                 document.getElementById('profileEmail').innerHTML = value.email;
+                document.getElementById('profilePhoneNumber').href = "tel:"+value.phone_number;
                 document.getElementById('profilePhoneNumber').innerHTML = value.phone_number;
                 document.getElementById('profileBirthDate').innerHTML = value.birth_date.slice(0, 10);
-                /*document.getElementById('profilePassword').innerHTML = value.password;*/
                 document.getElementById('position').innerHTML = localStorage.rankP + "º Lugar";
             })
         }).catch(err => console.error(err));
@@ -112,7 +115,6 @@ function savePassword() {
     data.confirmPassword = document.getElementById("profileConfirmPassword").value;
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    /*fetch(`https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/${urlParams.get('id_operational')}`, {*/
     fetch("https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/" + localStorage.id_operational_logged, {
         headers: { 'Content-Type': 'application/json' },
         method: 'PUT',
@@ -123,9 +125,10 @@ function savePassword() {
             console.log(response.statusText); //=> String
             console.log(response.headers); //=> Headers
             console.log(response.url); //=> String
+            openForm();
         }
         else {
-            document.getElementById("profileNewPassword").value = ""; //limpeza dos dados do form
+            document.getElementById("profileNewPassword").value = ""; 
             document.getElementById("profileConfirmPassword").value = "";
             ownProfile();
             alert("submitted with success");
@@ -133,6 +136,7 @@ function savePassword() {
     }).then(function(result) {
         console.log(result);
     }).catch(function(err) {
+        openForm();
         alert("Submission error");
         console.error(err);
     });
@@ -153,12 +157,14 @@ function saveAvatar() {
             console.log(response.statusText); //=> String
             console.log(response.headers); //=> Headers
             console.log(response.url); //=> String
+            openForm();
         }
     }).then(function(result) {
         console.log(result);
     }).catch(function(err) {
         alert("Submission error");
         console.error(err);
+        openForm();
     });
 }
 
@@ -210,7 +216,9 @@ function showNewPassword() {
     pnPassword.style.display = "inline";
     viewPassword.style.display = "inline";
     frame.style.height = "1125px";
-    
+    document.getElementById("ocurrenceBut").style.top = "31.25%";
+    document.getElementById("trophyIconProfile").style.top = "33.7%";
+    document.getElementById("rankPosition").style.top = "35.35%";
 }
 
 function open() {
@@ -222,18 +230,18 @@ window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
   if (document.body.scrollTop > 63 || document.documentElement.scrollTop > 63) {
-    document.getElementById("navbar1").style.maxWidth = "100%";
-    document.getElementById("navbar1").style.maxHeight = "8.15%";
-    document.getElementById("navbar1").style.background = "#FFFFFF";
-    document.getElementById("navbar1").style.width = "100%";
-    document.getElementById("navbar1").style.height = "8.15%";
-    document.getElementById("navbar1").style.boxShadow = "0px 2px 4px rgba(0, 0, 0, 0.25)";
+    document.getElementById("navbar2").style.maxWidth = "100%";
+    document.getElementById("navbar2").style.maxHeight = "8.15%";
+    document.getElementById("navbar2").style.background = "#FFFFFF";
+    document.getElementById("navbar2").style.width = "100%";
+    document.getElementById("navbar2").style.height = "8.15%";
+    document.getElementById("navbar2").style.boxShadow = "0px 2px 4px rgba(0, 0, 0, 0.25)";
     
     
     
   } else {
-    document.getElementById("navbar1").style.boxShadow = null;
-    document.getElementById("navbar1").style.background = null;
+    document.getElementById("navbar2").style.boxShadow = null;
+    document.getElementById("navbar2").style.background = null;
   }
 }
 
@@ -259,3 +267,14 @@ $(document).ready(function() {
     $('.imagen[src=""]').hide();
     $('.imagen:not([src=""])').show();
 })
+
+//Error Open Close Functions
+function openForm() {
+    document.getElementById("textTxt1").className = "textTxtClass text-center";
+    document.getElementById("textTxt").className = "hidden";
+    document.getElementById("errorFrame").className = "errorFrame";
+}
+
+function closeForm() {
+    document.getElementById("errorFrame").className = "hidden";
+}

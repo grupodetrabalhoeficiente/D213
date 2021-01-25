@@ -1,5 +1,5 @@
 const id_occurrence = localStorage.getItem('id_occurrence_in_progress');
-const submit = document.getElementById("submit");
+const submit = document.getElementById("submit1");
 submit.onclick = updateUtilization;
 let rows = {};
 let obj = [];

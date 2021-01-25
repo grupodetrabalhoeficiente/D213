@@ -1,6 +1,7 @@
 const submit = document.getElementById("submit1");
 submit.onclick = getReason;
-
+let confirm = document.getElementById("confirmarTxtId");
+confirm.onclick = closeForm;
 
 function getReason() {
     let reason = "";
@@ -20,10 +21,20 @@ function getReason() {
         reason += document.getElementById("feridosGraves").value + "; "
     }
     if (reason.length === 0) {
-
+ openForm();
     }
     else {
         localStorage.setItem("reason", reason);
         window.location.replace("PedidoDeAjuda2.html");
     }
+}
+//Error Open Close Functions
+function openForm() {
+    document.getElementById("textTxt1").className = "textTxtClass text-center";
+    document.getElementById("textTxt").className = "hidden";
+    document.getElementById("errorFrame").className = "errorFrame";
+}
+
+function closeForm() {
+    document.getElementById("errorFrame").className = "hidden";
 }

@@ -63,59 +63,32 @@ function openMateriais() {
     }
 }
 
-/*let x = document.getElementById('chevron-down')
-x.onclick = expand();
-function expand(){
-    console.log("asdadsa")
-    x.style.height="200px";
-}*/
-/*function criarDiv() {
-    console.log('fds')
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/'+id_occurrence+'/operationals')
-        .then(res => res.json())
-        .then((out) => {
-            $('#dadosFormId form').empty();
-            $.each(out, function(index, value) {
-                p = value.id_operational;
-            })
-        }).catch(err => console.error(err));
-}*/
 function occurenceOperationals() {
-    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/operationals')
+    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/evaluations')
         .then(res => res.json())
         .then((out) => {
             let dadosDiv = document.getElementById("dadosFormId");
             let txt = "";
+            let count = 0;
             $.each(out, function(index, value) {
-                txt += "<div class='dadosFormDiv form-control' id='" + value.id_operational + "'>";
-                if (value.avatar == null) {
-                    txt += "<img id='dadosDivAvatar' src='Images/default-profile.png'></img>";
-                }
-                else {
-                    txt += "<img id='dadosDivAvatar' src='" + value.avatar + "'></img>";
-                }
-                txt += "<span id='dadosDivName'>" + value.name + "</span>";
-                txt += "<i class='fas fa-chevron-down chevron-down' id='chevron-down'></i>";
-                txt += "<div id='moreInfoOccurrenceMenu'>";
-                txt += "<span id='phoneContact'><i class='fas fa-phone'>"+value.phone_number+"</i></span>";
-                txt += "<span id='occurrenceMenuEmail'><i class='fas fa-envelope'></i></span>";
-                txt += "</div>";
+                txt += '<div class="accordion" id="accordionSection' + count + '">  <div class="accordion-item mb-3"> <h2><button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse' + count + '">' + value.name + '</button></h2>';
+                txt += '<div class="accordion-collapse collapse" id="collapse' + count + '" data-bs-parent="#accordionSection' + count + '">';
+                txt += '<div class="accordion-body"> <strong>ID:</strong>#' + value.id_operational + '<br> <strong>Especialidade:</strong>' + value.speciality + '<br>';
+                txt += '<strong>Telemovel:</strong>' + value.phone_number + '<br>';
+                txt += ' </div>  </div>  </div> </div>'
+                count++;
             });
             dadosDiv.innerHTML += txt;
-            let panels = document.querySelectorAll(".dadosFormDiv");
-            for (let i = 0; i < panels.length; i++) {
-                panels[i].addEventListener("click", openPanelHandler);
-            }
         }).catch(err => console.error(err));
 }
 
 function OpenPanel(elem) {
     if (document.getElementById(elem.id).style.height != "200px") {
         document.getElementById(elem.id).style.height = "200px";
+        document.getElementById(elem.id).style.height = "200px";
     }
     else {
         document.getElementById(elem.id).style.height = "45px";
-        console.log(123);
     }
 }
 
