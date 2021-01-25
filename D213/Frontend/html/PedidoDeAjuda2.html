@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet" />
+    <link href="All.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/e195162fd2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Secure4All</title>
+</head>
+
+<body>
+    <div class="screen">
+        <!--navbar-->
+                <nav id="navbar" class="navbar fixed-top">
+            <a href="PedidoDeAjuda1.html"><i id="goBack"class="fas fa-arrow-left fa-2x"></i></a>
+            <span id="title"class="title">Recursos Necessários</span>
+        </nav>
+        <!--checklist-->
+        <div class="d-inline operationalSelectdiv">
+            <h5 for="operationalSelect" class="d-inline">Operacionais</h5>
+            <select id="operationalSelect" class="custom-select d-inline">
+    <option value ="0" selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+        </div>
+        <div id="materiais" class="">
+            <form id="formAvaliar" name="evaluation-Form" action="https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/:id_occurrence/evaluations/:id_operational" method="put">
+                <table id="table" class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Material</th>
+                            <th scope="col">Quantidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="fullRow">
+                            <td class="materialName">Abafador Extensivel</td>
+                            <td>
+                                <select class="custom-select select1">
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Ancinho</td>
+                            <td>
+                                <select class="custom-select select1" >
+    <option value="0"selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Foição</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Indutor de Espuma</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Machado Florestal</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Mcleod</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Multifunções</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr >
+                        <tr class="fullRow">
+                            <td class="materialName">Pá Florestal</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Pulaski</td>
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Escada</td>
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Fireshelter</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Arica</td>
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Enxada</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Motobomba</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Agulheta de 25</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Agulheta de 45</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Agulheta de 70</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Agulheta de 90</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Mangueira de 25</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Mangueira de 45</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">mangueira de 90</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Extrator</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Ventilador</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Extintor de po quimico</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Doseador de espuma</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Hooligan</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Agulheta de espuma de media expansão</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Agulheta de espuma de baixa expansão</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Extratores de pó químico e CO2</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Monitor</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Croque</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Bomba hidraulica</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Curva-reta</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Nó de salvamento</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Escada de gancho</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Batedor</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Gorgui</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Abrigo florestal</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Motoserra</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Disjuntor</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr  class="fullRow">
+                            <td class="materialName">Barquinho</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Equipamento de logistica</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Cadeiras de rodas</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Garrafas de oxigénio</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Saco de primeira abordagem</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Saco de emergencia</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                        <tr class="fullRow">
+                            <td class="materialName">Tanque</td>
+
+                            <td>
+                                <select class="custom-select select1" >
+    <option selected>0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <input id="submit2" type="button" class="SubmeterClass" value="Confirmar"></input>
+        <!-- Error -->
+    <div id="errorFrame" class="hidden">
+        <div id="errorBoxClass" class="errorBoxClass">
+            <span id="errorTxtClass" class="errorTxtClass text-center">Erro!</span>
+            <span id="textTxt" class="hidden">Pedido de ajuda inválido.</span>
+            <span id="textTxt1" class="hidden">Pedido de ajuda inválido.</span>
+        </div>
+        
+        <div id="confirmBoxId"class="confirmBoxClass">
+            <button id="confirmarTxtId" class="confirmarTxtClass text-center" type="button">OK</button>
+        </div>
+    </div>
+        <!--menubar-->
+        <nav class="menubar fixed-bottom">
+            <ul class="nav navbar-nav">
+                <li><a href="MenuPrincipal.html"><i class="fa fa-home fa-3x"></i></a></li>
+                <li><a href="RanksUpdate.html"><i class="fa fa-medal fa-3x"></i></a></li>
+                <li><a href="HistoricoOcorrencias.html"><i class="fa fa-chart-line fa-3x"></i></a></li>
+                <li><a href="PerfilUpdate.html"><i class="fas fa-user-circle fa-3x"></i></a></li>
+            </ul>
+        </nav>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../fetch/help_request2.controller.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html  lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="./All.css" rel="stylesheet"/>
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="screen">
+        <img id="logoImg"src="Images/pngtree-fire-logo-design-template-vector-png-image_1588148.1.jpg" class="logoImg" width="146.37px" height="143.01px" vertical-align: "middle"> </img>
+        <span id= "secure4allTxt"class="text-center">SECURE4ALL</span>
+        <form id ="loginForm" class="form-group" name="form-login" method="post"action="/login">
+            <input id="mailInput" type="email" class="inputLogin form-control" name="mail-Login" placeholder="Introduzir Email" required></input>
+            <input id="passInput" type="password" class="inputLogin form-control" name="password-Login" placeholder="Palavra-passe" required>
+            <button id="viewTxt" class="btn buttonInput" type="button">Mostrar</button>
+            </input>
+            <input id="submitInput" class="SubmeterClass" value="Login" type="button"></input> <!-- Atençao ao tipo no futuro-->
+        </form>
+    </div>
+    
+    <!-- Error -->
+    <div id="errorFrame" class="hidden">
+        <div id="errorBoxClass" class="errorBoxClass">
+            <span id="errorTxtClass" class="errorTxtClass text-center">Erro!</span>
+            <span id="textTxt" class="hidden">Email e/ou Password Incorretos</span>
+            <span id="textTxt1" class="hidden">Login Invalido</span>
+        </div>
+        
+        <div id="confirmBoxId"class="confirmBoxClass">
+            <button id="confirmarTxtId" class="confirmarTxtClass text-center" type="button">OK</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../fetch/login.controller.js"></script>
+</body>
+</html>
+
+
+
+
+
