@@ -15,15 +15,18 @@
 <body>
     <div class="screen">
         <!--navbar-->
-        <a href ="HistoricoOcorrencias.html"><i id="goBack"class="goBack fas fa-arrow-left fa-2x"></i></a>
-        <span class="titleDadosOcorrencia">Dados Da Ocorrência</span>
+        <nav id="navbar" class="navbar fixed-top">
+            <a><i id="goBack"class="fas fa-arrow-left fa-2x"></i></a>
+            <span id="title"class="title">Dados Da Ocorrência</span>
+        </nav>
         <!---->
-        <span id="TagTipo"><strong>Tipo:</strong> <span id="tipo" > </span> </span>
-        <span id="TagDeparture"><strong>Hora de partida:</strong> <span id="departure" > </span> </span>
-        <span id="TagArrival"><strong>Hora de chegada:</strong> <span id="arrival" > </span> </span>
-        <span id="TagCusto"><strong>Custo:</strong> <span id="cost"> </span> </span>
-        <span id="TagGravidade"><strong>Local:</strong> <span id="local"> </span></span>
-        <span id="TagEquipa"><strong>Equipa</strong></span>
+        <span id="TagTipo"><i class="fas fa-list-alt"></i>  Tipo:<span id="tipo" ></span></span>
+        <span id="TagDeparture"><i class="far fa-clock"></i>  Hora de partida:<span id="departure" ></span></span>
+        <span id="TagArrival"><i class="far fa-clock"></i>  Hora de chegada:<span id="arrival" ></span></span>
+        <span id="TagCusto"><i class="fas fa-coins"></i>  Custo:<span id="cost"></span></span>
+        <span id="TagGravidade"><i class="fas fa-globe-americas"></i>  Local:<span id="local"></span></span>
+        <span id="TagEquipa"><i class="fas fa-users"></i>  Equipa</span>
+        
         <!--equipa-->
         <div id ="divTeam" class="divTeam">
         <!--Menubar-->

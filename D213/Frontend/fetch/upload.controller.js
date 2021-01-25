@@ -7,7 +7,7 @@ function saveAvatar() {
     console.log(localStorage.localUploadedFileName);
     //console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch("https://d213.herokuapp.com/operationals/" + idUser + "/upload", {
+    fetch("https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/" + idUser + "/upload", {
         headers: { 'Content-Type': 'application/json' },
         method: 'PUT',
         body: JSON.stringify(data)

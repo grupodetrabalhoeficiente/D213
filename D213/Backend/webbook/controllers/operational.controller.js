@@ -1,7 +1,7 @@
 const connect = require('../config/connect');
 const { validationResult } = require('express-validator/check');
 const localStorage = require('localStorage');
-
+let bCrypt = require('bcrypt-nodejs');
 
 //função de leitura que retorna o resultado no callback
 function readOperational(req, res) {
@@ -82,6 +82,11 @@ function readIDOperational(req, res) {
         });
 }
 
+//alterar pass
+function alt(password) {
+
+    return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
+}
 //efetuar updade de todos os dados para um determinado iduser
 function updateOperational(req, res) {
 
@@ -90,8 +95,9 @@ function updateOperational(req, res) {
         const password = req.sanitize('newPassword', 'invalid Password').escape()
         const confirmPassword = req.sanitize('confirmPassword').escape();
         const id_operational = req.sanitize('id_operational').escape();
+         let userPassword = alt(password);
         let query = "";
-        query = connect.con.query('UPDATE users INNER JOIN operational ON users.id=operational.id and id_operational=?  SET users.password=?  ', [id_operational, password], function(err, rows, fields) {
+        query = connect.con.query('UPDATE users INNER JOIN operational ON users.id=operational.id and id_operational=?  SET users.password=?  ', [id_operational, userPassword], function(err, rows, fields) {
             console.log(query.sql);
             if (!err) {
                 console.log("Number of records updateOperationald: " + rows.affectedRows);
@@ -107,34 +113,6 @@ function updateOperational(req, res) {
         return res.status(400).json({ errors: errors.array() });
     }
 }
-/*
-function saveAvatar(req, res) {
-    const errors = validationResult(req);
-    if (errors.isEmpty()) {
-        const avatar = req.sanitize('avatar').escape();
-        let query = "";
-        query = connect.con.query('INSERT INTO ?? VALUES ?;', ["avatar", avatar], function(err, rows, fields) {
-            console.log(query.sql);
-            if (!err) {
-                res.status(200).location(rows.insertId).send({
-                    "msg": "inserted with success"
-                });
-                console.log("Number of records inserted: " + rows.affectedRows);
-            }
-            else {
-                if (err.code == "ER_DUP_ENTRY") {
-                    res.status(409).send({ "msg": err.code });
-                    console.log('Error while performing Query.', err);
-                }
-                else res.status(400).send({ "msg": err.code });
-            }
-        });
-    }
-    else {
-        return res.status(400).json({ errors: errors.array() });
-    }
-}
-*/
 function updateAvatar(req, res) {
     const errors = validationResult(req);
     if (errors.isEmpty()) {

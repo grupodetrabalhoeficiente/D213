@@ -1,5 +1,5 @@
 const id_occurrence = localStorage.getItem('id_occurrence_in_progress');
-document.getElementById("submit").onclick = saveHelpRequest;
+document.getElementById("submit2").onclick = saveHelpRequest;
 
 function saveHelpRequest() {
     let data = {};
@@ -23,7 +23,7 @@ function saveHelpRequest() {
     if(data.materials_type.length ===0 &&  data.num_operationals==='0'){
         
     }else {
-    fetch('https://d213.herokuapp.com/occurrences/' + id_occurrence + '/helprequests', {
+    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/helprequests', {
         headers: { 'Content-Type': 'application/json' },
         method: 'POST',
         body: JSON.stringify(data)

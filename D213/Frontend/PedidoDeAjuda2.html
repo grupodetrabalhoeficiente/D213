@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet" />
-    <link href="PedidoDeAjuda2.css" rel="stylesheet" />
     <link href="All.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/e195162fd2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -16,8 +15,10 @@
 <body>
     <div class="screen">
         <!--navbar-->
-        <span class="title">Recursos Necessários</span>
-        <a href="PedidoDeAjuda1.html"><i id="goBack"class="fas fa-arrow-left fa-2x"></i></a>
+                <nav id="navbar" class="navbar fixed-top">
+            <a href="PedidoDeAjuda1.html"><i id="goBack"class="fas fa-arrow-left fa-2x"></i></a>
+            <span id="title"class="title">Recursos Necessários</span>
+        </nav>
         <!--checklist-->
         <div class="d-inline operationalSelectdiv">
             <h5 for="operationalSelect" class="d-inline">Operacionais</h5>
@@ -32,7 +33,6 @@
         </div>
         <div id="materiais" class="">
             <form id="formAvaliar" name="evaluation-Form" action="https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/:id_occurrence/evaluations/:id_operational" method="put">
-                <!--                        Atenção ao form!!!!!               -->
                 <table id="table" class="table">
                     <thead>
                         <tr>
@@ -697,18 +697,9 @@
                     </tbody>
                 </table>
             </form>
-            <!--                        Atenção ao form!!!!!               -->
         </div>
-        <input id="submit" type="button" class="ConfirmarClass" value="Confirmar"></input>
+        <input id="submit2" type="button" class="SubmeterClass" value="Confirmar"></input>
         <!--menubar-->
-        <!--<nav class="menubar fixed-bottom">
-            <ul class="nav navbar-nav">
-                <li><a href="MenuPrincipal.html"><i class="fa fa-home fa-3x" id:"home"></i></a></li>
-                <li><a href="Ranks.html"><i class="fas fa-medal fa-3x" id:"medal"></i></a></li>
-                <li><a href="HistoricoOcorrencias.html"><i class="fas fa-chart-line fa-3x" id:"chart"></i></a></li>
-                <li><a href="PerfilUpdate.html"><i class="fas fa-user-circle fa-3x" id:"profile"></i></a></li>
-            </ul>
-        </nav>-->
         <nav class="menubar fixed-bottom">
             <ul class="nav navbar-nav">
                 <li><a href="MenuPrincipal.html"><i class="fa fa-home fa-3x"></i></a></li>

@@ -18,7 +18,7 @@ function goBackFunction(){
 
  function fillTable() {
      if (localStorage.operationalSelected == null || localStorage.id_operational_logged == localStorage.operationalSelected) {
-         fetch('https://d213.herokuapp.com/operationals/' + localStorage.id_operational_logged + '/occurrences')
+         fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + localStorage.id_operational_logged + '/occurrences')
              .then(res => res.json())
              .then((out) => {
                  $('#table tbody').empty();
@@ -37,7 +37,7 @@ function goBackFunction(){
              }).catch(err => console.error(err));
      }
      else {
-         fetch('https://d213.herokuapp.com/operationals/' + localStorage.operationalSelected + '/occurrences')
+         fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + localStorage.operationalSelected + '/occurrences')
              .then(res => res.json())
              .then((out) => {
                  $('#table tbody').empty();

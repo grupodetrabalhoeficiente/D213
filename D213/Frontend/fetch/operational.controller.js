@@ -1,3 +1,26 @@
+//Confirm Button
+let ocorrencias = document.getElementById("ocurrenceBut");
+ocorrencias.onclick = open;
+//Show new password div
+let changeButton = document.getElementById("labelChangePassword");
+changeButton.onclick = showNewPassword;
+let profileNewPassword = document.getElementById("labelProfileNewPassword");
+let profileConfirmPassword = document.getElementById("labelProfileConfirmPassword");
+let cPassword = document.getElementById("confirmPassword");
+let pcPassword = document.getElementById("profileConfirmPassword");
+let pnPassword = document.getElementById("profileNewPassword");
+let frame = document.getElementById("frameId");
+let viewPassword = document.getElementById("viewTxt");
+viewPassword.onclick = showPassword;
+//Upload screen
+let profileImg = document.getElementById("shadowImg");
+profileImg.onclick = openUploadScreenOpen;
+let uploadAvatar = document.getElementById("uploadAvatarDiv");
+let clickOut = document.getElementById("clickOutside");
+clickOut.onclick = openUploadScreenClose;
+
+let goBack = document.getElementById("goBack");
+goBack.addEventListener("click",goBackFunction)
 const confirm = document.getElementById("confirmPassword");
 confirm.onclick = savePassword;
 let logout = document.getElementById('logout');
@@ -31,7 +54,7 @@ function verification() {
 }
 
 function ownProfile() {
-    fetch('https://d213.herokuapp.com/operationals/' + localStorage.id_operational_logged)
+    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + localStorage.id_operational_logged)
         .then(res => res.json())
         .then((out) => {
             $.each(out, function(index, value) {
@@ -55,7 +78,7 @@ function ownProfile() {
 
 //Other operationals profile
 function otherProfile() {
-    fetch('https://d213.herokuapp.com/operationals/' + localStorage.operationalSelected)
+    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/' + localStorage.operationalSelected)
         .then(res => res.json())
         .then((out) => {
             $('#rankPosition div').empty();
@@ -72,10 +95,10 @@ function otherProfile() {
                 document.getElementById('profileEmail').innerHTML = value.email;
                 document.getElementById('profilePhoneNumber').innerHTML = value.phone_number;
                 document.getElementById('profileBirthDate').innerHTML = value.birth_date.slice(0, 10);
-                document.getElementById("passwordId").remove();
                 document.getElementById("changePasswordId").remove();
                 document.getElementById("newPasswordId").remove();
                 document.getElementById("confirmPasswordId").remove();
+                document.getElementById("logout").remove();
                 document.getElementById('position').innerHTML = localStorage.rankoperationalSelected+"º Lugar";
             })
         }).catch(err => console.error(err));
@@ -89,8 +112,8 @@ function savePassword() {
     data.confirmPassword = document.getElementById("profileConfirmPassword").value;
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    /*fetch(`https://d213.herokuapp.com/operationals/${urlParams.get('id_operational')}`, {*/
-    fetch("https://d213.herokuapp.com/operationals/" + localStorage.id_operational_logged, {
+    /*fetch(`https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/${urlParams.get('id_operational')}`, {*/
+    fetch("https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/" + localStorage.id_operational_logged, {
         headers: { 'Content-Type': 'application/json' },
         method: 'PUT',
         body: JSON.stringify(data)
@@ -120,7 +143,7 @@ function saveAvatar() {
     data.avatar = localStorage.localUploadedFileName;
     //console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch("https://d213.herokuapp.com/operationals/" + localStorage.id_operational_logged + "/upload", {
+    fetch("https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operationals/" + localStorage.id_operational_logged + "/upload", {
         headers: { 'Content-Type': 'application/json' },
         method: 'PUT',
         body: JSON.stringify(data)
@@ -147,10 +170,92 @@ function logoutFunction() {
     localStorage.removeItem('operationalSelected');
     localStorage.removeItem('id_operational_logged');
     localStorage.removeItem('rankoperationalSelected');
-    fetch('https://d213.herokuapp.com/logout')
+    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/logout')
         .then(res => res.json())
         .then((out) => {}).catch(err => console.error(err));
 }
+
+
+function goBackFunction(){
+    if(localStorage.getItem('operationalSelected')==undefined){
+        window.location.replace('MenuPrincipal.html')
+    } else {
+         window.location.replace('RanksUpdate.html')
+    }
+}
+function openUploadScreenOpen() {
+     if(localStorage.getItem('operationalSelected')==undefined){
+    uploadAvatar.style.display = "block";
+    frame.style.height = "736px";
+     }
+}
+
+function openUploadScreenClose() {
+    uploadAvatar.style.display = "none";
+    frame.style.height = "925px";
+}
+
+function showPassword(){
+    if(pnPassword.type == "password")
+        pnPassword.type ="text";
+    else
+        pnPassword.type ="password";
+}
+
+function showNewPassword() {
+    profileNewPassword.style.display = "inline";
+    profileConfirmPassword.style.display = "inline";
+    cPassword.style.display = "inline";
+    pcPassword.style.display = "inline";
+    pnPassword.style.display = "inline";
+    viewPassword.style.display = "inline";
+    frame.style.height = "1125px";
+    
+}
+
+function open() {
+    window.location.href = "PerfilOcorrencias.html";
+}
+
+//Animation TopBar
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 63 || document.documentElement.scrollTop > 63) {
+    document.getElementById("navbar1").style.maxWidth = "100%";
+    document.getElementById("navbar1").style.maxHeight = "8.15%";
+    document.getElementById("navbar1").style.background = "#FFFFFF";
+    document.getElementById("navbar1").style.width = "100%";
+    document.getElementById("navbar1").style.height = "8.15%";
+    document.getElementById("navbar1").style.boxShadow = "0px 2px 4px rgba(0, 0, 0, 0.25)";
+    
+    
+    
+  } else {
+    document.getElementById("navbar1").style.boxShadow = null;
+    document.getElementById("navbar1").style.background = null;
+  }
+}
+
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            $('#avatarPrev').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]); // convert to base64 string
+    }
+}
+
+$("#avatarPreview").change(function() {
+    readURL(this);
+});
+
 $(document).ready(function() {
     verification();
+    $('.imagen[src=""]').hide();
+    $('.imagen:not([src=""])').show();
 })

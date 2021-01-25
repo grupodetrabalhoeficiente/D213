@@ -19,7 +19,7 @@ function saveWitness() {
     data.justification = document.getElementById("justification").value;
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch('https://d213.herokuapp.com/occurrences/' + id_occurrence + '/witnesses', {
+    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/witnesses', {
         headers: { 'Content-Type': 'application/json' },
         method: 'POST',
         body: JSON.stringify(data)

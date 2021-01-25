@@ -9,7 +9,7 @@ function goBack() {
 }
 
 function fillTable() {
-    fetch('https://d213.herokuapp.com/unfinished_occurrences/')
+    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/unfinished_occurrences/')
         .then(res => res.json())
         .then((out) => {
             $('#table tbody').empty();
@@ -29,7 +29,7 @@ function OpenPanel(elem) {
     let data = {};
     data.id_operational = localStorage.id_operational_logged;
     if (localStorage.getItem('id_occurrence_in_progress') === elem.id) {
-        fetch('https://d213.herokuapp.com/occurrences/' + localStorage.getItem('id_occurrence_in_progress') + '/responsible', {
+        fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + localStorage.getItem('id_occurrence_in_progress') + '/responsible', {
             headers: { 'Content-Type': 'application/json' },
             method: 'POST',
             body: JSON.stringify(data)
@@ -55,7 +55,7 @@ function OpenPanel(elem) {
             localStorage.removeItem('materials');
             localStorage.removeItem('presence');
             localStorage.removeItem('arrival');
-        fetch('https://d213.herokuapp.com/occurrences/' + elem.id + '/responsible', {
+        fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + elem.id + '/responsible', {
             headers: { 'Content-Type': 'application/json' },
             method: 'POST',
             body: JSON.stringify(data)

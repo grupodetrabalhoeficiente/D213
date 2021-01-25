@@ -19,9 +19,9 @@
 <body>
     <div class="screen">
         <!--navbar-->
-        <nav id="navbar" class="navbar fixed-top">
-            <a><i id="goBack"class="fas fa-arrow-left fa-2x"></i></a>
-            <span id="title" class="title">Ocorrência #</span>
+             <nav id="navbar" class="navbar fixed-top">
+            <a href="MenuPrincipal.html"><i id="goBack"class="fas fa-arrow-left fa-2x"></i></a>
+            <span id="title"class="title">Ocorrência #</span>
         </nav>
         <!---->
         <div class="midScreen">
@@ -35,9 +35,12 @@
                 <div class="dadosFormDiv form-control" id="dadosFormDivId">
                     <img src="" id="dadosDivAvatar"/>
                     <span id="dadosDivName"></span>
+                    <div id="menuOccurenceChevronDiv"></div>
                     <i class="fas fa-chevron-down chevron-down" id="chevron-down"></i>
-                    <div id="">
-                        <span id="phoneContact">936969696</span>
+                    
+                    <div id="moreInfoOccurrenceMenu">
+                        <span id="phoneContact"><i class="fas fa-phone"></i>936969696</span>
+                        <span id="occurrenceMenuEmail"><i class="fas fa-envelope"></i>a92910@alunos.uminho.pt</span>
                     </div>
                 </div>
             </div>
@@ -50,7 +53,7 @@
                 <!--check1-->
                 <div class="check-box-group1">
                   <label class="custom-checkbox1" tab-index="0" aria-label="chamadaCheck">
-                    <input id="chamadaCheck1" value="chamadaCheck" type="checkbox" checked>
+                    <input id="chamadaCheck1" value="chamadaCheck" type="checkbox" disabled>
                     <span class="checkmark1"></span>
                     <span class="label1"></span>
                     </label>
@@ -59,7 +62,7 @@
                 <!--check2-->
                 <div class="check-box-group2">
                   <label class="custom-checkbox2" tab-index="0" aria-label="chamadaCheck">
-                    <input id="chamadaCheck2" value="chamadaCheck" type="checkbox" checked>
+                    <input id="chamadaCheck2" value="chamadaCheck" type="checkbox" disabled>
                     <span class="checkmark2"></span>
                     <span class="label2"></span>
                     </label>

@@ -44,6 +44,7 @@ function opencloseForm() {
 function goBack() {
     window.history.back();
 }
+
 function openPedidos() {
     if (localStorage.getItem('help') == undefined) {
         window.location.href = "PedidoDeAjuda1.html";
@@ -70,7 +71,7 @@ function expand(){
 }*/
 /*function criarDiv() {
     console.log('fds')
-    fetch('https://d213.herokuapp.com/occurrences/'+id_occurrence+'/operationals')
+    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/'+id_occurrence+'/operationals')
         .then(res => res.json())
         .then((out) => {
             $('#dadosFormId form').empty();
@@ -80,7 +81,7 @@ function expand(){
         }).catch(err => console.error(err));
 }*/
 function occurenceOperationals() {
-    fetch('https://d213.herokuapp.com/occurrences/' + id_occurrence + '/operationals')
+    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/operationals')
         .then(res => res.json())
         .then((out) => {
             let dadosDiv = document.getElementById("dadosFormId");
@@ -95,6 +96,9 @@ function occurenceOperationals() {
                 }
                 txt += "<span id='dadosDivName'>" + value.name + "</span>";
                 txt += "<i class='fas fa-chevron-down chevron-down' id='chevron-down'></i>";
+                txt += "<div id='moreInfoOccurrenceMenu'>";
+                txt += "<span id='phoneContact'><i class='fas fa-phone'>"+value.phone_number+"</i></span>";
+                txt += "<span id='occurrenceMenuEmail'><i class='fas fa-envelope'></i></span>";
                 txt += "</div>";
             });
             dadosDiv.innerHTML += txt;
@@ -122,7 +126,7 @@ function openPanelHandler(event) {
 
 
 function occurrenceStage() {
-    fetch('https://d213.herokuapp.com/occurrences/' + id_occurrence)
+    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence)
         .then(res => res.json())
         .then((out) => {
             $.each(out, function(index, value) {
@@ -183,7 +187,7 @@ function departureOccurrenceFunction() {
     let data = {};
     let departure = new Date().toISOString().slice(0, 10) + " " + new Date().toISOString().slice(11, 19);
     data.departure = departure;
-    fetch('https://d213.herokuapp.com/departures/' + id_occurrence, {
+    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/departures/' + id_occurrence, {
         headers: { 'Content-Type': 'application/json' },
         method: 'PUT',
         body: JSON.stringify(data)
@@ -220,7 +224,7 @@ function arrivalOccurrenceFunction() {
         let data = {};
         let arrival = new Date().toISOString().slice(0, 10) + " " + new Date().toISOString().slice(11, 19);
         data.arrival = arrival;
-        fetch('https://d213.herokuapp.com/arrivals/' + id_occurrence, {
+        fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/arrivals/' + id_occurrence, {
             headers: { 'Content-Type': 'application/json' },
             method: 'PUT',
             body: JSON.stringify(data)
@@ -242,7 +246,7 @@ function arrivalOccurrenceFunction() {
                 document.getElementById('finalizarId').innerHTML = 'FINALIZAR OPERAÇÃO';
                 document.getElementById('finalizarId').className = 'finalizarClass';
                 localStorage.setItem('stage', Number(localStorage.getItem('stage')) + 1);
-                localStorage.setItem('arrival',"checked");
+                localStorage.setItem('arrival', "checked");
             }
         }).then(function(result) {
             console.log(result);
@@ -268,4 +272,13 @@ $(document).ready(function() {
     if (localStorage.getItem('stage') >= 2) {
         occurenceOperationals();
     }
+    if (localStorage.getItem('materials') == undefined) {}
+    else {
+        document.getElementById('chamadaCheck2').checked = true;
+    }
+    if (localStorage.getItem('presence') == undefined) {}
+    else {
+        document.getElementById('chamadaCheck1').checked = true;
+    }
+
 })

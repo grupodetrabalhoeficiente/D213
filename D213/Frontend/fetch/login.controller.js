@@ -20,7 +20,7 @@ function myLogin() {
         data.password = document.getElementById("passInput").value;
         console.log(data); //debugging para ver os dados que foram enviados
         //chamada fetch para envio dos dados para o servior via POST
-        fetch('https://d213.herokuapp.com/login', {
+        fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/login', {
             headers: { 'Content-Type': 'application/json' },
             method: 'POST',
             body: JSON.stringify(data)

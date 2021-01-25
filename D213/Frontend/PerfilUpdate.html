@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/e195162fd2.js" crossorigin="anonymous"></script>
     <link href="./PerfilUpdate.css" rel="stylesheet" />
+    <link href="./All.css" rel="stylesheet" />
     <title>Document</title>
 </head>
 
@@ -23,21 +24,10 @@
         </form>
     </div>
     <div class="frame container" id="frameId">
-        <nav id="navbar" class="navbar fixed-top">
+        <nav id="navbar1" class="navbar1 fixed-top">
             <a><i id="goBack"class="fas fa-arrow-left fa-2x"></i></a>
             <span id="title"class="title">Perfil</span>
         </nav>
-        
-        <!--
-        <div class="avatar">
-        <form action="/upload" enctype="multipart/form-data" method="POST"> 
-            <input type="file" name="image">
-            <input type="submit" id="submitAvatar"name="btn_upload_profile_pic" value="Upload a file"/>
-        </form>
-        </div>
-        -->
-        
-        
         <div id="topDivBackground"></div>
         <div id="basicTopDiv">
             <div id="shadowImg"></div>
@@ -50,23 +40,14 @@
                 <i class="fas fa-sign-out-alt fa-2x signoutIcon"></i>
             </button>
         </div>
-        <!--<div id="shadowImg"></div>
-        <div id="profileImageDiv">
-            <img id="profileImage" src="" class="profileImageClass"></img>
-        </div>-->
         <button class="ocurrenceButton" id="ocurrenceBut">
             <span id="occurrenceText">Ocorrências</span>
             <i class="fas fa-clipboard-list fa-2x"></i>
         </button>
         <i class="fas fa-trophy trophyProfile fa-3x"></i>
-        <!-- Apaga no css <span id="rankText">Rank</span> -->
-        <!-- <a id="watchMore" href="#watchMore">Ver mais<div id="arrow" class="arrow"><i class="fas fa-chevron-down"></i></div></a> -->
         <div id="rankPosition">
             <span id="position">?º</span>
         </div>
-        
-        
-        
         <div class="information">
             <form id="perfilForm" name="perfil-Form" action="https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/operational/:operational_id" method="put">
                 <div class="form-group">
@@ -85,12 +66,6 @@
                     <span id="spanMoreInfoId" for="profileMoreInfo" class="labelMoreInfo">Mais Informações</span>
                 </div>
                 
-                <!--
-                <div class="form-group">
-                    <label id="labelProfileSpeciality" for="profileSpeciality" class="labelProfile">Especialidade</label>
-                    <input id="profileSpeciality" class="inputPerfil form-control" type="text" disabled value="Especialidade"></span>
-                </div>
-                -->
                 <div class="form-group">
                     <span id="labelProfileTypeOfOperational" for="profileTypeOfOperational" class="labelProfile">Tipo de Operacional:</span>
                     <span id="profileTypeOfOperational" class="inputPerfil">Bombeiro</span>
@@ -99,12 +74,7 @@
                     <span id="labelProfileBirthDate" for="profileBirthDate" class="labelProfile">Data de nascimento:</span>
                     <span id="profileBirthDate" class="inputPerfil">2002-12-31</span>
                 </div>
-                <!--
-                <div class="form-group" id="passwordId">
-                    <span id="labelProfilePassword" for="profilePassword" class="labelProfile">Password:</span>
-                    <span id="profilePassword" class="inputPerfil">**********</span>
-                </div>
-                -->
+
                 <div class="form-group" id="changePasswordId">
                     <span id="labelChangePassword" for="profileChangePassword" class="labelProfile">Alterar password?</span>
                 </div>

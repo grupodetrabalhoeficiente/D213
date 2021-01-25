@@ -11,7 +11,7 @@
  google.charts.setOnLoadCallback(drawBasic);
 
  async function drawBasic() {
-  const response = await fetch('https://d213.herokuapp.com/all_occurrences');
+  const response = await fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/all_occurrences');
   const occurrencesobj = await response.json();
   var data = new google.visualization.DataTable();
   
@@ -95,7 +95,7 @@
     }
    },
    chartArea: {
-    left: 18,
+    left: 10,
     right: 10,
     top: 20,
     bottom: 25

@@ -10,7 +10,7 @@ function goBack() {
     window.history.back();
 }
 function fillTable() {
-    fetch('https://d213.herokuapp.com/occurrences/' + id_occurrence + '/materials_utilizations')
+    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/materials_utilizations')
         .then(res => res.json())
         .then((out) => {
             $('#table tbody').empty();
@@ -38,7 +38,7 @@ function updateUtilization() {
                         utilization.utilization = '0';
                     }
                     console.log(utilization);
-                    fetch('https://d213.herokuapp.com/occurrences/' + id_occurrence + '/materials_utilizations/' + obj[id_vei_mat].id_vei_mat.toString(), {
+                    fetch('https://bdc5dcf6bca04b39ab10a706cdb79f29.vfs.cloud9.us-east-1.amazonaws.com/occurrences/' + id_occurrence + '/materials_utilizations/' + obj[id_vei_mat].id_vei_mat.toString(), {
                         headers: { 'Content-Type': 'application/json' },
                         method: 'PUT',
                         body: JSON.stringify(utilization)
